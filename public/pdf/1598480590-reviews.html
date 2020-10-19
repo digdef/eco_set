@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset=utf-8>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Отзывы</title>
+	<meta name="description" lang="ru" content="ДСВ – Інновації для Вашого успіху">
+	<meta name="keywords" content="ДСВ – Інновації для Вашого успіху">
+	<meta property="og:title" content="ДСВ – Інновації для Вашого успіху">
+	<meta property="og:type" content="ДСВ – Інновації для Вашого успіху">
+	<meta property="og:description" content="ДСВ – Інновації для Вашого успіху">
+	
+	<!-- favicons -->
+	<link rel="shortcut icon" href="./images/favicons/favicon.ico" type="image/x-icon" />
+	<link rel="apple-touch-icon" sizes="57x57" href="./images/favicons/apple-touch-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="./images/favicons/apple-touch-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="./images/favicons/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="./images/favicons/apple-touch-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="./images/favicons/apple-touch-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="./images/favicons/apple-touch-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="./images/favicons/apple-touch-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="./images/favicons/apple-touch-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="./images/favicons/apple-touch-icon-180x180.png">
+	<link rel="icon" type="image/png" href="./images/favicons/favicon-16x16.png" sizes="16x16">
+	<link rel="icon" type="image/png" href="./images/favicons/favicon-32x32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="./images/favicons/favicon-96x96.png" sizes="96x96">
+	<link rel="icon" type="image/png" href="./images/favicons/android-chrome-192x192.png" sizes="192x192">
+	<meta name="msapplication-square70x70logo" content="./images/favicons/smalltile.png" />
+	<meta name="msapplication-square150x150logo" content="./images/favicons/mediumtile.png" />
+	<meta name="msapplication-wide310x150logo" content="./images/favicons/widetile.png" />
+	<meta name="msapplication-square310x310logo" content="./images/favicons/largetile.png" />
+	
+	
+	<!--styles-->
+	
+	
+	<link rel="stylesheet" href="css/libs/owlcarousel/owl.carousel.min.css">
+	
+	<link rel="stylesheet" href="css/libs/owlcarousel/owl.theme.default.min.css">
+	
+	<link rel="stylesheet" href="css/libs/owlcarousel/jquery.fancybox.min.css">
+	
+	<link rel="stylesheet" href="css/libs/range/ion.rangeSlider.min.css">
+	
+	<link rel="stylesheet" href="css/libs/animate/animate.css">
+	
+	<link rel="stylesheet" type="text/css" href="css/style.css" />
+</head>
+
+<body>
+    <header>
+        <div class="header-mob">
+            <a href="index.html" class="logo"><img src="./images/logo.svg" alt="logo"></a>
+            <div class="header-mob-triggers">
+                <a href="cart.html" class="cart-trigger fix-trigger">
+                    <svg width="30" height="29" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                            viewBox="0 0 82.2 76.5" style="enable-background:new 0 0 82.2 76.5;" xml:space="preserve">
+                        <style type="text/css">
+                            .st0{fill:#8DC63F;}
+                        </style>
+                        <g>
+                            <g>
+                                <path class="st0" d="M81.9,11.1c-0.3-0.3-0.7-0.7-1.4-0.7H15.4l-1.7-9c0-0.7-1-1.4-1.7-1.4H1.7C0.7,0,0,0.7,0,1.7s0.7,1.7,1.7,1.7
+                                    h8.9l8.2,42.4c1,5.6,6.2,9.7,11.6,9.7h39.4c1,0,1.7-0.7,1.7-1.7s-0.7-1.7-1.7-1.7h-39c-2.7,0-5.5-1.4-6.9-3.8l50-7
+                                    c0.7,0,1.4-0.7,1.4-1.4l6.9-27.8C82.2,12.2,82.2,11.5,81.9,11.1z M72.3,38.3l-50,6.6l-6.2-31.3h62L72.3,38.3z"/>
+                            </g>
+                        </g>
+                        <g>
+                            <g>
+                                <path class="st0" d="M29.1,59.1c-4.8,0-8.6,3.8-8.6,8.7c0,4.9,3.8,8.7,8.6,8.7c4.8,0,8.6-3.8,8.6-8.7C37.7,63,33.9,59.1,29.1,59.1
+                                    z M29.1,73.1c-2.7,0-5.1-2.4-5.1-5.2c0-2.8,2.4-5.2,5.1-5.2s5.1,2.4,5.1,5.2C34.3,70.6,31.9,73.1,29.1,73.1z"/>
+                            </g>
+                        </g>
+                        <g>
+                            <g>
+                                <path class="st0" d="M63.4,59.1c-4.8,0-8.6,3.8-8.6,8.7c0,4.9,3.8,8.7,8.6,8.7c4.8,0,8.6-3.8,8.6-8.7C71.9,63,68.2,59.1,63.4,59.1
+                                    z M63.4,73.1c-2.7,0-5.1-2.4-5.1-5.2c0-2.8,2.4-5.2,5.1-5.2c2.7,0,5.1,2.4,5.1,5.2C68.5,70.6,66.1,73.1,63.4,73.1z"/>
+                            </g>
+                        </g>
+                    </svg>
+                    <span>10</span>
+                </a>
+                <a href="#" class="nav-trigger">
+                    <img class="nav-close" src="./images/menu-icon.svg" alt="menu">
+                    <img class="nav-open" src="./images/popup-close.svg" alt="menu">
+                </a>
+            </div>
+        </div>
+        <div class="header-nav-wrap">
+            <div class="header-triggers">
+                <div class="wrapper">
+                    <a href="comparison.html" class="fix-trigger">
+                        <svg width="29" height="27" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                viewBox="0 0 85 82.2" style="enable-background:new 0 0 85 82.2;" xml:space="preserve">
+                            <style type="text/css">
+                                .st0{fill:#8DC63F;}
+                            </style>
+                            <g>
+                                <g>
+                                    <path class="st0" d="M84.9,41.8L84.9,41.8l-12.3-31h5.6c1,0,1.8-0.8,1.8-1.8s-0.8-1.8-1.8-1.8h-34V1.8c0-1-0.8-1.8-1.8-1.8
+                                        s-1.8,0.8-1.8,1.8v5.3h-34C5.6,7.2,4.8,8,4.8,9s0.8,1.8,1.8,1.8h5.8l-12.2,31C0.1,42,0,42.3,0,42.5C0,51,6.7,57.8,15,57.8
+                                        s15-6.9,15-15.3c0-0.2-0.1-0.5-0.1-0.7l-12.2-31h22.8v57c-8.6,0.7-15.4,6-15.4,12.5c0,1,0.8,1.8,1.8,1.8h30.7c1,0,1.8-0.8,1.8-1.8
+                                        c0-6.5-6.7-11.8-15.4-12.5v-57h23.1l-12.1,31C55,42,55,42.3,55,42.5c0,8.5,6.7,15.3,15,15.3S85,51,85,42.5
+                                        C85,42.3,85,42,84.9,41.8z M15,54.2c-5.6,0-10.4-4.2-11.3-9.8h22.4C25.3,50,20.6,54.1,15,54.2z M25.6,40.7h-21l10.5-26.8
+                                        L25.6,40.7z M55.6,78.5H29.1c1.3-4,6.9-7,13.2-7S54.3,74.5,55.6,78.5z M69.9,13.9l10.5,26.7h-21L69.9,13.9z M69.9,54.2L69.9,54.2
+                                        c-5.6,0-10.3-4.2-11.2-9.8h22.4C80.3,50,75.5,54.2,69.9,54.2z"/>
+                                </g>
+                            </g>
+                        </svg>
+                        <span>10</span>
+                    </a>
+                    <a href="favorites.html" class="fix-trigger">
+                        <svg width="32" height="31" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                viewBox="0 0 90.7 87.9" style="enable-background:new 0 0 90.7 87.9;" xml:space="preserve">
+                            <style type="text/css">
+                                .st0{fill:#8DC63F;}
+                            </style>
+                            <path class="st0" d="M88.7,39.8c1.8-1.8,2.4-4.3,1.6-6.7c-0.8-2.4-2.8-4.1-5.3-4.5l-22-3.2c-0.9-0.1-1.7-0.7-2.2-1.6L51.2,3.7
+                                C50.1,1.4,47.8,0,45.4,0c-2.5,0-4.7,1.4-5.8,3.7l-9.8,20.1c-0.4,0.9-1.2,1.5-2.2,1.6l-22,3.2c-2.5,0.4-4.5,2.1-5.3,4.5
+                                c-0.8,2.4-0.1,5,1.6,6.7l15.9,15.7c0.7,0.7,1,1.6,0.8,2.6l-3.8,22.1c-0.4,2.5,0.6,4.9,2.6,6.4c2,1.5,4.6,1.7,6.9,0.5L44,76.7
+                                c0.8-0.4,1.8-0.4,2.7,0l19.6,10.4c1,0.5,2,0.8,3,0.8c1.3,0,2.7-0.4,3.8-1.3c2-1.5,3-3.9,2.6-6.4L72,58.1c-0.2-0.9,0.2-1.9,0.8-2.6
+                                L88.7,39.8z M68.4,58.7l3.8,22.1c0.2,1.1-0.2,2.2-1.1,2.8c-0.9,0.7-2,0.7-3,0.2L48.4,73.4c-0.9-0.5-2-0.8-3-0.8s-2.1,0.3-3,0.8
+                                L22.7,83.9c-1,0.5-2.1,0.4-3-0.2c-0.9-0.7-1.3-1.7-1.1-2.8l3.8-22.1c0.4-2.1-0.3-4.3-1.9-5.8L4.5,37.2c-0.8-0.8-1.1-1.9-0.7-3
+                                c0.3-1.1,1.2-1.8,2.3-2l22-3.2c2.1-0.3,4-1.7,4.9-3.6l9.8-20.1c0.5-1,1.5-1.6,2.6-1.6c1.1,0,2.1,0.6,2.6,1.6l9.8,20.1
+                                c0.9,1.9,2.8,3.3,4.9,3.6l22,3.2c1.1,0.2,2,0.9,2.3,2c0.3,1.1,0.1,2.2-0.7,3L70.3,52.9C68.8,54.4,68.1,56.5,68.4,58.7z"/>
+                        </svg>
+                        <span>10</span>
+                    </a>
+                    <form action="#">
+                        <div class="search-field">
+                            <input type="search" name="search" placeholder="поиск">
+                            <button type="submit"><img src="./images/search-icon.svg" alt="search"></button>
+                        </div>
+                    </form>
+                    <div class="call-triggers">
+                        <a href="tel:+38000000000"><img src="./images/callback-icon.svg" alt="whatsapp">+38 00 00 00 000</a>
+                        <a href="#" class="callback-trigger call-popup" data-popup="callbackPopup">заказать звонок</a>
+                    </div>
+                </div>
+            </div>
+            <div class="header-navigation">
+                <div class="wrapper">
+                    <a href="index.html" class="logo"><img src="./images/logo.svg" alt="logo"></a>
+                    <nav>
+                        <ul>
+                            <li class="menu-hidden-trigger">
+                                <a href="catalog.html" class="menu-hidden-trigger-hidden">Каталог</a>
+                                <ul class="menu-hidden-wrapper">
+                                    <li>
+                                        <ul class="menu-hidden">
+                                            <li class="menu-hidden-column">
+                                                <ul>
+                                                    <li class="menu-hidden-title"><a href="catalog.html">Септики</a><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512.01 277.34"><defs><style>.cls-1{fill:#4c4c4c;}</style></defs><g  data-name="Слой 2"><g data-name="Layer 1"><path class="cls-1" d="M505.75,6.26a21.31,21.31,0,0,0-30.17,0L256,225.84,36.42,6.26A21.33,21.33,0,0,0,6.26,36.42L240.92,271.09a21.32,21.32,0,0,0,30.17,0L505.76,36.42A21.31,21.31,0,0,0,505.75,6.26Z"/></g></g></svg></li>
+                                                    <li><a href="#">Биодека</a></li>
+                                                    <li><a href="card.html">Астра</a></li>
+                                                    <li><a href="#">Топас</a></li>
+                                                    <li><a href="#">Волгарь</a></li>
+                                                    <li><a href="#">Genesis</a></li>
+                                                    <li><a href="#">Биодевайс</a></li>
+                                                    <li><a href="#">Евролос ПРО</a></li>
+                                                    <li><a href="#">Евролос ПРО</a></li>
+                                                    <li><a href="#">Евролос ПРО</a></li>
+                                                    <li><a href="#">Гарда</a></li>
+                                                    <li><a href="#">Далос</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="menu-hidden-column">
+                                                <ul>
+                                                    <li class="menu-hidden-title"><a href="#">Погреба</a><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512.01 277.34"><defs><style>.cls-1{fill:#4c4c4c;}</style></defs><g  data-name="Слой 2"><g data-name="Layer 1"><path class="cls-1" d="M505.75,6.26a21.31,21.31,0,0,0-30.17,0L256,225.84,36.42,6.26A21.33,21.33,0,0,0,6.26,36.42L240.92,271.09a21.32,21.32,0,0,0,30.17,0L505.76,36.42A21.31,21.31,0,0,0,505.75,6.26Z"/></g></g></svg></li>
+                                                    <li><a href="#">Тингард</a></li>
+                                                    <li><a href="#">Kellari</a></li>
+                                                    <li><a href="#">Топас</a></li>
+                                                    <li><a href="#">Kelder </a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="menu-hidden-column">
+                                                <ul>
+                                                    <li class="menu-hidden-title"><a href="#">Водоснабжение</a><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512.01 277.34"><defs><style>.cls-1{fill:#4c4c4c;}</style></defs><g  data-name="Слой 2"><g data-name="Layer 1"><path class="cls-1" d="M505.75,6.26a21.31,21.31,0,0,0-30.17,0L256,225.84,36.42,6.26A21.33,21.33,0,0,0,6.26,36.42L240.92,271.09a21.32,21.32,0,0,0,30.17,0L505.76,36.42A21.31,21.31,0,0,0,505.75,6.26Z"/></g></g></svg></li>
+                                                    <li><a href="#">Водоснабжение</a></li>
+                                                    <li><a href="#">Водоснабжение</a></li>
+                                                    <li><a href="#">От магистрали в дом</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="menu-hidden-column">
+                                                <ul>
+                                                    <li class="menu-hidden-title"><a href="#">Комплектующие</a><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512.01 277.34"><defs><style>.cls-1{fill:#4c4c4c;}</style></defs><g  data-name="Слой 2"><g data-name="Layer 1"><path class="cls-1" d="M505.75,6.26a21.31,21.31,0,0,0-30.17,0L256,225.84,36.42,6.26A21.33,21.33,0,0,0,6.26,36.42L240.92,271.09a21.32,21.32,0,0,0,30.17,0L505.76,36.42A21.31,21.31,0,0,0,505.75,6.26Z"/></g></g></svg></li>
+                                                    <li><a href="#">Категория1</a></li>
+                                                    <li><a href="#">Категория2</a></li>
+                                                    <li><a href="#">Категория3</a></li>
+                                                    <li><a href="404.html">404</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><a href="stocks.html">Акции</a></li>
+                            <li><a href="services.html">Услуги</a></li>
+                            <li><a href="#">Наши работы</a></li>
+                            <li><a href="reviews.html">Отзывы</a></li>
+                            <li><a href="howToBuy.html">Как купить</a></li>
+                            <li><a href="about.html">Компания</a></li>
+                            <li><a href="contacts.html">Контакты</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="main-wrapper">
+        <div class="main">
+            <div class="breadcrumbs">
+                <div class="wrapper">
+                    <a href="index.html">Главная</a>
+                    <span class="breadcrumbs-slash">|</span>
+                    <span>Отзывы</span>
+                </div>
+            </div>
+            <div class="reviews">
+                <div class="wrapper">
+                    <h1 class="title title-s">Отзывы</h1>
+                    <div class="slider-wrap">
+                        <div class="slider-item slider-letters">
+                            <div class="slider-title">
+                                <p>благодарственные письма</p>
+                                <div class="slide-nav">
+                                    <button class="am-prev owl-prev" data-slider=".slider-letters .slider">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 39.93 39.9"><defs><style>.cls-1{fill:#8bc441;}</style></defs><g><g><path class="cls-1" d="M2.77,30.07a19.93,19.93,0,0,0,27.4,7,.81.81,0,0,0-.8-1.4,8.27,8.27,0,0,1-1.6.9,18.32,18.32,0,1,1,9.5-10.4.79.79,0,0,0,1.5.5,19.83,19.83,0,0,0-.8-15.3,20.24,20.24,0,0,0-11.3-10.2,19.95,19.95,0,0,0-23.9,28.9Z"/><path class="cls-1" d="M11.77,20.77h20.3a.8.8,0,1,0,0-1.6H11.77a.8.8,0,1,0,0,1.6Z"/><path class="cls-1" d="M9,20l8.5-8.4a.85.85,0,0,0-1.2-1.2l-9.1,9.1h0a.78.78,0,0,0,0,1.1l9.1,9.1a.85.85,0,0,0,1.2-1.2Z"/></g></g></svg>
+                                    </button>
+                                    <button class="am-next owl-next" data-slider=".slider-letters .slider">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 39.93 39.9"><defs><style>.cls-1{fill:#8bc441;}</style></defs><g><g><path class="cls-1" d="M38.77,13.27a19.94,19.94,0,0,0-25.5-12.1A20.24,20.24,0,0,0,2,11.37a19.83,19.83,0,0,0-.8,15.3.88.88,0,0,0,1,.5.88.88,0,0,0,.5-1,18.47,18.47,0,1,1,9.5,10.4,8.27,8.27,0,0,1-1.6-.9.81.81,0,0,0-.8,1.4,19.93,19.93,0,0,0,29-23.8Z"/><path class="cls-1" d="M29,20a.86.86,0,0,0-.8-.8H7.87a.8.8,0,1,0,0,1.6h20.3A.86.86,0,0,0,29,20Z"/><path class="cls-1" d="M22.47,28.47a.85.85,0,0,0,1.2,1.2l9.1-9.1a.78.78,0,0,0,0-1.1h0l-9.1-9.1a.85.85,0,0,0-1.2,1.2L31,20Z"/></g></g></svg>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="slider owl-carousel">
+                                <a data-fancybox href="./images/letter-1.jpg"><img  class="b-lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="./images/letter-1.jpg" alt="letter"></a>
+                                <a data-fancybox href="./images/letter-2.jpg"><img  class="b-lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="./images/letter-2.jpg" alt="letter"></a>
+                                <a data-fancybox href="./images/letter-3.jpg"><img  class="b-lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="./images/letter-3.jpg" alt="letter"></a>
+                                <a data-fancybox href="./images/letter-4.jpg"><img  class="b-lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="./images/letter-4.jpg" alt="letter"></a>
+                                <a data-fancybox href="./images/letter-5.jpg"><img  class="b-lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="./images/letter-5.jpg" alt="letter"></a>
+                                <a data-fancybox href="./images/letter-1.jpg"><img  class="b-lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="./images/letter-1.jpg" alt="letter"></a>
+                                <a data-fancybox href="./images/letter-4.jpg"><img  class="b-lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="./images/letter-4.jpg" alt="letter"></a>
+                                <a data-fancybox href="./images/letter-5.jpg"><img  class="b-lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="./images/letter-5.jpg" alt="letter"></a>
+                                <a data-fancybox href="./images/letter-1.jpg"><img  class="b-lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="./images/letter-1.jpg" alt="letter"></a>
+                            </div>
+                        </div>
+                        <div class="slider-item slider-videos">
+                            <div class="slider-title">
+                                <p>Видео отзывы</p>
+                                <div class="slide-nav">
+                                    <button class="am-prev owl-prev" data-slider=".slider-videos .slider">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 39.93 39.9"><defs><style>.cls-1{fill:#8bc441;}</style></defs><g><g><path class="cls-1" d="M2.77,30.07a19.93,19.93,0,0,0,27.4,7,.81.81,0,0,0-.8-1.4,8.27,8.27,0,0,1-1.6.9,18.32,18.32,0,1,1,9.5-10.4.79.79,0,0,0,1.5.5,19.83,19.83,0,0,0-.8-15.3,20.24,20.24,0,0,0-11.3-10.2,19.95,19.95,0,0,0-23.9,28.9Z"/><path class="cls-1" d="M11.77,20.77h20.3a.8.8,0,1,0,0-1.6H11.77a.8.8,0,1,0,0,1.6Z"/><path class="cls-1" d="M9,20l8.5-8.4a.85.85,0,0,0-1.2-1.2l-9.1,9.1h0a.78.78,0,0,0,0,1.1l9.1,9.1a.85.85,0,0,0,1.2-1.2Z"/></g></g></svg>
+                                    </button>
+                                    <button class="am-next owl-next" data-slider=".slider-videos .slider">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 39.93 39.9"><defs><style>.cls-1{fill:#8bc441;}</style></defs><g><g><path class="cls-1" d="M38.77,13.27a19.94,19.94,0,0,0-25.5-12.1A20.24,20.24,0,0,0,2,11.37a19.83,19.83,0,0,0-.8,15.3.88.88,0,0,0,1,.5.88.88,0,0,0,.5-1,18.47,18.47,0,1,1,9.5,10.4,8.27,8.27,0,0,1-1.6-.9.81.81,0,0,0-.8,1.4,19.93,19.93,0,0,0,29-23.8Z"/><path class="cls-1" d="M29,20a.86.86,0,0,0-.8-.8H7.87a.8.8,0,1,0,0,1.6h20.3A.86.86,0,0,0,29,20Z"/><path class="cls-1" d="M22.47,28.47a.85.85,0,0,0,1.2,1.2l9.1-9.1a.78.78,0,0,0,0-1.1h0l-9.1-9.1a.85.85,0,0,0-1.2,1.2L31,20Z"/></g></g></svg>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="slider owl-carousel">
+                                <div class="slide-video">
+                                    <iframe class="b-lazy" data-src="https://www.youtube.com/embed/MppOb215REQ" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                </div>
+                                <div class="slide-video">
+                                    <iframe class="b-lazy" data-src="https://www.youtube.com/embed/MppOb215REQ" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                </div>
+                                <div class="slide-video">
+                                    <iframe class="b-lazy" data-src="https://www.youtube.com/embed/MppOb215REQ" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                </div>
+                                <div class="slide-video">
+                                    <iframe class="b-lazy" data-src="https://www.youtube.com/embed/MppOb215REQ" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                </div>
+                                <div class="slide-video">
+                                    <iframe class="b-lazy" data-src="https://www.youtube.com/embed/MppOb215REQ" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                </div>
+                                <div class="slide-video">
+                                    <iframe class="b-lazy" data-src="https://www.youtube.com/embed/MppOb215REQ" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slider-item slider-audio">
+                            <div class="slider-title">
+                                <p>Аудио отзывы</p>
+                                <div class="slide-nav">
+                                    <button class="am-prev owl-prev" data-slider=".slider-audio .slider">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 39.93 39.9"><defs><style>.cls-1{fill:#8bc441;}</style></defs><g><g><path class="cls-1" d="M2.77,30.07a19.93,19.93,0,0,0,27.4,7,.81.81,0,0,0-.8-1.4,8.27,8.27,0,0,1-1.6.9,18.32,18.32,0,1,1,9.5-10.4.79.79,0,0,0,1.5.5,19.83,19.83,0,0,0-.8-15.3,20.24,20.24,0,0,0-11.3-10.2,19.95,19.95,0,0,0-23.9,28.9Z"/><path class="cls-1" d="M11.77,20.77h20.3a.8.8,0,1,0,0-1.6H11.77a.8.8,0,1,0,0,1.6Z"/><path class="cls-1" d="M9,20l8.5-8.4a.85.85,0,0,0-1.2-1.2l-9.1,9.1h0a.78.78,0,0,0,0,1.1l9.1,9.1a.85.85,0,0,0,1.2-1.2Z"/></g></g></svg>
+                                    </button>
+                                    <button class="am-next owl-next" data-slider=".slider-audio .slider">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 39.93 39.9"><defs><style>.cls-1{fill:#8bc441;}</style></defs><g><g><path class="cls-1" d="M38.77,13.27a19.94,19.94,0,0,0-25.5-12.1A20.24,20.24,0,0,0,2,11.37a19.83,19.83,0,0,0-.8,15.3.88.88,0,0,0,1,.5.88.88,0,0,0,.5-1,18.47,18.47,0,1,1,9.5,10.4,8.27,8.27,0,0,1-1.6-.9.81.81,0,0,0-.8,1.4,19.93,19.93,0,0,0,29-23.8Z"/><path class="cls-1" d="M29,20a.86.86,0,0,0-.8-.8H7.87a.8.8,0,1,0,0,1.6h20.3A.86.86,0,0,0,29,20Z"/><path class="cls-1" d="M22.47,28.47a.85.85,0,0,0,1.2,1.2l9.1-9.1a.78.78,0,0,0,0-1.1h0l-9.1-9.1a.85.85,0,0,0-1.2,1.2L31,20Z"/></g></g></svg>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="slider owl-carousel">
+                                <div class="audio-item">
+                                    <img src="./images/audio-item.svg" alt="audio">
+                                    <div class="audio-item-cnt">
+                                        <a class="audio-title" href="#">Монтаж <br> Астры 4 </a>
+                                        <a class="audio-listen" href="#">Прослушать </a>
+                                    </div>
+                                </div>
+                                <div class="audio-item">
+                                    <img src="./images/audio-item.svg" alt="audio">
+                                    <div class="audio-item-cnt">
+                                        <a class="audio-title" href="#">Монтаж <br> Астры 4 </a>
+                                        <a class="audio-listen" href="#">Прослушать </a>
+                                    </div>
+                                </div>
+                                <div class="audio-item">
+                                    <img src="./images/audio-item.svg" alt="audio">
+                                    <div class="audio-item-cnt">
+                                        <a class="audio-title" href="#">Монтаж <br> Астры 4 </a>
+                                        <a class="audio-listen" href="#">Прослушать </a>
+                                    </div>
+                                </div>
+                                <div class="audio-item">
+                                    <img src="./images/audio-item.svg" alt="audio">
+                                    <div class="audio-item-cnt">
+                                        <a class="audio-title" href="#">Монтаж <br> Астры 4 </a>
+                                        <a class="audio-listen" href="#">Прослушать </a>
+                                    </div>
+                                </div>
+                                <div class="audio-item">
+                                    <img src="./images/audio-item.svg" alt="audio">
+                                    <div class="audio-item-cnt">
+                                        <a class="audio-title" href="#">Монтаж <br> Астры 4 </a>
+                                        <a class="audio-listen" href="#">Прослушать </a>
+                                    </div>
+                                </div>
+                                <div class="audio-item">
+                                    <img src="./images/audio-item.svg" alt="audio">
+                                    <div class="audio-item-cnt">
+                                        <a class="audio-title" href="#">Монтаж <br> Астры 4 </a>
+                                        <a class="audio-listen" href="#">Прослушать </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slider-item slider-revs">
+                            <div class="slider-title">
+                                <p>Текстовые отзывы</p>
+                                <div class="slide-nav">
+                                    <button class="am-prev owl-prev" data-slider=".slider-revs .slider">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 39.93 39.9"><defs><style>.cls-1{fill:#8bc441;}</style></defs><g><g><path class="cls-1" d="M2.77,30.07a19.93,19.93,0,0,0,27.4,7,.81.81,0,0,0-.8-1.4,8.27,8.27,0,0,1-1.6.9,18.32,18.32,0,1,1,9.5-10.4.79.79,0,0,0,1.5.5,19.83,19.83,0,0,0-.8-15.3,20.24,20.24,0,0,0-11.3-10.2,19.95,19.95,0,0,0-23.9,28.9Z"/><path class="cls-1" d="M11.77,20.77h20.3a.8.8,0,1,0,0-1.6H11.77a.8.8,0,1,0,0,1.6Z"/><path class="cls-1" d="M9,20l8.5-8.4a.85.85,0,0,0-1.2-1.2l-9.1,9.1h0a.78.78,0,0,0,0,1.1l9.1,9.1a.85.85,0,0,0,1.2-1.2Z"/></g></g></svg>
+                                    </button>
+                                    <button class="am-next owl-next" data-slider=".slider-revs .slider">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 39.93 39.9"><defs><style>.cls-1{fill:#8bc441;}</style></defs><g><g><path class="cls-1" d="M38.77,13.27a19.94,19.94,0,0,0-25.5-12.1A20.24,20.24,0,0,0,2,11.37a19.83,19.83,0,0,0-.8,15.3.88.88,0,0,0,1,.5.88.88,0,0,0,.5-1,18.47,18.47,0,1,1,9.5,10.4,8.27,8.27,0,0,1-1.6-.9.81.81,0,0,0-.8,1.4,19.93,19.93,0,0,0,29-23.8Z"/><path class="cls-1" d="M29,20a.86.86,0,0,0-.8-.8H7.87a.8.8,0,1,0,0,1.6h20.3A.86.86,0,0,0,29,20Z"/><path class="cls-1" d="M22.47,28.47a.85.85,0,0,0,1.2,1.2l9.1-9.1a.78.78,0,0,0,0-1.1h0l-9.1-9.1a.85.85,0,0,0-1.2,1.2L31,20Z"/></g></g></svg>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="rev-slider-wrap">
+                                <img src="./images/rev-img.svg" alt="rev-img">
+                                <div class="slider owl-carousel">
+                                    <div class="rev">
+                                        <div class="rev-title">
+                                            <p>Септик Топас 5 - хороший септик. Отзыв положительный. Елена, Павлово, Санкт-Петербург,</p>
+                                            <span class="rev-date">31 марта 2016 г.   <span>16:12:27</span></span>
+                                        </div>
+                                        <p>У нас дача в Павлово. Дача – бабушкино наследство, дорога, как память. Место нам нравится – недалеко Нева, тишина, покой, нетронутая природа и  отсутствие цивилизации. Буквально. Конечно, то, что старушке было хорошо, нам с мужем не очень. Вот и решили мы облагородить дачу, осовре так сказать.  По мере возможностей, конечно. И вот пробурили скважину, провели отопление, кессон установили. Дошла очередь и до канализации. </p>
+                                        <p>У нас дача в Павлово. Дача – бабушкино наследство, дорога, как память. Место нам нравится – недалеко Нева, тишина, покой, нетронутая природа и отсутствие цивилизации. Буквально. Конечно, то, что старушке было хорошо, нам с мужем не очень. Вот и решили мы облагородить дачу, осовременить так сказать. По мере возможностей, конечно. И вот пробурили скважину, провели отопление, кессон установили. Дошла очередь и до канализации. </p>
+                                        <p>Много чего – Евробион, Юнилос Астра, Биодеку. Выбор пал на септик Топас. Тут все просто – работает фирма без выходных, приезжай, когда тебе удобно, явно не однодневка. По параметрам нам подобрали Топас 5. Мы выбрали сами в офисе модель, которую посчитали подходящей. Мой дотошный муж отметил хорошее качество сборки. Нас все устроило с самого начала. Вот и сейчас все хорошо – ребята септик монтируют, а я отзыв на ноутбуке пишу по монтажников.</p>
+                                        <p>Много чего – Евробион, Юнилос Астра, Биодеку. Выбор пал на септик Топас. Тут все просто – работает фирма без выходных, приезжай, когда тебе удобно, явно не однодневка. По параметрам нам подобрали Топас 5. Мы выбрали сами в офисе модель, которую посчитали подходящей. Мой дотошный муж отметил хорошее качество сборки. Нас все устроило с самого начала. Вот и сейчас все хорошо – ребята септик монтируют, а я отзыв на ноутбуке пишу по монтажников.</p>
+                                    </div>
+                                    <div class="rev">
+                                        <div class="rev-title">
+                                            <p>Септик Топас 5 - хороший септик. Отзыв положительный. Елена, Павлово, Санкт-Петербург,</p>
+                                            <span class="rev-date">31 марта 2016 г.   <span>16:12:27</span></span>
+                                        </div>
+                                        <p>У нас дача в Павлово. Дача – бабушкино наследство, дорога, как память. Место нам нравится – недалеко Нева, тишина, покой, нетронутая природа и  отсутствие цивилизации. Буквально. Конечно, то, что старушке было хорошо, нам с мужем не очень. Вот и решили мы облагородить дачу, осовре так сказать.  По мере возможностей, конечно. И вот пробурили скважину, провели отопление, кессон установили. Дошла очередь и до канализации. </p>
+                                        <p>У нас дача в Павлово. Дача – бабушкино наследство, дорога, как память. Место нам нравится – недалеко Нева, тишина, покой, нетронутая природа и отсутствие цивилизации. Буквально. Конечно, то, что старушке было хорошо, нам с мужем не очень. Вот и решили мы облагородить дачу, осовременить так сказать. По мере возможностей, конечно. И вот пробурили скважину, провели отопление, кессон установили. Дошла очередь и до канализации. </p>
+                                        <p>Много чего – Евробион, Юнилос Астра, Биодеку. Выбор пал на септик Топас. Тут все просто – работает фирма без выходных, приезжай, когда тебе удобно, явно не однодневка. По параметрам нам подобрали Топас 5. Мы выбрали сами в офисе модель, которую посчитали подходящей. Мой дотошный муж отметил хорошее качество сборки. Нас все устроило с самого начала. Вот и сейчас все хорошо – ребята септик монтируют, а я отзыв на ноутбуке пишу по монтажников.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="questions">
+                <div class="wrapper">
+                    <div class="questions-titles">
+                        <img src="./images/fly.png" alt="fly">
+                        <h3 class="title">Остались вопросы? </h3>
+                        <p class="questions-subtitle">Получите консультацию по выбору оборудования, и стоимости монтажных работ</p>
+                    </div>
+                    <form action="#">
+                        <div class="questions-row">
+                            <div class="questions-fields">
+                                <input type="text" placeholder="Ваше имя" class="field">
+                                <input type="tel" placeholder="телефон* " class="field phone-mask">
+                                <input class="btn" type="submit" value="отправить">
+                            </div>
+                            <p>или позвоните нам по телефону  <a href="tel:+78123857383">+7 (812) 385 73 83</a></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <footer class="footer">
+            <div class="wrapper">
+                <div class="footer-row">
+                    <div class="footer-column">
+                        <div class="footer-column-item">
+                            <a class="footer-column-item-title" href="catalog.html">Септики</a>
+                            <a href="#">Биодека</a>
+                            <a href="card.html">Астра</a>
+                            <a href="#">Топас</a>
+                            <a href="#">Волгарь</a>
+                            <a href="#">Genesis</a>
+                            <a href="#">Биодевайс</a>
+                            <a href="#">Евролос ПРО</a>
+                            <a href="#">Евролос ПРО</a>
+                            <a href="#">Евролос ПРО</a>
+                            <a href="#">Гарда</a>
+                            <a href="#">Далос</a>
+                        </div>
+                    </div>
+                    <div class="footer-column">
+                        <div class="footer-column-item">
+                            <a class="footer-column-item-title" href="catalog.html">Погреба</a>
+                            <a href="#">Тингард</a>
+                            <a href="#">Kellari</a>
+                            <a href="#">Топас</a>
+                            <a href="#">Kelder </a>
+                        </div>
+                        <div class="footer-column-item">
+                            <span class="footer-column-item-title">Другое</span>
+                            <a href="#">Комплектующие</a>
+                        </div>
+                    </div>
+                    <div class="footer-column">
+                        <div class="footer-column-item">
+                            <span class="footer-column-item-title">Навигация по сайту</span>
+                            <a href="stocks.html">Акции</a>
+                            <a href="services.html">Услуги</a>
+                            <a href="#">Статьи</a>
+                            <a href="#">Наши работы</a>
+                            <a href="price.html">Наши цены</a>
+                            <a href="reviews.html">Отзывы</a>
+                            <a href="howToBuy.html">Как купить</a>
+                            <a href="about.html">Компания</a>
+                            <a href="contacts.html">Контакты</a>
+                            <a href="map.html">Карта сайта</a>
+                        </div>
+                    </div>
+                    <div class="footer-column">
+                        <div class="footer-column-item">
+                            <span class="footer-column-item-title">Связаться с нами</span>
+                            <span class="footer-adress">199034, г. Санкт-Петербург, <br> Московское шоссе, дом 25, <br> корпус 1 оф. 813</span>
+                            <a href="tel:+78123857383">+7 (812) 385 73 83</a>
+                        </div>
+                        <div class="footer-column-item">
+                            <span class="footer-column-item-title socials-links-title">Мы в соц. сетях  </span>
+                            <div class="socials-links">
+                                <a href="#"><img src="./images/facebook.svg" alt="facebook"></a>
+                                <a href="#"><img src="./images/vk.svg" alt="vk"></a>
+                                <a href="#"><img src="./images/instagram.svg" alt="instagram"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-row copyright">
+                    <p>© 2012-2020 Экосеть</p>
+                    <p>Website by 
+                        <a href="#"><img src="./images/paradigma.png" alt="paradigma"></a>
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <div id="oneClick" class="popup-wrapper">
+        <div class="popup-layout">
+            <div class="popup">
+                <div class="popup-cnt">
+                    <form action="#">
+                        <div class="popup-title">Купить в 1 клик <span>АСТРА 3</span></div>
+                        <input type="text" placeholder="Ваше имя" class="field">
+                        <input type="tel" placeholder="телефон* " class="field phone-mask">
+                        <textarea name="massege" placeholder="Коментарий"  class="field field-norequired"></textarea>
+                        <input class="btn" type="submit" value="заказать">
+                    </form>
+                </div>
+                <div class="popup-close"><img src="./images/popup-close.svg" alt="icon-close"></div>
+            </div>
+        </div>
+    </div>
+    <div id="callbackPopup" class="popup-wrapper">
+        <div class="popup-layout">
+            <div class="popup">
+                <div class="popup-cnt">
+                    <form action="#">
+                        <div class="popup-title">Заказать бесплатный звонок!</div>
+                        <input type="text" placeholder="Ваше имя" class="field">
+                        <input type="tel" placeholder="телефон* " class="field phone-mask">
+                        <input class="btn" type="submit" value="заказать">
+                    </form>
+                </div>
+                <div class="popup-close"><img src="./images/popup-close.svg" alt="icon-close"></div>
+            </div>
+        </div>
+    </div>
+    <div id="callbackPopupInstallation" class="popup-wrapper">
+        <div class="popup-layout">
+            <div class="popup">
+                <div class="popup-cnt">
+                    <form action="#">
+                        <div class="popup-title">Заказать монтаж!</div>
+                        <input type="text" placeholder="Ваше имя" class="field">
+                        <input type="tel" placeholder="телефон* " class="field phone-mask">
+                        <input class="btn" type="submit" value="заказать">
+                    </form>
+                </div>
+                <div class="popup-close"><img src="./images/popup-close.svg" alt="icon-close"></div>
+            </div>
+        </div>
+    </div>
+    <a href="#" id="topBtn" class="top-btn">
+        <svg width="35" height="35" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                viewBox="0 0 99.2 99.2" style="enable-background:new 0 0 99.2 99.2;" xml:space="preserve">
+            <style type="text/css">
+                .st0{fill:#8DC63F;}
+            </style>
+            <g>
+                <g>
+                    <g>
+                        <path class="st0" d="M49.6,0C22.3,0,0,22.3,0,49.6s22.3,49.6,49.6,49.6S99.2,77,99.2,49.6S77,0,49.6,0z M49.6,95.1
+                            c-25.1,0-45.5-20.4-45.5-45.5S24.5,4.1,49.6,4.1s45.5,20.4,45.5,45.5S74.7,95.1,49.6,95.1z"/>
+                        <path class="st0" d="M51.1,21.3c-0.8-0.8-2.1-0.8-2.9,0L29.5,39.9c-0.8,0.8-0.8,2.1,0,2.9c0.8,0.8,2.1,0.8,2.9,0l15.1-15.1v48.8
+                            c0,1.1,0.9,2.1,2.1,2.1s2.1-0.9,2.1-2.1V27.7l15.1,15.1c0.4,0.4,0.9,0.6,1.5,0.6c0.5,0,1.1-0.2,1.5-0.6c0.8-0.8,0.8-2.1,0-2.9
+                            L51.1,21.3z"/>
+                    </g>
+                </g>
+            </g>
+        </svg>
+    </a>
+    
+    <div class="fix-triggers">
+        <a href="comparison.html" class="fix-trigger">
+            <svg width="29" height="27" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                    viewBox="0 0 85 82.2" style="enable-background:new 0 0 85 82.2;" xml:space="preserve">
+                <style type="text/css">
+                    .st0{fill:#8DC63F;}
+                </style>
+                <g>
+                    <g>
+                        <path class="st0" d="M84.9,41.8L84.9,41.8l-12.3-31h5.6c1,0,1.8-0.8,1.8-1.8s-0.8-1.8-1.8-1.8h-34V1.8c0-1-0.8-1.8-1.8-1.8
+                            s-1.8,0.8-1.8,1.8v5.3h-34C5.6,7.2,4.8,8,4.8,9s0.8,1.8,1.8,1.8h5.8l-12.2,31C0.1,42,0,42.3,0,42.5C0,51,6.7,57.8,15,57.8
+                            s15-6.9,15-15.3c0-0.2-0.1-0.5-0.1-0.7l-12.2-31h22.8v57c-8.6,0.7-15.4,6-15.4,12.5c0,1,0.8,1.8,1.8,1.8h30.7c1,0,1.8-0.8,1.8-1.8
+                            c0-6.5-6.7-11.8-15.4-12.5v-57h23.1l-12.1,31C55,42,55,42.3,55,42.5c0,8.5,6.7,15.3,15,15.3S85,51,85,42.5
+                            C85,42.3,85,42,84.9,41.8z M15,54.2c-5.6,0-10.4-4.2-11.3-9.8h22.4C25.3,50,20.6,54.1,15,54.2z M25.6,40.7h-21l10.5-26.8
+                            L25.6,40.7z M55.6,78.5H29.1c1.3-4,6.9-7,13.2-7S54.3,74.5,55.6,78.5z M69.9,13.9l10.5,26.7h-21L69.9,13.9z M69.9,54.2L69.9,54.2
+                            c-5.6,0-10.3-4.2-11.2-9.8h22.4C80.3,50,75.5,54.2,69.9,54.2z"/>
+                    </g>
+                </g>
+            </svg>
+            <span>10</span>
+        </a>
+        <a href="cart.html" class="fix-trigger">
+            <svg width="30" height="29" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                    viewBox="0 0 82.2 76.5" style="enable-background:new 0 0 82.2 76.5;" xml:space="preserve">
+                <style type="text/css">
+                    .st0{fill:#8DC63F;}
+                </style>
+                <g>
+                    <g>
+                        <path class="st0" d="M81.9,11.1c-0.3-0.3-0.7-0.7-1.4-0.7H15.4l-1.7-9c0-0.7-1-1.4-1.7-1.4H1.7C0.7,0,0,0.7,0,1.7s0.7,1.7,1.7,1.7
+                            h8.9l8.2,42.4c1,5.6,6.2,9.7,11.6,9.7h39.4c1,0,1.7-0.7,1.7-1.7s-0.7-1.7-1.7-1.7h-39c-2.7,0-5.5-1.4-6.9-3.8l50-7
+                            c0.7,0,1.4-0.7,1.4-1.4l6.9-27.8C82.2,12.2,82.2,11.5,81.9,11.1z M72.3,38.3l-50,6.6l-6.2-31.3h62L72.3,38.3z"/>
+                    </g>
+                </g>
+                <g>
+                    <g>
+                        <path class="st0" d="M29.1,59.1c-4.8,0-8.6,3.8-8.6,8.7c0,4.9,3.8,8.7,8.6,8.7c4.8,0,8.6-3.8,8.6-8.7C37.7,63,33.9,59.1,29.1,59.1
+                            z M29.1,73.1c-2.7,0-5.1-2.4-5.1-5.2c0-2.8,2.4-5.2,5.1-5.2s5.1,2.4,5.1,5.2C34.3,70.6,31.9,73.1,29.1,73.1z"/>
+                    </g>
+                </g>
+                <g>
+                    <g>
+                        <path class="st0" d="M63.4,59.1c-4.8,0-8.6,3.8-8.6,8.7c0,4.9,3.8,8.7,8.6,8.7c4.8,0,8.6-3.8,8.6-8.7C71.9,63,68.2,59.1,63.4,59.1
+                            z M63.4,73.1c-2.7,0-5.1-2.4-5.1-5.2c0-2.8,2.4-5.2,5.1-5.2c2.7,0,5.1,2.4,5.1,5.2C68.5,70.6,66.1,73.1,63.4,73.1z"/>
+                    </g>
+                </g>
+            </svg>
+            <span>10</span>
+        </a>
+        <a href="favorites.html" class="fix-trigger">
+            <svg width="32" height="31" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                    viewBox="0 0 90.7 87.9" style="enable-background:new 0 0 90.7 87.9;" xml:space="preserve">
+                <style type="text/css">
+                    .st0{fill:#8DC63F;}
+                </style>
+                <path class="st0" d="M88.7,39.8c1.8-1.8,2.4-4.3,1.6-6.7c-0.8-2.4-2.8-4.1-5.3-4.5l-22-3.2c-0.9-0.1-1.7-0.7-2.2-1.6L51.2,3.7
+                    C50.1,1.4,47.8,0,45.4,0c-2.5,0-4.7,1.4-5.8,3.7l-9.8,20.1c-0.4,0.9-1.2,1.5-2.2,1.6l-22,3.2c-2.5,0.4-4.5,2.1-5.3,4.5
+                    c-0.8,2.4-0.1,5,1.6,6.7l15.9,15.7c0.7,0.7,1,1.6,0.8,2.6l-3.8,22.1c-0.4,2.5,0.6,4.9,2.6,6.4c2,1.5,4.6,1.7,6.9,0.5L44,76.7
+                    c0.8-0.4,1.8-0.4,2.7,0l19.6,10.4c1,0.5,2,0.8,3,0.8c1.3,0,2.7-0.4,3.8-1.3c2-1.5,3-3.9,2.6-6.4L72,58.1c-0.2-0.9,0.2-1.9,0.8-2.6
+                    L88.7,39.8z M68.4,58.7l3.8,22.1c0.2,1.1-0.2,2.2-1.1,2.8c-0.9,0.7-2,0.7-3,0.2L48.4,73.4c-0.9-0.5-2-0.8-3-0.8s-2.1,0.3-3,0.8
+                    L22.7,83.9c-1,0.5-2.1,0.4-3-0.2c-0.9-0.7-1.3-1.7-1.1-2.8l3.8-22.1c0.4-2.1-0.3-4.3-1.9-5.8L4.5,37.2c-0.8-0.8-1.1-1.9-0.7-3
+                    c0.3-1.1,1.2-1.8,2.3-2l22-3.2c2.1-0.3,4-1.7,4.9-3.6l9.8-20.1c0.5-1,1.5-1.6,2.6-1.6c1.1,0,2.1,0.6,2.6,1.6l9.8,20.1
+                    c0.9,1.9,2.8,3.3,4.9,3.6l22,3.2c1.1,0.2,2,0.9,2.3,2c0.3,1.1,0.1,2.2-0.7,3L70.3,52.9C68.8,54.4,68.1,56.5,68.4,58.7z"/>
+            </svg>
+            <span>10</span>
+        </a>
+    </div>
+    
+    <div class="caller">
+        <div class="caller-img">
+            <img class="caller-img-icon caller-open" src="./images/icon-logo.png" alt="logo">
+            <img class="caller-img-icon caller-close" src="./images/icon-close.svg" alt="logo">
+        </div>
+        <div class="caller-hidden">
+            <a href="#" class="caller-phone call-popup" data-popup="callbackPopup"><img src="./images/phone-i.svg" alt="phone-i"></a>
+            <a href="#" class="caller-message"><img src="./images/message-i.svg" alt="phone-i"></a>
+        </div>
+    </div>
+    
+    <!--Libs-->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/libs/range/ion.rangeSlider.min.js"></script>
+    <script src="js/libs/jquery.maskedinput.min.js"></script>
+    <script src="js/libs/owlcarousel/owl.carousel.min.js"></script>
+    <script src="js/libs/fancybox/jquery.fancybox.min.js"></script>
+    <script src="js/libs/blazy/blazy.min.js"></script>
+    <script src="js/libs/wow.min.js"></script>
+    
+    <!--general-->
+    <script src="js/common.js"></script>
+</body>
+</html>
