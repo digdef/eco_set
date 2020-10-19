@@ -1,7 +1,7 @@
 @extends('index')
 @section('meta')
-    <title>{{ $product->meta_title ?? $product->title }}</title>
-    <meta name="description" lang="ru" content="{{ $product->meta_description ?? $product->title }}">
+    <title>{{ $ceo_text->meta_title }}</title>
+    <meta name="description" lang="ru" content="{{ $ceo_text->meta_description }}">
     <meta name="keywords" content="ДСВ – Інновації для Вашого успіху">
     <meta property="og:title" content="{{ $product->meta_title ?? $product->title }}">
     <meta property="og:type" content="ДСВ – Інновації для Вашого успіху">

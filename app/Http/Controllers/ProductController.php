@@ -20,10 +20,20 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
+	const CATEGORY_TITLE_TEMPLATE = '{DB_TITLE} - купить в СПб по выгодной цене с установкой';
+	const CATEGORY_DESCRIPTION_TEMPLATE = 'Купить {DB_DESCRIPTION} для частного дома, дачи, загородного коттеджа. Официальный дилер ведущих производителей септиков для автономной канализации.';
+
+	const PRODUCT_TITLE_TEMPLATE = '{DB_TITLE} - купить в СПб по цене производителя';
+	const PRODUCT_DESCRIPTION_TEMPLATE = 'Купить {DB_DESCRIPTION} с доставкой, монтажом и последующим обслуживанием. Официальный дилер ведущих производителей септиков для автономной канализации.';
+
+	const CATEGORY_ACCESSORIES  = 'Комплектующие';
+	const CATEGORY_CELLARS      = 'Погреба';
+	const CATEGORY_SEPTICS      = 'Септики';
+	const CATEGORY_WATER        = 'Водоснабжение';
     public function catalog(Request $request, $cat)
     {
         $hint = Hints::where('id', 1)->first();
-
+		$cat_title = '';
         if ($cat == 1) {
             return redirect('catalog/septic');
         } elseif ($cat == 2) {
@@ -36,14 +46,18 @@ class ProductController extends Controller
 
         if ($cat == 'septic') {
             $cat = 1;
+	        $cat_title = self::CATEGORY_SEPTICS;
             $cat_url = 'septic';
         } elseif ($cat == 'cellars') {
             $cat = 2;
+	        $cat_title = self::CATEGORY_CELLARS;
             $cat_url = 'cellars';
         } elseif ($cat == 'water') {
+	        $cat_title = self::CATEGORY_WATER;
             $cat = 3;
             $cat_url = 'water';
         } elseif ($cat == 'accessories') {
+	        $cat_title = self::CATEGORY_ACCESSORIES;
             $cat = 4;
             $cat_url = 'accessories';
         }
@@ -319,7 +333,16 @@ class ProductController extends Controller
 
         $url = $_SERVER['REQUEST_URI'];
 
-
+	    $ceo_text->meta_title = $this->getTemplatedString(
+		    empty($ceo_text->meta_title)?$cat_title:$ceo_text->meta_title,
+		    self::CATEGORY_TITLE_TEMPLATE,
+		    '{DB_TITLE}'
+	    );
+	    $ceo_text->meta_description = $this->getTemplatedString(
+	    	empty($ceo_text->meta_description)?$cat_title:$ceo_text->meta_description,
+		    self::CATEGORY_DESCRIPTION_TEMPLATE,
+		    '{DB_DESCRIPTION}'
+	    );
         return view($template, compact(
             'products',
             'hint',
@@ -996,6 +1019,16 @@ class ProductController extends Controller
             ->get();
 
         $ceo_text = CeoText::where('id_content', $id)->first();
+	    $ceo_text->meta_title = $this->getTemplatedString(
+	    	(empty($ceo_text->meta_title)?$product->title:$ceo_text->meta_title),
+		    self::PRODUCT_TITLE_TEMPLATE,
+		    '{DB_TITLE}'
+	    );
+	    $ceo_text->meta_description = $this->getTemplatedString(
+	    	(empty($ceo_text->meta_description)?$product->title:$ceo_text->meta_description),
+		    self::PRODUCT_DESCRIPTION_TEMPLATE,
+		    '{DB_DESCRIPTION}'
+	    );
 
         $products = DB::table('products')
             ->orderByRaw("RAND()")
