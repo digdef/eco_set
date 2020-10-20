@@ -989,7 +989,7 @@ class ProductController extends Controller
         if ($stockToProducts) {
             $stock = Stocks::where('id', $stockToProducts->id_stock)->first();
         } else {
-            $stock = collect([]);
+            $stock = new Stocks();
         }
 
 
@@ -1018,7 +1018,11 @@ class ProductController extends Controller
             ->orderBy('price', 'asc')
             ->get();
 
-        $ceo_text = CeoText::where('id_content', $id)->first();
+        $create_seo_text = function () use ($id){
+            $finded_text = CeoText::where('id_content', $id)->first();
+            return (empty($finded_text)?new CeoText():$finded_text);
+        };
+        $ceo_text = $create_seo_text();
 	    $ceo_text->meta_title = $this->getTemplatedString(
 	    	(empty($ceo_text->meta_title)?$product->title:$ceo_text->meta_title),
 		    self::PRODUCT_TITLE_TEMPLATE,
