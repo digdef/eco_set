@@ -4,9 +4,20 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Article;
 use App\Models\ArticleCategory;
+use App\Models\Banners;
+use App\Models\Category;
+use App\Models\CeoText;
+use App\Models\CeoTextLink;
+use App\Models\Comparison;
+use App\Models\Favorites;
+use App\Models\MainCatalog;
 use App\Models\Product;
 use App\Models\ProductCategory;
 use App\Models\Service;
+use App\Models\Slider;
+use App\Models\Stocks;
+use App\Models\StockToProducts;
+use App\Models\WhyUs;
 use App\Models\Work;
 use InfyOm\Generator\Utils\ResponseUtil;
 use App\Http\Controllers\Controller as LaravelController;
@@ -36,76 +47,69 @@ class AppBaseController extends LaravelController
     {
         $sitemap = Sitemap::create();
         $root_pages_urls = array(
-            route("index"),
-            route('about'),
-            route('services'),
-            route('blog'),
-            route('price'),
-            route('shipping'),
-            route('payment-shipping'),
-            route('portfolio'),
-            route('contacts'),
-            route('catalog'),
-            route('spasibo'),
-            route('sitemap')
+            route('main_page'),
+            route('actions_page'),
+            route('services_page'),
+            route('articles_page'),
+            route('portfolio_page'),
+            route('reviews_page'),
+            route('how2buy_page'),
+            route('about4s_page'),
+            route('contacts_page'),
+            route('water_page'),
         );
         //add root pages
         foreach ($root_pages_urls as $url){
             $sitemap->add(
                 Url::create($url)
                     ->setChangeFrequency(Url::CHANGE_FREQUENCY_WEEKLY)
-                    ->setPriority(0)
+                    ->setPriority(1)
             );
         }
         //add usual sitemap pages
-        foreach (Service::get() as $page){
+        foreach (Stocks::all() as $page){
             $sitemap->add(
-                Url::create(route('services.item', $page->link))
+                Url::create(route('actions_page.item', $page->id))
                     ->setChangeFrequency(Url::CHANGE_FREQUENCY_WEEKLY)
                     ->setPriority(0)
             );
-        }//services urls
-        foreach (Article::get() as $page){
+        }//actions actions urls
+        foreach (Category::all() as $page){
+            $cat_name = '';
+            $route_name = 'category_page_common';
+            switch ($page->type){
+                case 1:
+                    $cat_name = 'septic';
+                    break;
+                case 2:
+                    $cat_name = 'cellars';
+                    break;
+                case 3:
+                    $route_name = 'category_page_water';
+                    $cat_name = 'water';
+                    break;
+                case 4:
+                    $cat_name = 'accessories';
+                    break;
+            }
             $sitemap->add(
-                Url::create(route('blog.article', [$page['category']['link'], $page->link]))
+                Url::create(route($route_name, $cat_name))
                     ->setChangeFrequency(Url::CHANGE_FREQUENCY_WEEKLY)
                     ->setPriority(0)
             );
-        }//blog urls
-        $products = Product::with('category')->where('is_active', 1)->whereHas('category', function($query) {
-            $query->where('is_active', 1);
-        })->get();
-        foreach ($products as $page){
             $sitemap->add(
-                Url::create(route('catalog.product', [$page['category']['link'], $page->link]))
+                Url::create(route('category_price_page', $page->type))
                     ->setChangeFrequency(Url::CHANGE_FREQUENCY_WEEKLY)
                     ->setPriority(0)
             );
-        }//products urls
-        $cats = ProductCategory::where('is_active', 1)->get();
-        foreach ($cats as $page){
+        }//catalog category to catalog and price urls
+        foreach (Product::all() as $product){
             $sitemap->add(
-                Url::create(route('catalog.category', $page['link']))
+                Url::create(route('product', $product->id))
                     ->setChangeFrequency(Url::CHANGE_FREQUENCY_WEEKLY)
                     ->setPriority(0)
             );
-        }//categories urls
-        $works = Work::where('is_active', 1)->get();
-        foreach ($works as $page){
-            $sitemap->add(
-                Url::create(route('portfolio.item', $page['link']))
-                    ->setChangeFrequency(Url::CHANGE_FREQUENCY_WEEKLY)
-                    ->setPriority(0)
-            );
-        }//portfolio urls
-        $article_categories = ArticleCategory::where('is_active', 1)->get();
-        foreach ($article_categories as $page){
-            $sitemap->add(
-                Url::create(route('blog.category', $page['link']))
-                    ->setChangeFrequency(Url::CHANGE_FREQUENCY_WEEKLY)
-                    ->setPriority(0)
-            );
-        }//portfolio urls
+        }//catalog product urls
         $sitemap->writeToFile(base_path('public/sitemap.xml' ));
         if(!file_exists(base_path('public/sitemap.xml'))){
             return response('Bad request', 404);

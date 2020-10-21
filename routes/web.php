@@ -19,7 +19,7 @@ Route::get('clear', function () {
     Artisan::call('config:clear');
 });
 
-Route::get('/', 'IndexController@index_page');
+Route::get('/', 'IndexController@index_page')->name('main_page');
 
 Route::get('index.html', function () {
     return redirect('/');
@@ -57,20 +57,20 @@ Route::get('thanks', function () {
     return view('page.thanks.thanks');
 });
 
-Route::get('catalog/{cat}', 'ProductController@catalog');
+Route::get('catalog/{cat}', 'ProductController@catalog')->name('category_page_common');
 
-//Route::get('catalog/mod/{mod}', 'ProductController@catalog_mod');
+Route::get('catalog/mod/{mod}', 'ProductController@catalog_mod')->name('catalog_page_mod');
 
 
-Route::get('price/{cat}', 'ProductController@price_list');
+Route::get('price/{cat}', 'ProductController@price_list')->name('category_price_page');
 Route::get('price/cat/{mod}', 'ProductController@price_list_modification');
 
 
 Route::get('product/{url}', 'ProductController@product')->name('product');
 
 
-Route::get('stocks/', 'StocksController@index');
-Route::get('stock/{id}', 'StocksController@stock');
+Route::get('stocks/', 'StocksController@index')->name('actions_page');
+Route::get('stock/{id}', 'StocksController@stock')->name('actions_page.item');
 
 
 Route::get('search/', 'ProductController@search');
@@ -78,34 +78,31 @@ Route::get('search/', 'ProductController@search');
 Route::get('map/', 'IndexController@map');
 
 
-Route::get('services/', 'ServicesController@index');
+Route::get('services/', 'ServicesController@index')->name('services_page');
 Route::get('service/{id}', 'ServicesController@service');
 
 
 
 
-Route::get('waters/', 'ProductController@water');
-Route::get('water/{id}', 'ProductController@water_page');
+Route::get('waters/', 'ProductController@water')->name('water_page');
+Route::get('water/{id}', 'ProductController@water_page')->name('category_page_water');
+
+Route::get('ourWorks/', 'OurWorksController@index')->name('portfolio_page');
+Route::get('ourWork/{id}', 'OurWorksController@ourWork')->name('portfolio_page.item');
 
 
-
-
-Route::get('ourWorks/', 'OurWorksController@index');
-Route::get('ourWork/{id}', 'OurWorksController@ourWork');
-
-
-Route::get('articles/', 'ArticleController@index');
+Route::get('articles/', 'ArticleController@index')->name('articles_page');
 Route::get('article/{id}', 'ArticleController@article');
 
 
-Route::get('reviews/', 'ReviewsController@index');
+Route::get('reviews/', 'ReviewsController@index')->name('reviews_page');
 
-Route::get('howToBuy/', 'HowToBuyController@howToBuy');
+Route::get('howToBuy/', 'HowToBuyController@howToBuy')->name('how2buy_page');
 
-Route::get('about/', 'AboutController@about');
+Route::get('about/', 'AboutController@about')->name('about4s_page');
 
 
-Route::get('contacts', 'ContactsController@index');
+Route::get('contacts', 'ContactsController@index')->name('contacts_page');
 
 Route::get('favorites', 'FavoritesController@favorites');
 
