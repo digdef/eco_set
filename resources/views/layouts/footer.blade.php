@@ -229,6 +229,7 @@
 
 <!--general-->
 <script src="/js/common.js"></script>
+<script src="/js/goals.js"></script>
 
 <script>
     if($(window).width() < 993) {
