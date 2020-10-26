@@ -2,22 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\Article;
 use App\Models\ArticleCategory;
-use App\Models\Banners;
 use App\Models\Category;
-use App\Models\CeoText;
-use App\Models\CeoTextLink;
-use App\Models\Comparison;
-use App\Models\Favorites;
-use App\Models\MainCatalog;
 use App\Models\Product;
 use App\Models\ProductCategory;
 use App\Models\Service;
-use App\Models\Slider;
 use App\Models\Stocks;
-use App\Models\StockToProducts;
-use App\Models\WhyUs;
 use App\Models\Work;
 use InfyOm\Generator\Utils\ResponseUtil;
 use App\Http\Controllers\Controller as LaravelController;
@@ -110,11 +100,19 @@ class AppBaseController extends LaravelController
                     ->setPriority(0)
             );
         }//catalog product urls
-        $sitemap->writeToFile(base_path('public/sitemap.xml' ));
+        $sitemap_path = base_path('public/sitemap.xml');
+        $sitemap->writeToFile($sitemap_path);
         if(!file_exists(base_path('public/sitemap.xml'))){
             return response('Bad request', 404);
         }
         else{
+            //force fix map nodes http to https
+            $sitemap_file_handler = fopen($sitemap_path, 'r');
+            $sitemap_corrected = str_replace('<loc>http://', '<loc>https://', fread($sitemap_file_handler, filesize($sitemap_path)));
+            fclose($sitemap_file_handler);
+            $sitemap_file_handler = fopen($sitemap_path, 'w+');
+            fwrite($sitemap_file_handler, $sitemap_corrected);
+            fclose($sitemap_file_handler);
             return response('map exists', 200);
         }
     }
