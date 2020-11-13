@@ -43,7 +43,7 @@
             <div class="footer-column">
                 <div class="footer-column-item">
                     <span class="footer-column-item-title">Связаться с нами</span>
-                    <span class="footer-adress">{!! $contacts->address !!}</span>
+                    <span class="footer-adress">{{strip_tags(htmlspecialchars_decode($contacts->address))}}</span>
                     <a href="tel:{{ $contacts->phone }}">{{ $contacts->phone }}</a>
                 </div>
                 <div class="footer-column-item">

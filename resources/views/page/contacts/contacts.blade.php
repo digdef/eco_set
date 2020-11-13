@@ -23,11 +23,12 @@
             </div>
             <div class="wrapper-big">
                 <div class="contacts-row">
-                    <div class="contacts-cnt">
+                    <div class="contacts-cnt" itemtype="http://schema.org/LocalBusiness" itemscope>
+                        <meta itemprop="name" content="ЭКО-СЕТЬ"/>
                         <div class="contacts-column">
                             <div class="contacts-item">
                                 <div class="contacts-item-title">АДРЕС ОФИСА</div>
-                                <p>{{ $contacts->address }}</p>
+                                <p itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">{!! $contacts->address !!}</p>
                             </div>
                             <div class="contacts-item">
                                 <div class="contacts-item-title">МЫ В СОЦСЕТЯХ: </div>
@@ -41,20 +42,22 @@
                         <div class="contacts-column">
                             <div class="contacts-item">
                                 <div class="contacts-item-title">ГРАФИК РАБОТЫ </div>
-                                <p>{{ $contacts->schedule }}</p>
+                                <p>{!! $contacts->schedule !!}</p>
                             </div>
                             <div class="contacts-item">
                                 <div class="contacts-item-title">EMAIL</div>
+                                <meta itemprop="email" content="{{ $contacts->email }}"/>
                                 <a href="mailto:{{ $contacts->email }}">{{ $contacts->email }}</a>
                             </div>
                             <div class="contacts-item">
                                 <div class="contacts-item-title">ТЕЛЕФОН </div>
+                                <meta itemprop="telephone" content="{{ $contacts->phone }}"/>
                                 <a href="teL:{{ $contacts->phone }}">{{ $contacts->phone }}</a>
                             </div>
                         </div>
                     </div>
                     <div class="contacts-map">
-                        <iframe class="b-lazy" data-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2005.7006925783917!2d30.358308516218926!3d59.82089207855354!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4696251a51ff16b9%3A0x60b998098483b344!2z0JzQvtGB0LrQvtCy0YHQutC-0LUg0YguLCAyNSwg0KHQsNC90LrRgi3Qn9C10YLQtdGA0LHRg9GA0LMsINCg0L7RgdGB0LjRjywgMTk2MTU4!5e0!3m2!1sru!2sua!4v1591874976532!5m2!1sru!2sua" width="600" height="450"  style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                        <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A16967e4407394c73724948b6f566b2f1983bd57fe7937c97d9aa04101f4d1094&amp;source=constructor" width="100%" height="400" frameborder="0"></iframe>
                     </div>
                 </div>
             </div>
