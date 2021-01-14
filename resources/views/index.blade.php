@@ -41,7 +41,7 @@
     <link rel="stylesheet" href="/css/libs/animate/animate.css">
 
     <link rel="stylesheet" type="text/css" href="/css/style.css"/>
-
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112613336-1"></script>
     <script>

@@ -21,7 +21,7 @@
         </div>
         <div class="services">
             <div class="wrapper">
-                <div class="services-article article">
+                <div class="services-article article waters">
                     <h1>{{ $water->title }}</h1>
                     <p>{!! $water->description !!}</p>
                     <div><a href="#">{{ $water->created_at }}</a></div>
