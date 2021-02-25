@@ -11,6 +11,7 @@ use App\Models\Stocks;
 use App\Models\StockToProducts;
 use Cookie;
 use DB;
+use App\Models\CeoText;
 
 class FavoritesController extends Controller
 {
@@ -76,6 +77,8 @@ class FavoritesController extends Controller
             }
         }
 
-        return view('page.favorites.favorites', compact('favorites', 'products', 'comparisons_user', 'stockToProducts', 'stock'));
+        $seo = CeoText::where('type', '=', 'favorites')->first();
+
+        return view('page.favorites.favorites', compact('favorites', 'products', 'comparisons_user', 'stockToProducts', 'stock', 'seo'));
     }
 }

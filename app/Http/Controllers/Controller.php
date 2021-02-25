@@ -11,7 +11,7 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    protected function getTemplatedString($string, $template, $template_arg){
-        return str_replace($template_arg, $string, $template);
-    }
+	protected function getTemplatedString($string, $template, $template_arg){
+		return str_replace($template_arg, $string, $template);
+	}
 }

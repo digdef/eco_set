@@ -20,7 +20,6 @@ class CreateStocksTable extends Migration
             $table->text('description')->nullable();
             $table->string('percent', 255)->nullable();
             $table->date('finish')->nullable();
-            $table->string('pinterest', 255)->nullable();
             $table->timestamps();
         });
     }

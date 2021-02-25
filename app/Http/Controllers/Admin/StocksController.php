@@ -13,7 +13,7 @@ class StocksController extends AppBaseController
     {
         $stocks = Stocks::all();
 
-        return view('admin.stocks.all', compact('stocks', 'id'));
+        return view('admin.stocks.all', compact('stocks'));
     }
 
     public function create()
@@ -68,7 +68,9 @@ class StocksController extends AppBaseController
             'img' => $userfileFullName,
             'description' => $input['description'],
             'percent' => $input['percent'],
-            'finish' => $input['finish']
+            'finish' => $input['finish'],
+            'meta_title' => $input['meta_title'] ?? null,
+            'meta_description' => $input['meta_description'] ?? null
         ]);
 
         $objStockToProducts = new StockToProducts();
@@ -116,7 +118,9 @@ class StocksController extends AppBaseController
             'img' => $userfileFullName,
             'description' => $input['description'],
             'percent' => $input['percent'],
-            'finish' => $input['finish']
+            'finish' => $input['finish'],
+            'meta_title' => $input['meta_title'] ?? null,
+            'meta_description' => $input['meta_description'] ?? null
         ]);
 
 

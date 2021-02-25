@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Reviews;
+use App\Models\CeoText;
 
 class ReviewsController extends Controller
 {
@@ -11,6 +12,8 @@ class ReviewsController extends Controller
     {
         $reviews = Reviews::all();
 
-        return view('page.reviews.reviews', compact('reviews'));
+        $seo = CeoText::where('type', '=', 'reviews')->first();
+
+        return view('page.reviews.reviews', compact('reviews', 'seo'));
     }
 }

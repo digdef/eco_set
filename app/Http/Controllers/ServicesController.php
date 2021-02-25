@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Services;
+use App\Models\CeoText;
 
 class ServicesController extends Controller
 {
@@ -11,9 +12,9 @@ class ServicesController extends Controller
     {
         $services = Services::all();
 
+        $seo = CeoText::where('type', '=', 'services')->first();
 
-
-        return view('page.services.services', compact('services'));
+        return view('page.services.services', compact('services', 'seo'));
     }
 
     public function service($id)

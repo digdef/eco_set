@@ -104,6 +104,23 @@
             </div>
 
 
+
+            <div class="form-row">
+                <div class="form-group col-md-6 col-sm-12">
+                    <label for="youtube_description">Описание YouTube</label>
+                    <textarea name="youtube_description" id="youtube_description" class="form-control">{{ $product->youtube_description }}</textarea>
+                </div>
+
+                <div class="form-group col-md-6 col-sm-12">
+                    <label for="youtube">Ссылка YouTube</label>
+                    <input type="text" name="youtube" id="youtube" onchange=" this.value = this.value.replace('watch?v=', 'embed/')" class="form-control" value="{!! $product->youtube !!}">
+                </div>
+            </div>
+
+
+
+
+
             <div class="form-row">
                 <div class="form-group col-md-6 col-sm-12">
                     <label for="insert_depth">Глубина врезки</label>
@@ -393,6 +410,7 @@
     <script>
         CKEDITOR.replace(document.getElementById('thumbnail'));
         CKEDITOR.replace(document.getElementById('description'));
+        CKEDITOR.replace(document.getElementById('youtube_description'));
         CKEDITOR.replace(document.getElementById('text1'));
         CKEDITOR.replace(document.getElementById('text2'));
         CKEDITOR.replace(document.getElementById('text3'));

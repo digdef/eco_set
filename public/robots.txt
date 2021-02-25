@@ -1,5 +1,8 @@
 User-agent: *
 Allow: /
 Disallow: /admin*
-Host: eco-set.ru
-Sitemap: http://eco-set.ru/sitemap.xml
+Disallow: /images/
+Disallow: /product/index.html
+Disallow: /catalog/index.html
+
+Sitemap: https://eco-set.ru/sitemap.xml

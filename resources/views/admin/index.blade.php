@@ -261,7 +261,7 @@
                     <a class="nav-link" href="/admin/notifications/">Уведомления <span class="sr-only">(current)</span></a>
                 </li>
 
-                <li class="nav-item {{ Request::is('admin/article') ? 'active' : '' }}">
+                <li class="nav-item {{ Request::is('admin/article/all') ? 'active' : '' }}">
                     <a class="nav-link" href="/admin/article/all/">Статьи <span class="sr-only">(current)</span></a>
                 </li>
 
@@ -275,6 +275,10 @@
 
                 <li class="nav-item {{ Request::is('admin/hints') ? 'active' : '' }}">
                     <a class="nav-link" href="/admin/hints/">Подсказки <span class="sr-only">(current)</span></a>
+                </li>
+
+                <li class="nav-item {{ Request::is('admin/seo') ? 'active' : '' }}">
+                    <a class="nav-link" href="/admin/seo/">SEO<span class="sr-only">(current)</span></a>
                 </li>
             </ul>
         </div>

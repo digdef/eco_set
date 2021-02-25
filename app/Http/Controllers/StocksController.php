@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Stocks;
+use App\Models\CeoText;
 
 class StocksController extends Controller
 {
@@ -11,7 +12,9 @@ class StocksController extends Controller
     {
         $stocks = Stocks::all();
 
-        return view('page.stocks.stocks', compact('stocks'));
+        $seo = CeoText::where('type', '=', 'stocks')->first();
+
+        return view('page.stocks.stocks', compact('stocks', 'seo'));
     }
 
     public function stock($id)

@@ -1,21 +1,243 @@
 <IfModule mod_rewrite.c>
     <IfModule mod_negotiation.c>
-        Options -MultiViews -Indexes
+        Options -MultiViews
+        Options +FollowSymLinks
     </IfModule>
 
     RewriteEngine On
 
-    # Handle Authorization Header
-    RewriteCond %{HTTP:Authorization} .
-    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+    RewriteRule ^robots.txt$ robots.php
 
-    # Redirect Trailing Slashes If Not A Folder...
+    RewriteCond %{HTTP_HOST} ^www.(.*)$ [NC]
+    RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+
+    RewriteCond %{REQUEST_URI} ^/catalog/$ [NC]
+    RewriteRule ^(.*)$ https://eco-set.ru/catalog/1?%{QUERY_STRING} [R=301,L]
+
+    RewriteCond %{REQUEST_URI} ^/gallery/$ [NC]
+    RewriteRule ^(.*)$ https://eco-set.ru/ourWorks/?%{QUERY_STRING} [R=301,L]
+
+    RewriteCond %{REQUEST_URI} ^/news/$ [NC]
+    RewriteRule ^(.*)$ https://eco-set.ru/?%{QUERY_STRING} [R=301,L]
+
+    RewriteCond %{REQUEST_URI} ^/online/$ [NC]
+    RewriteRule ^(.*)$ https://eco-set.ru/?%{QUERY_STRING} [R=301,L]
+
+    RewriteCond %{REQUEST_URI} ^/stroy/$ [NC]
+    RewriteRule ^(.*)$ https://eco-set.ru/articles/?%{QUERY_STRING} [R=301,L]
+
+    RewriteCond %{REQUEST_URI} ^/uslugi/$ [NC]
+    RewriteRule ^(.*)$ https://eco-set.ru/services/?%{QUERY_STRING} [R=301,L]
+
+    RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index.php.*\ HTTP/ [OR]
+    RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index.html.*\ HTTP/
+    RewriteRule ^index.php$ https://eco-set.ru/%1 [R=301,L]
+    RewriteRule ^index.php/(.+) https://eco-set.ru/$1 [R=301,L]
+
     RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteCond %{REQUEST_URI} (.+)/$
-    RewriteRule ^ %1 [L,R=301]
+    RewriteRule ^(.*)/$ https://eco-set.ru/$1 [L,R=301]
 
-    # Send Requests To Front Controller...
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [L]
+
+    Redirect 301 /about.html	https://eco-set.ru/about
+    Redirect 301 /akcii/	https://eco-set.ru/stocks
+    Redirect 301 /articles.html	https://eco-set.ru/articles
+    Redirect 301 /price.html	https://eco-set.ru/price/1
+    Redirect 301 /response/	https://eco-set.ru/reviews
+    Redirect 301 /basket.html	https://eco-set.ru/cart
+    Redirect 301 /blog/	https://eco-set.ru/articles
+    Redirect 301 /articles/avt_kan_unilos.html	https://eco-set.ru/articles
+    Redirect 301 /articles/avtonomnaya_kanalizacia_poselka.html	https://eco-set.ru/articles
+    Redirect 301 /articles/chasto_otklyuchayut_elektrichestvo.html	https://eco-set.ru/articles
+    Redirect 301 /articles/chto_takoe_drenajniy_kolodec.html	https://eco-set.ru/articles
+    Redirect 301 /articles/chto_takoe_volosoulovitel_i_zachem_on_nujen.html	https://eco-set.ru/articles
+    Redirect 301 /articles/dlya_chego_nujna_kanalizaciya_v_chastnom_dome_i_vozmojnye_varianty_sistem.html	https://eco-set.ru/articles
+    Redirect 301 /articles/ekspluatacia_avtonomnoi_kanalizacii.html	https://eco-set.ru/articles
+    Redirect 301 /articles/fazi_raboti_avtonomnoi_kanalizacii.html	https://eco-set.ru/articles
+    Redirect 301 /articles/greyushchiy_kabel.html	https://eco-set.ru/articles
+    Redirect 301 /articles/instrukcia_na_unilos_astra_ximiya.html	https://eco-set.ru/articles
+    Redirect 301 /articles/instrukcia_po_montaju_unilos.html	https://eco-set.ru/articles
+    Redirect 301 /articles/izobretenie_topas.html	https://eco-set.ru/articles
+    Redirect 301 /articles/jiroulovitel.html	https://eco-set.ru/articles
+    Redirect 301 /articles/kak_organizovat_sbros_ochischennoy_vody_zimoy.html	https://eco-set.ru/articles
+    Redirect 301 /articles/kanalizacia_svoimi_rukami_modniy_trend.html	https://eco-set.ru/articles
+    Redirect 301 /articles/kanalizacia_zagorodnogo_doma.html	https://eco-set.ru/articles
+    Redirect 301 /articles/kanalizaciya_konfort_i_udobstva.html	https://eco-set.ru/articles
+    Redirect 301 /articles/kanalizaciya_na_dache.html	https://eco-set.ru/articles
+    Redirect 301 /articles/kns.html	https://eco-set.ru/articles
+    Redirect 301 /articles/konservacia_septika.html	https://eco-set.ru/articles
+    Redirect 301 /articles/kuda_otvodit_kanalizacionnyy_stok.html	https://eco-set.ru/articles
+    Redirect 301 /articles/lokalnie_ochistnie_soorujenia.html	https://eco-set.ru/articles
+    Redirect 301 /articles/lokalnie_ochistnie_soorujeniya_princip_raboti_v_detalyah.html	https://eco-set.ru/articles
+    Redirect 301 /articles/montag_septika_dolgovechnost.html	https://eco-set.ru/articles
+    Redirect 301 /articles/montaj_septika_po_pravilam.html	https://eco-set.ru/articles
+    Redirect 301 /articles/montaj_topas_5_cena.html	https://eco-set.ru/articles
+    Redirect 301 /articles/montaj_topas5_svoimi_rukami.html	https://eco-set.ru/articles
+    Redirect 301 /articles/montazh_v_plivun.html	https://eco-set.ru/articles
+    Redirect 301 /articles/obslugivanie_topas.html	https://eco-set.ru/articles
+    Redirect 301 /articles/osnovy_raboty_stancii_biologicheskoy_ochistki.html	https://eco-set.ru/articles
+    Redirect 301 /articles/otvod_ochischennoy_vody_iz_septika.html	https://eco-set.ru/articles
+    Redirect 301 /articles/polya_filtracii.html	https://eco-set.ru/articles
+    Redirect 301 /articles/polzovateley_kanalizacii_menshe.html	https://eco-set.ru/articles
+    Redirect 301 /articles/popadanie_himii.html	https://eco-set.ru/articles
+    Redirect 301 /articles/preimushestva_biologicheskoi_ochistki_stokov.html	https://eco-set.ru/articles
+    Redirect 301 /articles/preimushestva_unilos_astra.html	https://eco-set.ru/articles
+    Redirect 301 /articles/princip_raboti_i_ustroistvo.html	https://eco-set.ru/articles
+    Redirect 301 /articles/rol_ziroulovitela.html	https://eco-set.ru/articles
+    Redirect 301 /articles/septik_dlya_dachi.html	https://eco-set.ru/articles
+    Redirect 301 /articles/septik_kupit_spb.html	https://eco-set.ru/articles
+    Redirect 301 /articles/septik_sistema_avtonomnoy_kanalizacii.html	https://eco-set.ru/articles
+    Redirect 301 /articles/septiki_dlya_dachi_spb.html	https://eco-set.ru/articles
+    Redirect 301 /articles/septil_cenaspb.html	https://eco-set.ru/articles
+    Redirect 301 /articles/servisnoe_obslugivanie_septika.html	https://eco-set.ru/articles
+    Redirect 301 /articles/sololift.html	https://eco-set.ru/articles
+    Redirect 301 /articles/sposob_kanalizacii_dlya_dachi.html	https://eco-set.ru/articles
+    Redirect 301 /articles/sposobi_montaja_avtonomnoy_kanalizacii.html	https://eco-set.ru/articles
+    Redirect 301 /articles/tehnicheskoe_obslujivanie_stancii_ochistki.html	https://eco-set.ru/articles
+    Redirect 301 /articles/topolwater.html	https://eco-set.ru/articles
+    Redirect 301 /articles/uehali_v_otpusk_chto_delat_s_avtonomnoy_kanalizaciey.html	https://eco-set.ru/articles
+    Redirect 301 /articles/uhod_za_stanciyey_biologicheskoy_ochistki_stochnykh_vod.html	https://eco-set.ru/articles
+    Redirect 301 /articles/uklon_truboprovoda.html	https://eco-set.ru/articles
+    Redirect 301 /articles/unilos_astra_5_luchshaya_model_v_ochstke.html	https://eco-set.ru/articles
+    Redirect 301 /articles/unilos_astra_8_kanalizacia.html	https://eco-set.ru/articles
+    Redirect 301 /articles/unilos_astra_izgotovlena_iz_luchshego_polipropilena.html	https://eco-set.ru/articles
+    Redirect 301 /articles/ustroistvo_avtonomnoi_kanalizacii_chastnogo_doma.html	https://eco-set.ru/articles
+    Redirect 301 /articles/vysokiy_uroven_gruntovyh_vod.html	https://eco-set.ru/articles
+    Redirect 301 /calc.html	https://eco-set.ru/
+    Redirect 301 /clients.html	https://eco-set.ru/
+    Redirect 301 /contacts.html	https://eco-set.ru/contacts
+    Redirect 301 /dealer.html	https://eco-set.ru/
+    Redirect 301 /feedback.html	https://eco-set.ru/reviews
+    Redirect 301 /gallery.html	https://eco-set.ru/ourWorks
+    Redirect 301 /gallery/kanalizacia_topas_8_montaj_pod_kluch/	https://eco-set.ru/ourWorks
+    Redirect 301 /gallery/montaj_kanalizacii_video/	https://eco-set.ru/ourWorks
+    Redirect 301 /gallery/servisnoe_obslujivanie_kanalizacii_foto/	https://eco-set.ru/ourWorks
+    Redirect 301 /gallery/unilos_astra_5_etapi_montaja/	https://eco-set.ru/ourWorks
+    Redirect 301 /gallery/unilos_foto/	https://eco-set.ru/ourWorks
+    Redirect 301 /leader.html	https://eco-set.ru/
+    Redirect 301 /lstroy/	https://eco-set.ru/
+    Redirect 301 /news.html	https://eco-set.ru/
+    Redirect 301 /news/dileri_kanalizacii.html	https://eco-set.ru/
+    Redirect 301 /news/izmeneniya_topas_septik.html	https://eco-set.ru/
+    Redirect 301 /news/kupit_topas_so_skidkoy_15.html	https://eco-set.ru/
+    Redirect 301 /news/montaj_kanalizacii_novosti_o_montaje.html	https://eco-set.ru/
+    Redirect 301 /news/new_22.html	https://eco-set.ru/
+    Redirect 301 /news/new_24.html	https://eco-set.ru/
+    Redirect 301 /news/new_25.html	https://eco-set.ru/
+    Redirect 301 /news/oficce_v_spb.html	https://eco-set.ru/
+    Redirect 301 /news/otziv_o_unilos_ili_topas.html	https://eco-set.ru/
+    Redirect 301 /news/pr_efir.html	https://eco-set.ru/
+    Redirect 301 /news/shef-montaj.html	https://eco-set.ru/
+    Redirect 301 /news/skidki_15.html	https://eco-set.ru/
+    Redirect 301 /news/unilos_astra5_v_nalichii.html	https://eco-set.ru/
+    Redirect 301 /online/astra5_gorelovo.html	https://eco-set.ru/
+    Redirect 301 /online/astra8_toriki.html	https://eco-set.ru/
+    Redirect 301 /online/astra8_vvisokomurovne.html	https://eco-set.ru/
+    Redirect 301 /online/septik_astra5_uteplyat.html	https://eco-set.ru/
+    Redirect 301 /online/unilos_ne_zamerzaet.html	https://eco-set.ru/
+    Redirect 301 /pay.html	https://eco-set.ru/howToBuy
+    Redirect 301 /stroy/article_11.html	https://eco-set.ru/articles
+    Redirect 301 /stroy/avtonomnie_sistemi_otopleniya_doma.html	https://eco-set.ru/articles
+    Redirect 301 /stroy/cat_11/	https://eco-set.ru/articles
+    Redirect 301 /stroy/cat_12/	https://eco-set.ru/articles
+    Redirect 301 /stroy/cat_13/	https://eco-set.ru/articles
+    Redirect 301 /stroy/elektricheskoe_otoplenie_doma_svoimi_rukami.html	https://eco-set.ru/articles
+    Redirect 301 /stroy/fundament_dachnogo_doma.html	https://eco-set.ru/articles
+    Redirect 301 /stroy/fundament_dly_bani.html	https://eco-set.ru/articles
+    Redirect 301 /stroy/fundament_i_gruntovie_vodi.html	https://eco-set.ru/articles
+    Redirect 301 /stroy/fundament_iz_gazobetona.html	https://eco-set.ru/articles
+    Redirect 301 /stroy/fundament_na_svayx.html	https://eco-set.ru/articles
+    Redirect 301 /stroy/fundament_zagorodnogo_doma/	https://eco-set.ru/articles
+    Redirect 301 /stroy/kak_rasschitat_funtdament.html	https://eco-set.ru/articles
+    Redirect 301 /stroy/kak_sdelat_fundament_dlya_doma_svoimi_rukami.html	https://eco-set.ru/articles
+    Redirect 301 /stroy/lentochniy_fundament.html	https://eco-set.ru/articles
+    Redirect 301 /stroy/montag_otoplenia_v_chastnom_dome.html	https://eco-set.ru/articles
+    Redirect 301 /stroy/otoplenie_doma/	https://eco-set.ru/articles
+    Redirect 301 /stroy/raschet_sistemi_otopleniya_doma.html	https://eco-set.ru/articles
+    Redirect 301 /stroy/shema_sistemi_otopleniya_chastnogo_doma.html	https://eco-set.ru/articles
+    Redirect 301 /stroy/solchenoe_otoplenie_dlya_doma_svoimi_rukami.html	https://eco-set.ru/articles
+    Redirect 301 /stroy/sovremennie_sistemi_otopleniya_chastnih_domov.html	https://eco-set.ru/articles
+    Redirect 301 /stroy/sploshnie_fundamenti.html	https://eco-set.ru/articles
+    Redirect 301 /stroy/stolbchatie_fundamenti.html	https://eco-set.ru/articles
+    Redirect 301 /stroy/vidi_fundamenta.html	https://eco-set.ru/articles
+    Redirect 301 /stroy/vodosnabjenie_zagorodnogo_doma/	https://eco-set.ru/articles
+    Redirect 301 /stroy/vodyanoe_otoplenie_doma_svoimi_rukami.html	https://eco-set.ru/articles
+    Redirect 301 /stroy/vozdushnoe_otoplenie_doma_svoimi_rukami.html	https://eco-set.ru/articles
+    Redirect 301 /uslugi.html	https://eco-set.ru/services
+    Redirect 301 /uslugi/dostavka.html	https://eco-set.ru/services
+    Redirect 301 /uslugi/konsultaciya_i_podbor.html	https://eco-set.ru/service/1
+    Redirect 301 /uslugi/montaj_pod_kluch.html	https://eco-set.ru/services
+    Redirect 301 /uslugi/servisnoe_obslujivanie.html	https://eco-set.ru/services
+    Redirect 301 /uslugi/shefmontaj.html	https://eco-set.ru/services
+    Redirect 301 /uslugi/vizov_ingenera.html	https://eco-set.ru/services
+    Redirect 301 /warranty.html	https://eco-set.ru/
+    Redirect 301 /catalog/cat_10/	https://eco-set.ru/
+    Redirect 301 /catalog/cat_12/	https://eco-set.ru/
+    Redirect 301 /catalog/cat_13/	https://eco-set.ru/
+    Redirect 301 /catalog/cat_14/	https://eco-set.ru/
+    Redirect 301 /catalog/cat_15/	https://eco-set.ru/
+    Redirect 301 /catalog/cat_17/	https://eco-set.ru/
+    Redirect 301 /catalog/cat_21/	https://eco-set.ru/
+    Redirect 301 /catalog/cat_24/	https://eco-set.ru/
+    Redirect 301 /catalog/cat_9/	https://eco-set.ru/catalog/mod/25
+    Redirect 301 /catalog/avarika.html	https://eco-set.ru/
+    Redirect 301 /catalog/biodeka/	https://eco-set.ru/catalog/1?manufacturer%5B%5D=8
+    Redirect 301 /catalog/blok_uprav.html	https://eco-set.ru/
+    Redirect 301 /catalog/bolt.html	https://eco-set.ru/
+    Redirect 301 /catalog/evrobion/	https://eco-set.ru/catalog/1?manufacturer%5B%5D=9
+    Redirect 301 /catalog/hiblow_hp.html	https://eco-set.ru/
+    Redirect 301 /catalog/jiroulavlivatel_otb/	https://eco-set.ru/
+    Redirect 301 /catalog/jiroulovitel_otb_long.html	https://eco-set.ru/
+    Redirect 301 /catalog/jiroulovitel_otb_standart.html	https://eco-set.ru/
+    Redirect 301 /catalog/klapan_mivalt.html	https://eco-set.ru/
+    Redirect 301 /catalog/komplektuyushie_na_avtonomnuyu_kanalizaciu/	https://eco-set.ru/catalog/4
+    Redirect 301 /catalog/kompressor_secoh.html	https://eco-set.ru/
+    Redirect 301 /catalog/pedrollo_top.html	https://eco-set.ru/product/598
+    Redirect 301 /catalog/topas/	https://eco-set.ru/catalog/1?manufacturer%5B%5D=7
+    Redirect 301 /catalog/unilos/	https://eco-set.ru/catalog/1?manufacturer%5B%5D=6
+    Redirect 301 /catalog/astra_10.html	https://eco-set.ru/product/23
+    Redirect 301 /catalog/astra_100.html	https://eco-set.ru/product/87
+    Redirect 301 /catalog/astra_15.html	https://eco-set.ru/product/29
+    Redirect 301 /catalog/astra_150.html	https://eco-set.ru/product/93
+    Redirect 301 /catalog/astra_20.html	https://eco-set.ru/product/35
+    Redirect 301 /catalog/astra_3.html	https://eco-set.ru/product/9
+    Redirect 301 /catalog/astra_30.html	https://eco-set.ru/product/41
+    Redirect 301 /catalog/astra_150.html	https://eco-set.ru/product/93
+    Redirect 301 /catalog/astra_20.html	https://eco-set.ru/product/35
+    Redirect 301 /catalog/astra_3.html	https://eco-set.ru/product/9
+    Redirect 301 /catalog/astra_30.html	https://eco-set.ru/product/41
+    Redirect 301 /catalog/astra_40.html	https://eco-set.ru/product/47
+    Redirect 301 /catalog/astra_5.html	https://eco-set.ru/product/11
+    Redirect 301 /catalog/astra_50.html	https://eco-set.ru/product/53
+    Redirect 301 /catalog/astra_75.html	https://eco-set.ru/product/81
+    Redirect 301 /catalog/astra_8.html	https://eco-set.ru/product/17
+    Redirect 301 /catalog/biodeka_5.html	https://eco-set.ru/product/155
+    Redirect 301 /catalog/evrobion_10r.html	https://eco-set.ru/product/234
+    Redirect 301 /catalog/evrobion_100.html	https://eco-set.ru/product/268
+    Redirect 301 /catalog/evrobion_15r.html	https://eco-set.ru/product/240
+    Redirect 301 /catalog/evrobion_20r.html	https://eco-set.ru/product/246
+    Redirect 301 /catalog/evrobion_30.html	https://eco-set.ru/product/252
+    Redirect 301 /catalog/evrobion_4r.html	https://eco-set.ru/product/213
+    Redirect 301 /catalog/evrobion_40.html	https://eco-set.ru/product/256
+    Redirect 301 /catalog/evrobion_5r.html	https://eco-set.ru/product/214
+    Redirect 301 /catalog/evrobion_50.html	https://eco-set.ru/product/260
+    Redirect 301 /catalog/evrobion_75.html	https://eco-set.ru/product/264
+    Redirect 301 /catalog/evrobion_8r.html	https://eco-set.ru/product/226
+    Redirect 301 /catalog/topas_10.html	https://eco-set.ru/product/121
+    Redirect 301 /catalog/topas_100.html	https://eco-set.ru/product/147
+    Redirect 301 /catalog/topas_12.html	https://eco-set.ru/product/125
+    Redirect 301 /catalog/topas_15.html	https://eco-set.ru/product/129
+    Redirect 301 /catalog/topas_150.html	https://eco-set.ru/product/149
+    Redirect 301 /catalog/topas_20.html	https://eco-set.ru/product/133
+    Redirect 301 /catalog/topas_30.html	https://eco-set.ru/product/137
+    Redirect 301 /catalog/topas_4.html	https://eco-set.ru/product/60
+    Redirect 301 /catalog/topas_40.html	https://eco-set.ru/product/141
+    Redirect 301 /catalog/topas_5.html	https://eco-set.ru/product/105
+    Redirect 301 /catalog/topas_50.html	https://eco-set.ru/product/143
+    Redirect 301 /catalog/topas_6.html	https://eco-set.ru/product/109
+    Redirect 301 /catalog/topas_75.html	https://eco-set.ru/product/145
+    Redirect 301 /catalog/topas_8.html	https://eco-set.ru/product/113
+    Redirect 301 /catalog/topas_9.html	https://eco-set.ru/product/117
 </IfModule>

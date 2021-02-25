@@ -1,0 +1,10 @@
+User-agent: *
+Disallow: /admin*
+Disallow: /catalog/index.html
+Disallow: /product/index.html
+Disallow: /images/
+Disallow: /search*
+Disallow: /*?price_from=
+Disallow: /*?manufacturer%5B%5D=
+
+Sitemap: https://eco-set.ru/sitemap.xml

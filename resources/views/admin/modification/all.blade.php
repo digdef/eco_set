@@ -6,6 +6,7 @@
 @section('content')
     <h4>Модификации</h4>
     <a class="btn btn-success" href="/admin/modification/{{ $id }}/add">Добавить</a>
+    <a class="btn btn-success" href="/admin/modification/{{ $id }}/ceo">SEO текст</a>
     <table class="table text-center">
         <thead>
         <tr>

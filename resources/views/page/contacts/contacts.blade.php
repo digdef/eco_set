@@ -1,11 +1,11 @@
 @extends('index')
 @section('meta')
-    <title>Контакты</title>
-    <meta name="description" lang="ru" content="ДСВ – Інновації для Вашого успіху">
-    <meta name="keywords" content="ДСВ – Інновації для Вашого успіху">
-    <meta property="og:title" content="ДСВ – Інновації для Вашого успіху">
-    <meta property="og:type" content="ДСВ – Інновації для Вашого успіху">
-    <meta property="og:description" content="ДСВ – Інновації для Вашого успіху">
+    <title>{{ $seo->meta_title ?? 'Контакты' }}</title>
+    <meta name="description" lang="ru" content="{{ $seo->meta_description ?? 'ДСВ – Інновації для Вашого успіху' }}">
+
+    <meta property="og:title" content="{{ $seo->meta_title ?? 'Контакты' }}">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="{{ $seo->meta_description ?? 'ДСВ – Інновації для Вашого успіху' }}">
 @endsection
 
 @section('content')
@@ -57,7 +57,7 @@
                         </div>
                     </div>
                     <div class="contacts-map">
-                        <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A16967e4407394c73724948b6f566b2f1983bd57fe7937c97d9aa04101f4d1094&amp;source=constructor" width="100%" height="400" frameborder="0"></iframe>
+                        <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A16967e4407394c73724948b6f566b2f1983bd57fe7937c97d9aa04101f4d1094&amp;source=constructor" width="100%" height="600" frameborder="0"></iframe>
                     </div>
                 </div>
             </div>

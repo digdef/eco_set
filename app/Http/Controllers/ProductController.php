@@ -264,7 +264,6 @@ class ProductController extends Controller
             $orderBy_val = 'asc';
         }
 
-
         $products = $productsQuery->where('category', $cat)->orderBy('persons', 'asc')->orderBy($orderBy_name, $orderBy_val)->paginate(12);
 
 
@@ -334,12 +333,12 @@ class ProductController extends Controller
         $url = $_SERVER['REQUEST_URI'];
 
 	    $ceo_text->meta_title = $this->getTemplatedString(
-		    empty($ceo_text->meta_title)?$cat_title:$ceo_text->meta_title,
+		    empty($product->meta_title)? $ceo_text->meta_title ? $ceo_text->meta_title : $cat_title:$product->meta_title,
 		    self::CATEGORY_TITLE_TEMPLATE,
 		    '{DB_TITLE}'
 	    );
 	    $ceo_text->meta_description = $this->getTemplatedString(
-	    	empty($ceo_text->meta_description)?$cat_title:$ceo_text->meta_description,
+	    	empty($ceo_text->meta_description)? $ceo_text->meta_description ? $ceo_text->meta_description : $cat_title :$ceo_text->meta_description,
 		    self::CATEGORY_DESCRIPTION_TEMPLATE,
 		    '{DB_DESCRIPTION}'
 	    );
@@ -369,9 +368,32 @@ class ProductController extends Controller
     {
         $hint = Hints::where('id', 1)->first();
 
-        $modification = Category::find($mod);
+        $modification = Category::where('url', $mod)->orwhere('id', $mod)->first();
+
+        if ($modification->url != null && $modification->id == $mod) {
+            return redirect('catalog/mod/' . $modification->url);
+        }
+
+        $mod = $modification->id;
 
         $cat = $modification->type;
+        $cat_name = '';
+        if ($cat == 1) {
+            $cat_name = self::CATEGORY_SEPTICS;
+            $cat_url = 'septic';
+        } elseif ($cat == 2) {
+            $cat_name = self::CATEGORY_CELLARS;
+            $cat_url = 'cellars';
+        } elseif ($cat == 3) {
+            $cat_name = self::CATEGORY_WATER;
+            $cat_url = 'water';
+        } elseif ($cat == 4) {
+            $cat_name = self::CATEGORY_ACCESSORIES;
+            $cat_url = 'accessories';
+        }
+
+
+        $filter = false;
 
         $productsQuery = Product::query();
         $prod = collect([]);
@@ -445,20 +467,62 @@ class ProductController extends Controller
 
         if ($cat == 1) {
             $template = 'page.catalog.catalog';
-            $ceo_text = CeoText::where('id_content', $modification->id)->first();
+            $ceo_text = CeoText::where('id_content', $modification->id)->where('type', 'mod')->first();
+            $ceo_text->meta_title = self::CATEGORY_SEPTICS;
+            $ceo_text->meta_description = self::CATEGORY_SEPTICS;
         } elseif ($cat == 2) {
             $template = 'page.catalog.catalog_cellars';
-            $ceo_text = CeoText::where('id_content', $modification->id)->first();
+            $ceo_text = CeoText::where('id_content', $modification->id)->where('type', 'mod')->first();
+            $ceo_text->meta_title = self::CATEGORY_CELLARS;
+            $ceo_text->meta_description = self::CATEGORY_CELLARS;
         } elseif ($cat == 3) {
             $template = 'page.catalog.catalog_water';
-            $ceo_text = CeoText::where('id', 2)->first();
+            $ceo_text = CeoText::where('id', 2)->where('type', 'mod')->first();
+            $ceo_text->meta_title = self::CATEGORY_WATER;
+            $ceo_text->meta_description = self::CATEGORY_WATER;
         } elseif ($cat == 4) {
             $template = 'page.catalog.catalog_accessories';
-            $ceo_text = CeoText::where('id_content', $modification->id)->first();
+            $ceo_text = CeoText::where('id_content', $modification->id)->where('type', 'mod')->first();
+            $ceo_text->meta_title = self::CATEGORY_ACCESSORIES;
+            $ceo_text->meta_description = self::CATEGORY_ACCESSORIES;
         }
 
+        if ($modification->meta_title) {
+            $ceo_text->meta_title = $modification->meta_title;
+        }
+        if ($modification->meta_title) {
+            $ceo_text->meta_description = $modification->meta_description;
+        }
 
-        return view($template, compact('products', 'hint', 'orderBy_val', 'orderBy_name', 'favorites_user', 'comparisons_user', 'prod', 'categories', 'price_min', 'price_max', 'stockToProducts', 'stock', 'ceo_text', 'cat', 'modification'));
+        $ceo_text->meta_title = $this->getTemplatedString(
+            $cat_name.' '.$modification->title,
+            self::CATEGORY_TITLE_TEMPLATE,
+            '{DB_TITLE}'
+        );
+        $ceo_text->meta_description = $this->getTemplatedString(
+            $cat_name.' '.$modification->title,
+            self::PRODUCT_DESCRIPTION_TEMPLATE,
+            '{DB_DESCRIPTION}'
+        );
+        return view($template, compact(
+            'products',
+            'hint',
+            'orderBy_val',
+            'orderBy_name',
+            'favorites_user',
+            'comparisons_user',
+            'prod',
+            'categories',
+            'price_min',
+            'price_max',
+            'stockToProducts',
+            'stock',
+            'ceo_text',
+            'cat',
+            'modification',
+            'filter',
+            'cat_url'
+        ));
     }
 
     public function filter(Request $request, $cat)
@@ -476,6 +540,8 @@ class ProductController extends Controller
             $cat = 4;
             $cat_url = 'accessories';
         }
+
+
 
         $productsQuery = Product::query();
 
@@ -665,7 +731,6 @@ class ProductController extends Controller
             $orderBy_name = 'price';
             $orderBy_val = 'asc';
         }
-
 
         $products = $productsQuery->where('category', $cat)->orderBy('persons', 'asc')->orderBy($orderBy_name, $orderBy_val)->paginate(12);
 
@@ -1019,17 +1084,21 @@ class ProductController extends Controller
             ->get();
 
         $create_seo_text = function () use ($id){
-            $finded_text = CeoText::where('id_content', $id)->first();
-            return (empty($finded_text)?new CeoText():$finded_text);
+        	$finded_text = CeoText::where('id_content', $id)->where('type', NULL)->first();
+        	return (empty($finded_text)?new CeoText():$finded_text);
         };
-        $ceo_text = $create_seo_text();
-	    $ceo_text->meta_title = $this->getTemplatedString(
-	    	(empty($ceo_text->meta_title)?$product->title:$ceo_text->meta_title),
-		    self::PRODUCT_TITLE_TEMPLATE,
-		    '{DB_TITLE}'
-	    );
+	    $ceo_text = $create_seo_text();
+        if (!$product->meta_title) {
+            $ceo_text->meta_title = $this->getTemplatedString(
+                (empty($product->meta_title)?$product->title:$product->meta_title),
+                self::PRODUCT_TITLE_TEMPLATE,
+                '{DB_TITLE}'
+            );
+        } else {
+            $ceo_text->meta_title = $product->meta_title;
+        }
 	    $ceo_text->meta_description = $this->getTemplatedString(
-	    	(empty($ceo_text->meta_description)?$product->title:$ceo_text->meta_description),
+	    	(empty($product->meta_description)?$product->title:$product->meta_description),
 		    self::PRODUCT_DESCRIPTION_TEMPLATE,
 		    '{DB_DESCRIPTION}'
 	    );
@@ -1143,7 +1212,31 @@ class ProductController extends Controller
 
         $mod = 0;
 
-        return view('page.price.price_septics', compact('categories', 'products', 'mod', 'cat'));
+
+
+        if ($cat == 1) {
+            $cat_url = 'septic';
+        } elseif ($cat == 2) {
+            $cat_url = 'cellars';
+        } elseif ($cat == 3) {
+            $cat_url = 'water';
+        } elseif ($cat == 4) {
+            $cat_url = 'accessories';
+        } else {
+            $cat_url = false;
+        }
+
+
+        if ($cat_url) {
+            $categ = CeoText::where('type', $cat_url)->first();
+        } else {
+            $categ  = false;
+        }
+
+
+        $ceo_text = $this->getPriceListCeoText($cat);
+
+        return view('page.price.price_septics', compact('categories', 'products', 'mod', 'cat', 'categ', 'ceo_text'));
     }
 
     public function price_list_modification($mod)
@@ -1170,9 +1263,105 @@ class ProductController extends Controller
 
         $cat = $category->type;
 
-        return view('page.price.price_septics', compact('categories', 'products', 'mod', 'cat'));
-    }
+        $categ = $category;
 
+        $ceo_text = $this->getPriceListCeoText($mod);
+
+        return view('page.price.price_septics', compact('categories', 'products', 'mod', 'cat', 'categ', 'ceo_text'));
+    }
+    private function getPriceListCeoText ($cat_id = null){
+        $ceo_text = new CeoText();
+        switch ($cat_id){
+            case 1:
+                $ceo_text->meta_title       = 'Цены на септики';
+                $ceo_text->meta_description = 'Цены на септики. Купить септик с доставкой, монтажом и последующим обслуживанием. Официальный дилер ведущих производителей септиков для автономной канализации.';
+                break;
+            case 3:
+                $ceo_text->meta_title       = 'Цены на услуги водоснабжения';
+                $ceo_text->meta_description = 'Цены на услуги водоснабжения для загородного дома и дачи. Опытные мастера подберут оборудование и проведут водопровод в ваш дом. Окончательная смета – в день осмотра участка.';
+                break;
+            case 4:
+                $ceo_text->meta_title       = 'Цены на комплектующие для септиков';
+                $ceo_text->meta_description = 'Цены на комплектующие для септиков. Купить септик с доставкой, монтажом и последующим обслуживанием. Официальный дилер ведущих производителей септиков для автономной канализации.';
+                break;
+            case 5:
+                $ceo_text->meta_title       = 'Цены на обслуживание септиков';
+                $ceo_text->meta_description = 'Цены на обслуживание септиков. Купить септик с доставкой, монтажом и последующим обслуживанием. Официальный дилер ведущих производителей септиков для автономной канализации.';
+                break;
+            case 6:
+                $ceo_text->meta_title       = 'Цены на септики Астра';
+                $ceo_text->meta_description = 'Цены на септики Астра. Купить септик с доставкой, монтажом и последующим обслуживанием. Официальный дилер ведущих производителей септиков для автономной канализации.';
+                break;
+            case 7:
+                $ceo_text->meta_title       = 'Цены на септики Топас';
+                $ceo_text->meta_description = 'Цены на септики Топас. Купить септик с доставкой, монтажом и последующим обслуживанием. Официальный дилер ведущих производителей септиков для автономной канализации.';
+                break;
+            case 8:
+                $ceo_text->meta_title       = 'Цены на септики Биодека';
+                $ceo_text->meta_description = 'Цены на септики Биодека. Купить септик с доставкой, монтажом и последующим обслуживанием. Официальный дилер ведущих производителей септиков для автономной канализации.';
+                break;
+            case 9:
+                $ceo_text->meta_title       = 'Цены на септики Евробион';
+                $ceo_text->meta_description = 'Цены на септики Евробион. Купить септик с доставкой, монтажом и последующим обслуживанием. Официальный дилер ведущих производителей септиков для автономной канализации.';
+                break;
+            case 10:
+                $ceo_text->meta_title       = 'Цены на септики Волгарь';
+                $ceo_text->meta_description = 'Цены на септики Волгарь. Купить септик с доставкой, монтажом и последующим обслуживанием. Официальный дилер ведущих производителей септиков для автономной канализации.';
+                break;
+            case 11:
+                $ceo_text->meta_title       = 'Цены на септики Genesis';
+                $ceo_text->meta_description = 'Цены на септики Genesis. Купить септик с доставкой, монтажом и последующим обслуживанием. Официальный дилер ведущих производителей септиков для автономной канализации.';
+                break;
+            case 12:
+                $ceo_text->meta_title       = 'Цены на септики BioDevice';
+                $ceo_text->meta_description = 'Цены на септики BioDevice. Купить септик с доставкой, монтажом и последующим обслуживанием. Официальный дилер ведущих производителей септиков для автономной канализации.';
+                break;
+            case 13:
+                $ceo_text->meta_title       = 'Цены на септики Евролос ПРО';
+                $ceo_text->meta_description = 'Цены на септики Евролос ПРО. Купить септик с доставкой, монтажом и последующим обслуживанием. Официальный дилер ведущих производителей септиков для автономной канализации.';
+                break;
+            case 16:
+                $ceo_text->meta_title       = 'Цены на септики Евролос БИО';
+                $ceo_text->meta_description = 'Цены на септики Евролос БИО. Купить септик с доставкой, монтажом и последующим обслуживанием. Официальный дилер ведущих производителей септиков для автономной канализации.';
+                break;
+            case 17:
+                $ceo_text->meta_title       = 'Цены на септики Kolo Vesi';
+                $ceo_text->meta_description = 'Цены на септики Kolo Vesi. Купить септик с доставкой, монтажом и последующим обслуживанием. Официальный дилер ведущих производителей септиков для автономной канализации.';
+                break;
+            case 18:
+                $ceo_text->meta_title       = 'Цены на септики Garda';
+                $ceo_text->meta_description = 'Цены на септики Garda. Купить септик с доставкой, монтажом и последующим обслуживанием. Официальный дилер ведущих производителей септиков для автономной канализации.';
+                break;
+            case 20:
+                $ceo_text->meta_title       = 'Цены на септики Далос';
+                $ceo_text->meta_description = 'Цены на септики Далос. Купить септик с доставкой, монтажом и последующим обслуживанием. Официальный дилер ведущих производителей септиков для автономной канализации.';
+                break;
+            case 21:
+                $ceo_text->meta_title       = 'Цены на погреба Тингард';
+                $ceo_text->meta_description = 'Цены на погреба Тингард. Купить погреб с доставкой, монтажом и последующим обслуживанием. Официальный дилер ведущих производителей погребов для автономной канализации.';
+                break;
+            case 22:
+                $ceo_text->meta_title       = 'Цены на погреба Kellari';
+                $ceo_text->meta_description = 'Цены на погреба Kellari. Купить погреб с доставкой, монтажом и последующим обслуживанием. Официальный дилер ведущих производителей погребов для автономной канализации.';
+                break;
+            case 23:
+                $ceo_text->meta_title       = 'Цены на погреба Топас';
+                $ceo_text->meta_description = 'Цены на погреба Топас. Купить погреб с доставкой, монтажом и последующим обслуживанием. Официальный дилер ведущих производителей погребов для автономной канализации.';
+                break;
+            case 24:
+                $ceo_text->meta_title       = 'Цены на погреба Kelder';
+                $ceo_text->meta_description = 'Цены на погреба Kelder. Купить погреб с доставкой, монтажом и последующим обслуживанием. Официальный дилер ведущих производителей погребов для автономной канализации.';
+                break;
+            case 25:
+                $ceo_text->meta_title       = 'Цены на дренажные насосы для септиков';
+                $ceo_text->meta_description = 'Цены на дренажные насосы для септиков. Купить септик с доставкой, монтажом и последующим обслуживанием. Официальный дилер ведущих производителей септиков для автономной канализации.';
+                break;
+            default:
+                $ceo_text->meta_title       = 'Цены eco-set';
+                $ceo_text->meta_description = 'Цены eco-set. Официальный дилер ведущих производителей септиков для автономной канализации.';
+        }
+        return $ceo_text;
+    }
     public function search(Request $request)
     {
         $products = Product::where('category', 1)->get();
@@ -1281,15 +1470,21 @@ class ProductController extends Controller
     {
         $waters = Water::all();
 
-        return view('page.catalog.catalog_water', compact('waters'));
+        $ceo_text = CeoText::where('type', 'waters')->first();
+
+        return view('page.catalog.catalog_water', compact('waters', 'ceo_text'));
     }
 
-    public function water_page($id)
+    public function water_page($url)
     {
-        $water = Water::find($id);
+        $water = Water::where('url', $url)->orwhere('id', $url)->first();
 
         if (!$water) {
             return view('404');
+        }
+
+        if ($water->url != null && $water->id == $url) {
+            return redirect('water/' . $water->url);
         }
 
         return view('page.catalog.water', compact('water'));

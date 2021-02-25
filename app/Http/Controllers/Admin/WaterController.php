@@ -50,7 +50,10 @@ class WaterController extends AppBaseController
             'title' => $input['title'],
             'img' => $userfileFullName,
             'description' => $input['description'],
-            'pinterest' => $input['pinterest']
+            'pinterest' => $input['pinterest'],
+            'url' => $input['url'],
+            'meta_title' => $input['meta_title'] ?? null,
+            'meta_description' => $input['meta_description'] ?? null
         ]);
 
 
@@ -81,7 +84,10 @@ class WaterController extends AppBaseController
             'title' => $input['title'],
             'img' => $userfileFullName,
             'description' => $input['description'],
-            'pinterest' => $input['pinterest']
+            'pinterest' => $input['pinterest'],
+            'url' => $input['url'],
+            'meta_title' => $input['meta_title'] ?? null,
+            'meta_description' => $input['meta_description'] ?? null
         ]);
 
         return back();

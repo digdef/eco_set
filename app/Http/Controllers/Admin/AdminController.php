@@ -301,7 +301,9 @@ class AdminController extends AppBaseController
             'title1' => $request->title1,
             'title2' => $request->title3,
             'title3' => $request->title3,
-            'title4' => $request->title4
+            'title4' => $request->title4,
+            'meta_title' => $request->meta_title,
+            'meta_description' => $request->meta_description
         ]);
 
         $links = CeoTextLink::where('id_ceo', 1)->get();

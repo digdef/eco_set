@@ -43,7 +43,7 @@ class ProductController extends AppBaseController
 
         $modification = Modification::find($product->modification);
 
-        $ceo_text = CeoText::where('id_content', $id)->first();
+        $ceo_text = CeoText::where('id_content', $id)->where('type', NULL)->first();
 
         if (isset($ceo_text)) {
             $links = CeoTextLink::where('id_ceo', $ceo_text->id)->get();
@@ -137,47 +137,49 @@ class ProductController extends AppBaseController
         $objProduct = new Product();
 
         $objProduct = $objProduct->create([
-            'title' => $input['title'] ?? '',
-            'header_note' => $input['header_note'] ?? '',
-            'img' => $userfileFullName ?? '',
-            'wiring_diagram' => $userPdfFullName1 ?? '',
-            'technical_certificate' => $userPdfFullName2 ?? '',
-            'price' => $input['price'] ?? '',
-            'thumbnail' => $input['thumbnail'] ?? '',
-            'description' => $input['description'] ?? '',
-            'insert_depth' => $input['insert_depth'] ?? '',
-            'reset_type' => $input['reset_type'] ?? '',
-            'modification' => $input['modification'] ?? '',
-            'type_of_drainage' => $input['type_of_drainage'] ?? '',
-            'performance' => $input['performance'] ?? '',
-            'salvo_discharge' => $input['salvo_discharge'] ?? '',
-            'electricity_consumption' => $input['electricity_consumption'] ?? '',
-            'weight' => $input['weight'] ?? '',
-            'mounting' => $input['mounting'] ?? '',
-            'dimensions' => $input['dimensions'] ?? '',
+            'title' => $input['title'] ?? null,
+            'header_note' => $input['header_note'] ?? null,
+            'img' => $userfileFullName ?? null,
+            'wiring_diagram' => $userPdfFullName1,
+            'technical_certificate' => $userPdfFullName2,
+            'price' => $input['price'] ?? null,
+            'thumbnail' => $input['thumbnail'] ?? null,
+            'description' => $input['description'] ?? null,
+            'insert_depth' => $input['insert_depth'] ?? null,
+            'reset_type' => $input['reset_type'] ?? null,
+            'modification' => $input['modification'] ?? null,
+            'type_of_drainage' => $input['type_of_drainage'] ?? null,
+            'performance' => $input['performance'] ?? null,
+            'salvo_discharge' => $input['salvo_discharge'] ?? null,
+            'electricity_consumption' => $input['electricity_consumption'] ?? null,
+            'weight' => $input['weight'] ?? null,
+            'mounting' => $input['mounting'] ?? null,
+            'dimensions' => $input['dimensions'] ?? null,
             'sink' => $input['sink'] ?? null,
             'bath' => $input['bath'] ?? null,
             'toilet' => $input['toilet'] ?? null,
             'washer' => $input['washer'] ?? null,
             'shower' => $input['shower'] ?? null,
-            'action' => $action ?? '',
-            'new' => $new ?? '',
-            'top' => $top ?? '',
-            'advise' => $advise ?? '',
-            'category' => $category->type ?? '',
-            'persons' => $input['persons'] ?? '',
-            'type_of_shell' => $input['type_of_shell'] ?? '',
-            'type_septic' => $input['type_septic'] ?? '',
-            'manufacturer' => $modification->category ?? '',
-            'elongate' => $input['elongate'] ?? '',
-            'anchor' => $input['anchor'] ?? '',
-            'equipment' => $input['equipment'] ?? '',
-            'entrance_size' => $input['entrance_size'] ?? '',
-            'useful_volume' => $input['useful_volume'] ?? '',
-            'pinterest' => $input['pinterest'] ?? '',
+            'action' => $action ?? null,
+            'new' => $new ?? null,
+            'top' => $top ?? null,
+            'advise' => $advise ?? null,
+            'category' => $category->type ?? null,
+            'persons' => $input['persons'] ?? null,
+            'type_of_shell' => $input['type_of_shell'] ?? null,
+            'type_septic' => $input['type_septic'] ?? null,
+            'manufacturer' => $modification->category ?? null,
+            'elongate' => $input['elongate'] ?? null,
+            'anchor' => $input['anchor'] ?? null,
+            'equipment' => $input['equipment'] ?? null,
+            'entrance_size' => $input['entrance_size'] ?? null,
+            'useful_volume' => $input['useful_volume'] ?? null,
+            'pinterest' => $input['pinterest'] ?? null,
             'url' => $input['url'] ?? null,
-            'meta_title' => $input['meta_title'] ?? '',
-            'meta_description' => $input['meta_description'] ?? ''
+            'meta_title' => $input['meta_title'] ?? null,
+            'meta_description' => $input['meta_description'] ?? null,
+            'youtube' => $input['youtube'] ?? null,
+            'youtube_description' => $input['youtube_description'] ?? null
         ]);
 
 
@@ -278,52 +280,54 @@ class ProductController extends AppBaseController
         $objProduct = new Product();
 
         $objProduct = $objProduct->where('id', '=', $input['id'])->update([
-            'title' => $input['title'] ?? '',
-            'header_note' => $input['header_note'] ?? '',
-            'img' => $userfileFullName ?? '',
-            'wiring_diagram' => $userPdfFullName1 ?? '',
-            'technical_certificate' => $userPdfFullName2 ?? '',
-            'price' => $input['price'] ?? '',
-            'thumbnail' => $input['thumbnail'] ?? '',
-            'description' => $input['description'] ?? '',
-            'insert_depth' => $input['insert_depth'] ?? '',
-            'reset_type' => $input['reset_type'] ?? '',
-            'modification' => $input['modification'] ?? '',
-            'type_of_drainage' => $input['type_of_drainage'] ?? '',
-            'performance' => $input['performance'] ?? '',
-            'salvo_discharge' => $input['salvo_discharge'] ?? '',
-            'electricity_consumption' => $input['electricity_consumption'] ?? '',
-            'weight' => $input['weight'] ?? '',
-            'mounting' => $input['mounting'] ?? '',
-            'dimensions' => $input['dimensions'] ?? '',
+            'title' => $input['title'] ?? null,
+            'header_note' => $input['header_note'] ?? null,
+            'img' => $userfileFullName ?? null,
+            'wiring_diagram' => $userPdfFullName1,
+            'technical_certificate' => $userPdfFullName2,
+            'price' => $input['price'] ?? null,
+            'thumbnail' => $input['thumbnail'] ?? null,
+            'description' => $input['description'] ?? null,
+            'insert_depth' => $input['insert_depth'] ?? null,
+            'reset_type' => $input['reset_type'] ?? null,
+            'modification' => $input['modification'] ?? null,
+            'type_of_drainage' => $input['type_of_drainage'] ?? null,
+            'performance' => $input['performance'] ?? null,
+            'salvo_discharge' => $input['salvo_discharge'] ?? null,
+            'electricity_consumption' => $input['electricity_consumption'] ?? null,
+            'weight' => $input['weight'] ?? null,
+            'mounting' => $input['mounting'] ?? null,
+            'dimensions' => $input['dimensions'] ?? null,
             'sink' => $input['sink'] ?? null,
             'bath' => $input['bath'] ?? null,
             'toilet' => $input['toilet'] ?? null,
             'washer' => $input['washer'] ?? null,
             'shower' => $input['shower'] ?? null,
-            'action' => $action ?? '',
-            'new' => $new ?? '',
-            'top' => $top ?? '',
-            'advise' => $advise ?? '',
-            'category' => $category->type ?? '',
-            'persons' => $input['persons'] ?? '',
-            'type_of_shell' => $input['type_of_shell'] ?? '',
-            'type_septic' => $input['type_septic'] ?? '',
-            'manufacturer' => $modification->category ?? '',
-            'elongate' => $input['elongate'] ?? '',
-            'anchor' => $input['anchor'] ?? '',
-            'equipment' => $input['equipment'] ?? '',
-            'entrance_size' => $input['entrance_size'] ?? '',
-            'useful_volume' => $input['useful_volume'] ?? '',
-            'pinterest' => $input['pinterest'] ?? '',
+            'action' => $action ?? null,
+            'new' => $new ?? null,
+            'top' => $top ?? null,
+            'advise' => $advise ?? null,
+            'category' => $category->type ?? null,
+            'persons' => $input['persons'] ?? null,
+            'type_of_shell' => $input['type_of_shell'] ?? null,
+            'type_septic' => $input['type_septic'] ?? null,
+            'manufacturer' => $modification->category ?? null,
+            'elongate' => $input['elongate'] ?? null,
+            'anchor' => $input['anchor'] ?? null,
+            'equipment' => $input['equipment'] ?? null,
+            'entrance_size' => $input['entrance_size'] ?? null,
+            'useful_volume' => $input['useful_volume'] ?? null,
+            'pinterest' => $input['pinterest'] ?? null,
             'url' => $input['url'] ?? null,
-            'meta_title' => $input['meta_title'] ?? '',
-            'meta_description' => $input['meta_description'] ?? ''
+            'meta_title' => $input['meta_title'] ?? null,
+            'meta_description' => $input['meta_description'] ?? null,
+            'youtube' => $input['youtube'] ?? null,
+            'youtube_description' => $input['youtube_description'] ?? null
         ]);
 
-        if (CeoText::where('id_content', '=', $input['id'])->first())
+        if (CeoText::where('id_content', '=', $input['id'])->where('type', NULL)->first())
         {
-            CeoText::where('id_content', $input['id'])->update([
+            CeoText::where('id_content', $input['id'])->where('type', NULL)->update([
                 'text1' => $request->text1,
                 'text2' => $request->text2,
                 'text3' => $request->text3,
@@ -350,7 +354,7 @@ class ProductController extends AppBaseController
         }
 
 
-        $CeoText = CeoText::where('id_content', '=', $input['id'])->first();
+        $CeoText = CeoText::where('id_content', '=', $input['id'])->where('type', NULL)->first();
 
         $links = CeoTextLink::where('id_ceo', $CeoText->id)->get();
 

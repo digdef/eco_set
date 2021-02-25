@@ -13,7 +13,9 @@ class Services extends Model
     protected $fillable = [
         'title',
         'img',
-        'description'
+        'description',
+        'meta_title',
+        'meta_description'
     ];
 
     protected $dates = [

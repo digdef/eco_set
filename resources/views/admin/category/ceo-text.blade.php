@@ -48,6 +48,33 @@
             </div>
 
 
+
+
+
+
+            <div class="form-row">
+                <div class="form-group col-12">
+                    <label for="title_price">Заголовок на станице цен</label>
+                    <input class="form-control" type="text" name="title_price" id="title_price" value="{{ $ceo_text->title_price }}">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-6 col-sm-12">
+                    <label for="meta_title_price">title на станице цен</label>
+                    <input name="meta_title_price" id="meta_title_price" class="form-control" type="text"
+                           value="{{ $ceo_text->meta_title_price }}">
+                </div>
+                <div class="form-group col-md-6 col-sm-12">
+                    <label for="meta_description_price">description на станице цен</label>
+                    <input name="meta_description_price" id="meta_description_price" class="form-control" type="text"
+                           value="{{ $ceo_text->meta_description_price }}">
+                </div>
+            </div>
+
+
+
+
             <div class="form-row">
                 <div class="form-group col-md-6 col-sm-12">
                     <label for="meta_title">title</label>

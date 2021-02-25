@@ -11,7 +11,7 @@ class ServicesController extends AppBaseController
     {
         $services = Services::all();
 
-        return view('admin.services.all', compact('services', 'id'));
+        return view('admin.services.all', compact('services'));
     }
 
     public function create()
@@ -49,7 +49,9 @@ class ServicesController extends AppBaseController
         $objServices->create([
             'title' => $input['title'],
             'img' => $userfileFullName,
-            'description' => $input['description']
+            'description' => $input['description'],
+            'meta_title' => $input['meta_title'] ?? null,
+            'meta_description' => $input['meta_description'] ?? null
         ]);
 
 
@@ -79,7 +81,9 @@ class ServicesController extends AppBaseController
         $objServices->where('id', '=', $input['id'])->update([
             'title' => $input['title'],
             'img' => $userfileFullName,
-            'description' => $input['description']
+            'description' => $input['description'],
+            'meta_title' => $input['meta_title'] ?? null,
+            'meta_description' => $input['meta_description'] ?? null
         ]);
 
         return back();

@@ -22,8 +22,13 @@ class CeoText extends Model
         'title3',
         'title4',
         'id_content',
+        'id_modification',
         'meta_title',
-        'meta_description'
+        'meta_description',
+        'meta_description_price',
+        'meta_title_price',
+        'title_price',
+        'type'
     ];
 
     protected $dates = [

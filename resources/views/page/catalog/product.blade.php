@@ -2,7 +2,7 @@
 @section('meta')
     <title>{{ $ceo_text->meta_title }}</title>
     <meta name="description" lang="ru" content="{{ $ceo_text->meta_description }}">
-    <meta name="keywords" content="ДСВ – Інновації для Вашого успіху">
+
     <meta property="og:title" content="{{ $product->meta_title ?? $product->title }}">
     <meta property="og:type" content="ДСВ – Інновації для Вашого успіху">
     <meta property="og:description" content="{{ $product->meta_description ?? $product->title }}">
@@ -288,8 +288,10 @@
                                 <div class="article-share-cnt">
                                     <a href="https://twitter.com/intent/tweet?url={{ url()->current() }}"><img
                                                 src="/images/twitter.svg" alt="twitter"></a>
-                                    <a href="{{ $product->pinterest ?? '#' }}"><img src="/images/pintarest.svg"
-                                                                                    alt="pintarest"></a>
+                                    @if($product->pinterest)
+                                        <a href="{{ $product->pinterest ?? '#' }}"><img src="/images/pintarest.svg"
+                                                                                        alt="pintarest"></a>
+                                    @endif
                                     <a href="https://www.linkedin.com/cws/share/?url={{ url()->current() }}"><img
                                                 src="/images/linkedin.svg" alt="linkedin"></a>
                                     <a href="https://www.facebook.com/sharer.php?u={{ url()->current() }}"><img
@@ -906,7 +908,20 @@
                             </div>
                         </div>
                     </div>
-                    @if($category->type == 2)
+                    @if($product->youtube_description || $product->youtube)
+                        <div class="product-youtube">
+                            <div class="card-description article">
+                                {!! $product->youtube_description !!}
+                            </div>
+                            <div class="card-description article">
+                                <iframe class="b-lazy" data-src="{{ $product->youtube }}"
+                                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                        allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    @endif
+
+                    @if($category->type == 1)
                         <div class="table-wrap">
                             <h4>Модификации продукции</h4>
                             <div class="table">
@@ -939,6 +954,38 @@
                 </div>
             </div>
         </div>
+        <div class="infoblock">
+            <div class="wrapper">
+{{--                <a href="index.html" class="logo"><img src="/images/logo.svg" alt="logo"></a>--}}
+                <div class="infoblock-cnt">
+                    <div class="infoblock-row">
+                        <div class="infoblock-column">
+                            <div class="paragraph-item">
+                                <h5>{{ $ceo_text->title1 ?? '' }}</h5>
+                                <p>{!!  $ceo_text->text1 ?? '' !!}</p>
+                            </div>
+                            <div class="paragraph-item">
+                                <h5>{{ $ceo_text->title2 ?? '' }}</h5>
+                                <p>{!!  $ceo_text->text2 ?? '' !!}</p>
+                            </div>
+                        </div>
+                        <div class="infoblock-column">
+                            <div class="paragraph-item">
+                                <h5>{{ $ceo_text->title3 ?? '' }}</h5>
+                                <p>{!!  $ceo_text->text3 ?? '' !!}</p>
+                            </div>
+                            <div class="paragraph-item">
+                                <h5>{{ $ceo_text->title4 ?? '' }}</h5>
+                                <p>{!!  $ceo_text->text4 ?? '' !!}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <p>{!!  $ceo_text->text5 ?? '' !!}</p>
+
+                </div>
+            </div>
+        </div>
+
         <div class="catalog-preview catalog-preview-card">
             <div class="wrapper-m wrapper tabs-wrapper">
                 <div class="catalog-head">
@@ -1027,9 +1074,15 @@
                                        class="catalog-item-title">{{ $product->title }}</a>
                                     <p>{{ $product->header_note }}</p>
                                     <ul class="circle-list">
-                                        <li>Для {{ $product->persons }} человек</li>
-                                        <li>Производительность {{ $product->performance }} л/сутки</li>
-                                        <li>Залповый сброс {{ $product->salvo_discharge }} л</li>
+                                        @if($category->type == 1)
+                                            <li>Для {{ $product->persons }} человек</li>
+                                            <li>Производительность {{ $product->performance }} л/сутки</li>
+                                            <li>Залповый сброс {{ $product->salvo_discharge }} л</li>
+                                        @elseif($category->type == 2)
+                                            <li>Габариты {{ $product->weight }} мм</li>
+                                            <li>Размер входа {{ $product->entrance_size }} мм</li>
+                                            <li>Полезный объем {{ $product->useful_volume }} куб/м</li>
+                                        @endif
                                     </ul>
                                     <div class="catalog-item-price">
                                         @if($product->action)
@@ -1132,9 +1185,15 @@
                                        class="catalog-item-title">{{ $product->title }}</a>
                                     <p>{{ $product->header_note }}</p>
                                     <ul class="circle-list">
-                                        <li>Для {{ $product->persons }} человек</li>
-                                        <li>Производительность {{ $product->performance }} л/сутки</li>
-                                        <li>Залповый сброс {{ $product->salvo_discharge }} л</li>
+                                        @if($category->type == 1)
+                                            <li>Для {{ $product->persons }} человек</li>
+                                            <li>Производительность {{ $product->performance }} л/сутки</li>
+                                            <li>Залповый сброс {{ $product->salvo_discharge }} л</li>
+                                        @elseif($category->type == 2)
+                                            <li>Габариты {{ $product->weight }} мм</li>
+                                            <li>Размер входа {{ $product->entrance_size }} мм</li>
+                                            <li>Полезный объем {{ $product->useful_volume }} куб/м</li>
+                                        @endif
                                     </ul>
                                     <div class="catalog-item-price">
                                         @if($product->action)
@@ -1188,37 +1247,6 @@
                         <p>или позвоните нам по телефону <a href="tel:{{ $contacts->phone }}">{{ $contacts->phone }}</a></p>
                     </div>
                 </form>
-            </div>
-        </div>
-        <div class="infoblock">
-            <div class="wrapper">
-                <a href="index.html" class="logo"><img src="/images/logo.svg" alt="logo"></a>
-                <div class="infoblock-cnt">
-                    <div class="infoblock-row">
-                        <div class="infoblock-column">
-                            <div class="paragraph-item">
-                                <h5>{{ $ceo_text->title1 ?? '' }}</h5>
-                                <p>{!!  $ceo_text->text1 ?? '' !!}</p>
-                            </div>
-                            <div class="paragraph-item">
-                                <h5>{{ $ceo_text->title2 ?? '' }}</h5>
-                                <p>{!!  $ceo_text->text2 ?? '' !!}</p>
-                            </div>
-                        </div>
-                        <div class="infoblock-column">
-                            <div class="paragraph-item">
-                                <h5>{{ $ceo_text->title3 ?? '' }}</h5>
-                                <p>{!!  $ceo_text->text3 ?? '' !!}</p>
-                            </div>
-                            <div class="paragraph-item">
-                                <h5>{{ $ceo_text->title4 ?? '' }}</h5>
-                                <p>{!!  $ceo_text->text4 ?? '' !!}</p>
-                            </div>
-                        </div>
-                    </div>
-                    <p>{!!  $ceo_text->text5 ?? '' !!}</p>
-
-                </div>
             </div>
         </div>
     </div>

@@ -12,9 +12,33 @@
             <input type="hidden" name="cat" value="{{ $type }}">
 
             <div class="form-row">
-                <div class="form-group col-12">
+                <div class="form-group col-md-6 col-sm-12">
                     <label for="title">Название</label>
                     <input class="form-control" type="text" name="title" id="title">
+                </div>
+                <div class="form-group col-md-6 col-sm-12">
+                    <label for="title_price">Заголовок на станице цен</label>
+                    <input class="form-control" type="text" name="title_price" id="title_price">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-6 col-sm-12">
+                    <label for="url">url</label>
+                    <input name="url" id="url" class="form-control" type="text">
+                </div>
+
+                <div class="form-group col-md-6 col-sm-12">
+                    <label for="meta_title">title</label>
+                    <input name="meta_title" id="meta_title" class="form-control" type="text">
+                </div>
+            </div>
+
+
+            <div class="form-row">
+                <div class="form-group col-md-6 col-sm-12">
+                    <label for="meta_description">description</label>
+                    <input name="meta_description" id="meta_description" class="form-control" type="text">
                 </div>
             </div>
 

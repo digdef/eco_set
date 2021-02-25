@@ -15,7 +15,9 @@ class Stocks extends Model
         'img',
         'description',
         'percent',
-        'finish'
+        'finish',
+        'meta_title',
+        'meta_description'
     ];
 
     protected $dates = [

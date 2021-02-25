@@ -40,6 +40,23 @@
                     <label for="pinterest">pinterest</label>
                     <input class="form-control" type="text" name="pinterest" id="pinterest">
                 </div>
+
+                <div class="form-group col-md-6 col-12">
+                    <label for="url">url</label>
+                    <input class="form-control" type="text" name="url" id="url">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-6 col-sm-12">
+                    <label for="meta_title">title</label>
+                    <input name="meta_title" id="meta_title" class="form-control" type="text">
+                </div>
+
+                <div class="form-group col-md-6 col-sm-12">
+                    <label for="meta_description">description</label>
+                    <input name="meta_description" id="meta_description" class="form-control" type="text">
+                </div>
             </div>
 
             <button class="btn btn-success">Сохранить</button>

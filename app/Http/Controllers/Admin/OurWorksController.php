@@ -11,7 +11,7 @@ class OurWorksController extends AppBaseController
     {
         $ourWorks = ourWorks::all();
 
-        return view('admin.ourWorks.all', compact('ourWorks', 'id'));
+        return view('admin.ourWorks.all', compact('ourWorks'));
     }
 
     public function create()

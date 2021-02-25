@@ -207,6 +207,10 @@ Route::middleware(['admin'])->group(function () {
     Route::post('admin/category/{id}/ceo', 'Admin\CategoryController@category_post_ceo_text')->name('category_post_ceo_text');
 
 
+    Route::get('admin/modification/{id}/ceo', 'Admin\ModificationController@category_ceo_text')->name('category_ceo_text');
+    Route::post('admin/modification/{id}/ceo', 'Admin\ModificationController@category_post_ceo_text')->name('category_post_ceo_text');
+
+
     Route::get('admin/product/{category}/add', 'Admin\ProductController@create');
     Route::get('admin/product/edit/{id}', 'Admin\ProductController@edit')->name('edit_product');
     Route::get('admin/product/all/{id}', 'Admin\ProductController@index')->name('all_product');
@@ -304,6 +308,7 @@ Route::middleware(['admin'])->group(function () {
     Route::get('admin/checkout/edit/{id}', 'Admin\CheckoutController@edit')->name('edit_checkout');
     Route::post('admin/checkout/delete', 'Admin\CheckoutController@delete')->name('delete_checkout');
 
+    Route::resource('admin/seo', 'Admin\SeoController');
 
 });
 

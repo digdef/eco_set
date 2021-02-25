@@ -1,11 +1,12 @@
 @extends('index')
 @section('meta')
-    <title>Водоснабжение</title>
-    <meta name="description" lang="ru" content="ДСВ – Інновації для Вашого успіху">
-    <meta name="keywords" content="ДСВ – Інновації для Вашого успіху">
-    <meta property="og:title" content="ДСВ – Інновації для Вашого успіху">
+    <title>{{ $ceo_text->meta_title ?? 'Водоснабжение' }}</title>
+    <meta name="description" lang="ru" content="{{ $ceo_text->meta_description ?? 'Водоснабжение' }}">
+
+    <meta property="og:title" content="{{ $ceo_text->meta_title ?? 'Водоснабжение' }}">
     <meta property="og:type" content="ДСВ – Інновації для Вашого успіху">
-    <meta property="og:description" content="ДСВ – Інновації для Вашого успіху">
+    <meta property="og:description" content="{{ $ceo_text->meta_description ?? 'Водоснабжение' }}">
+    <link rel="canonical" href="{{ $url_not_get }}" />
 @endsection
 
 @section('content')
@@ -35,6 +36,37 @@
                         </div>
 
                     @endforeach
+
+                </div>
+            </div>
+        </div>
+        <div class="infoblock">
+            <div class="wrapper">
+{{--                <a href="index.html" class="logo"><img src="/images/logo.svg" alt="logo"></a>--}}
+                <div class="infoblock-cnt">
+                    <div class="infoblock-row">
+                        <div class="infoblock-column">
+                            <div class="paragraph-item">
+                                <h5>{{ $ceo_text->title1 ?? '' }}</h5>
+                                <p>{!!  $ceo_text->text1 ?? '' !!}</p>
+                            </div>
+                            <div class="paragraph-item">
+                                <h5>{{ $ceo_text->title2 ?? '' }}</h5>
+                                <p>{!!  $ceo_text->text2 ?? '' !!}</p>
+                            </div>
+                        </div>
+                        <div class="infoblock-column">
+                            <div class="paragraph-item">
+                                <h5>{{ $ceo_text->title3 ?? '' }}</h5>
+                                <p>{!!  $ceo_text->text3 ?? '' !!}</p>
+                            </div>
+                            <div class="paragraph-item">
+                                <h5>{{ $ceo_text->title4 ?? '' }}</h5>
+                                <p>{!!  $ceo_text->text4 ?? '' !!}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <p>{!!  $ceo_text->text5 ?? '' !!}</p>
 
                 </div>
             </div>

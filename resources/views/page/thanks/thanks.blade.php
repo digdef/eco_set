@@ -2,9 +2,9 @@
 @section('meta')
     <title>Спасибо</title>
     <meta name="description" lang="ru" content="ДСВ – Інновації для Вашого успіху">
-    <meta name="keywords" content="ДСВ – Інновації для Вашого успіху">
-    <meta property="og:title" content="ДСВ – Інновації для Вашого успіху">
-    <meta property="og:type" content="ДСВ – Інновації для Вашого успіху">
+
+    <meta property="og:title" content="Спасибо">
+    <meta property="og:type" content="website">
     <meta property="og:description" content="ДСВ – Інновації для Вашого успіху">
 @endsection
 

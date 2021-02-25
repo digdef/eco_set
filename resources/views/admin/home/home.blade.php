@@ -65,7 +65,7 @@
         </tr>
 
         <tr>
-            <td>CEO текст</td>
+            <td>SEO</td>
             <td>
                 <a href="/admin/ceo-text" class='btn btn-primary'>Перейти</a>
             </td>

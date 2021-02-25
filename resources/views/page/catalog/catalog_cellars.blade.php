@@ -2,13 +2,11 @@
 @section('meta')
     <title>{{ $ceo_text->meta_title ?? 'Погреба' }}</title>
     <meta name="description" lang="ru" content="{{ $ceo_text->meta_description ?? 'Погреба' }}">
-    <meta name="keywords" content="ДСВ – Інновації для Вашого успіху">
+
     <meta property="og:title" content="{{ $ceo_text->meta_title ?? 'Погреба' }}">
     <meta property="og:type" content="ДСВ – Інновації для Вашого успіху">
     <meta property="og:description" content="{{ $ceo_text->meta_description ?? 'Погреба' }}">
-    @if($filter == true)
-    <link rel="canonical" href="/catalog/{{ $cat_url }}" />
-    @endif
+    <link rel="canonical" href="{{ $url_not_get }}" />
 @endsection
 
 @section('content')
@@ -27,9 +25,11 @@
                 <div class="wrapper">
                     <h1 class="title title-s">
                         Погреба
-                        @isset($modification)
-                            - {{ $modification->title }}
-                        @endisset
+                        <span id="modification_title">
+                            @isset($modification)
+                                - {{ $modification->title }}
+                            @endisset
+                        </span>
                     </h1>
                 </div>
                 <form class="filter-sorting filter-sorting-pc">
@@ -82,11 +82,30 @@
                                     </div>
                                     <div class="filter-item-cnt">
                                         @foreach($categories as $category)
-                                            <label class="checkbox-item">
-                                                <input type="checkbox" name="manufacturer[]" value="{{ $category->id }}" {{ $prod->contains('manufacturer: ' . $category->id) ? 'checked' : '' }}>
-                                                <span class="checker"><img src="/images/checker.svg" alt="checker"></span>
-                                                <span class="checker-name">{{ $category->title }}</span>
-                                            </label>
+                                            @isset($modification)
+                                                @if($category->id == $modification->id)
+                                                    <label class="checkbox-item">
+                                                        <input type="checkbox" name="manufacturer[]"
+                                                               value="{{ $category->id }}" checked>
+                                                        <span class="checker"><img src="/images/checker.svg" alt="checker"></span>
+                                                        <span class="checker-name">{{ $category->title }}</span>
+                                                    </label>
+                                                @else
+                                                    <label class="checkbox-item">
+                                                        <input type="checkbox" name="manufacturer[]"
+                                                               value="{{ $category->id }}" {{ $prod->contains('manufacturer: ' . $category->id) ? 'checked' : '' }}>
+                                                        <span class="checker"><img src="/images/checker.svg" alt="checker"></span>
+                                                        <span class="checker-name">{{ $category->title }}</span>
+                                                    </label>
+                                                @endif
+                                            @else
+                                                <label class="checkbox-item">
+                                                    <input type="checkbox" name="manufacturer[]"
+                                                           value="{{ $category->id }}" {{ $prod->contains('manufacturer: ' . $category->id) ? 'checked' : '' }}>
+                                                    <span class="checker"><img src="/images/checker.svg" alt="checker"></span>
+                                                    <span class="checker-name">{{ $category->title }}</span>
+                                                </label>
+                                            @endisset
                                         @endforeach
                                     </div>
                                 </div>
@@ -338,7 +357,7 @@
         </div>
         <div class="infoblock">
             <div class="wrapper">
-                <a href="index.html" class="logo"><img src="/images/logo.svg" alt="logo"></a>
+{{--                <a href="index.html" class="logo"><img src="/images/logo.svg" alt="logo"></a>--}}
                 <div class="infoblock-cnt">
                     <div class="infoblock-row">
                         <div class="infoblock-column">
@@ -468,6 +487,7 @@
                 success: function (data) {
                     history.pushState(null, null, '/catalog/{{ $cat_url }}?' + form);
                     $('#catalog_card').html(data);
+                    $('#modification_title').html('');
                 },
                 error: function (msg) {
                     alert('Ошибка');

@@ -51,7 +51,9 @@ class Product extends Model
         'pinterest',
         'url',
         'meta_title',
-        'meta_description'
+        'meta_description',
+        'youtube',
+        'youtube_description'
     ];
 
     protected $dates = [

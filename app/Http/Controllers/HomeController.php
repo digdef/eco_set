@@ -106,10 +106,5 @@ class HomeController extends Controller
         );
     }
 
-    public function map()
-    {
-        $categories = Category::all();
 
-        return view('page.map.map', compact('categories'));
-    }
 }

@@ -2526,7 +2526,14 @@ header.open .header-mob-triggers .nav-trigger img.nav-open {
     }
 }
 
-.infoblock-cnt h5 {
+.infoblock-cnt ol, .infoblock-cnt ul {
+    font-family: 'Gilroy Regular';
+    font-size: 16px;
+    line-height: 21px;
+    color: #898989;
+}
+
+.infoblock-cnt h5, .infoblock-cnt h4, .infoblock-cnt h3, .infoblock-cnt h2, .infoblock-cnt h1 {
     margin-bottom: 21px;
     font-family: 'Gilroy Bold';
     font-size: 18px;
@@ -2535,7 +2542,7 @@ header.open .header-mob-triggers .nav-trigger img.nav-open {
 }
 
 @media (max-width: 992px) {
-    .infoblock-cnt h5 {
+    .infoblock-cnt h5, .infoblock-cnt h4, .infoblock-cnt h3, .infoblock-cnt h2, .infoblock-cnt h1 {
         font-size: 16px;
         margin-bottom: 23px;
     }

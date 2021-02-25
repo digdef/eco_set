@@ -1,11 +1,11 @@
 @extends('index')
 @section('meta')
-    <title>Статьи</title>
-    <meta name="description" lang="ru" content="ДСВ – Інновації для Вашого успіху">
-    <meta name="keywords" content="ДСВ – Інновації для Вашого успіху">
-    <meta property="og:title" content="ДСВ – Інновації для Вашого успіху">
-    <meta property="og:type" content="ДСВ – Інновації для Вашого успіху">
-    <meta property="og:description" content="ДСВ – Інновації для Вашого успіху">
+    <title>{{ $seo->meta_title ?? 'Статьи' }}</title>
+    <meta name="description" lang="ru" content="{{ $seo->meta_description ?? 'ДСВ – Інновації для Вашого успіху' }}">
+
+    <meta property="og:title" content="{{ $seo->meta_title ?? 'Статьи' }}">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="{{ $seo->meta_description ?? 'ДСВ – Інновації для Вашого успіху' }}">
 @endsection
 
 @section('content')

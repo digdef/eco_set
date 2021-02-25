@@ -6,6 +6,7 @@
 @section('content')
     <h4>Водоснабжение</h4>
     <a class="btn btn-success" href="/admin/water/add">Добавить</a>
+    <a class="btn btn-success" href="/admin/seo/waters">SEO текст</a>
 
     <table class="table text-center">
         <thead>

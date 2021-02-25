@@ -2,9 +2,9 @@
 @section('meta')
     <title>Септики</title>
     <meta name="description" lang="ru" content="ДСВ – Інновації для Вашого успіху">
-    <meta name="keywords" content="ДСВ – Інновації для Вашого успіху">
-    <meta property="og:title" content="ДСВ – Інновації для Вашого успіху">
-    <meta property="og:type" content="ДСВ – Інновації для Вашого успіху">
+
+    <meta property="og:title" content="Септики">
+    <meta property="og:type" content="website">
     <meta property="og:description" content="ДСВ – Інновації для Вашого успіху">
 @endsection
 
@@ -137,107 +137,107 @@
                                     </div>
                                 @endisset
                                 {{--<div class="filter-item">--}}
-                                    {{--<div class="filter-item-title">--}}
-                                        {{--<p>--}}
-                                            {{--<span>Производительность л/сут </span>--}}
-                                            {{--<a href="#" class="filter-item-info">--}}
-                                                {{--<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">--}}
-                                                    {{--<defs>--}}
-                                                        {{--<style>.cls-1 {--}}
-                                                                {{--fill: #959595;--}}
-                                                            {{--}</style>--}}
-                                                    {{--</defs>--}}
-                                                    {{--<g>--}}
-                                                        {{--<g>--}}
-                                                            {{--<path class="cls-1"--}}
-                                                                  {{--d="M277.33,384A21.33,21.33,0,1,1,256,362.67,21.33,21.33,0,0,1,277.33,384Z"/>--}}
-                                                            {{--<path class="cls-1"--}}
-                                                                  {{--d="M256,512C114.84,512,0,397.16,0,256S114.84,0,256,0,512,114.84,512,256,397.16,512,256,512Zm0-480C132.48,32,32,132.48,32,256S132.48,480,256,480,480,379.52,480,256,379.52,32,256,32Z"/>--}}
-                                                            {{--<path class="cls-1"--}}
-                                                                  {{--d="M256,314.67a16,16,0,0,1-16-16V277.12a48.1,48.1,0,0,1,32-45.27c25.49-9,42.63-36.14,42.63-55.85a58.67,58.67,0,0,0-117.34,0,16,16,0,0,1-32,0,90.67,90.67,0,0,1,181.34,0c0,35.59-28.1,73.37-64,86A16,16,0,0,0,272,277.14v21.53A16,16,0,0,1,256,314.67Z"/>--}}
-                                                        {{--</g>--}}
-                                                    {{--</g>--}}
-                                                {{--</svg>--}}
-                                                {{--<span class="filter-item-info-hidden"><img src="/images/popup-close.svg"--}}
-                                                                                           {{--alt="icon-close">Максимальный суточный объем сточных вод который поступает на очистку в септик--}}
-                                                        {{--Количество человек - Постоянно проживающие, без учета кратковременных гостей--}}
-                                                    {{--</span>--}}
-                                            {{--</a>--}}
-                                        {{--</p>--}}
-                                        {{--<img src="/images/arrow-btm2.svg" alt="arrow">--}}
-                                    {{--</div>--}}
-                                    {{--<div class="filter-item-cnt">--}}
-                                        {{--<label class="checkbox-item checkbox-item-text">--}}
-                                            {{--<input type="checkbox" name="performance[]"--}}
-                                                   {{--value="600">--}}
-                                            {{--<span class="checker">600</span>--}}
-                                        {{--</label>--}}
-                                        {{--<label class="checkbox-item checkbox-item-text">--}}
-                                            {{--<input type="checkbox" name="performance[]"--}}
-                                                   {{--value="800">--}}
-                                            {{--<span class="checker">800</span>--}}
-                                        {{--</label>--}}
-                                        {{--<label class="checkbox-item checkbox-item-text">--}}
-                                            {{--<input type="checkbox" name="performance[]"--}}
-                                                   {{--value="1000">--}}
-                                            {{--<span class="checker">1000</span>--}}
-                                        {{--</label>--}}
-                                        {{--<label class="checkbox-item checkbox-item-text">--}}
-                                            {{--<input type="checkbox" name="performance[]"--}}
-                                                   {{--value="1200">--}}
-                                            {{--<span class="checker">1200</span>--}}
-                                        {{--</label>--}}
-                                        {{--<label class="checkbox-item checkbox-item-text">--}}
-                                            {{--<input type="checkbox" name="performance[]"--}}
-                                                   {{--value="1400">--}}
-                                            {{--<span class="checker">1400</span>--}}
-                                        {{--</label>--}}
-                                        {{--<label class="checkbox-item checkbox-item-text">--}}
-                                            {{--<input type="checkbox" name="performance[]"--}}
-                                                   {{--value="1600">--}}
-                                            {{--<span class="checker">1600</span>--}}
-                                        {{--</label>--}}
-                                        {{--<label class="checkbox-item checkbox-item-text">--}}
-                                            {{--<input type="checkbox" name="performance[]"--}}
-                                                   {{--value="1800">--}}
-                                            {{--<span class="checker">1800</span>--}}
-                                        {{--</label>--}}
-                                        {{--<label class="checkbox-item checkbox-item-text">--}}
-                                            {{--<input type="checkbox" name="performance[]"--}}
-                                                   {{--value="2000">--}}
-                                            {{--<span class="checker">2000</span>--}}
-                                        {{--</label>--}}
-                                        {{--<label class="checkbox-item checkbox-item-text">--}}
-                                            {{--<input type="checkbox" name="performance[]"--}}
-                                                   {{--value="2400">--}}
-                                            {{--<span class="checker">2400</span>--}}
-                                        {{--</label>--}}
-                                        {{--<label class="checkbox-item checkbox-item-text">--}}
-                                            {{--<input type="checkbox" name="performance[]"--}}
-                                                   {{--value="3000">--}}
-                                            {{--<span class="checker">3000</span>--}}
-                                        {{--</label>--}}
-                                        {{--<label class="checkbox-item checkbox-item-text">--}}
-                                            {{--<input type="checkbox" name="performance[]"--}}
-                                                   {{--value="4000">--}}
-                                            {{--<span class="checker">4000</span>--}}
-                                        {{--</label>--}}
-                                        {{--<label class="checkbox-item checkbox-item-text">--}}
-                                            {{--<input type="checkbox" name="performance[]"--}}
-                                                   {{--value="6000">--}}
-                                            {{--<span class="checker">6000</span>--}}
-                                        {{--</label>--}}
-                                        {{--<label class="checkbox-item checkbox-item-text">--}}
-                                            {{--<input type="checkbox" name="performance[]"--}}
-                                                   {{--value="8000">--}}
-                                            {{--<span class="checker">8000</span>--}}
-                                        {{--</label>--}}
-                                        {{--<label class="checkbox-item checkbox-item-text">--}}
-                                            {{--<input type="checkbox" name="performance[]"--}}
-                                                   {{--value="10000">--}}
-                                            {{--<span class="checker">>10000</span>--}}
-                                        {{--</label>--}}
-                                    {{--</div>--}}
+                                {{--<div class="filter-item-title">--}}
+                                {{--<p>--}}
+                                {{--<span>Производительность л/сут </span>--}}
+                                {{--<a href="#" class="filter-item-info">--}}
+                                {{--<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">--}}
+                                {{--<defs>--}}
+                                {{--<style>.cls-1 {--}}
+                                {{--fill: #959595;--}}
+                                {{--}</style>--}}
+                                {{--</defs>--}}
+                                {{--<g>--}}
+                                {{--<g>--}}
+                                {{--<path class="cls-1"--}}
+                                {{--d="M277.33,384A21.33,21.33,0,1,1,256,362.67,21.33,21.33,0,0,1,277.33,384Z"/>--}}
+                                {{--<path class="cls-1"--}}
+                                {{--d="M256,512C114.84,512,0,397.16,0,256S114.84,0,256,0,512,114.84,512,256,397.16,512,256,512Zm0-480C132.48,32,32,132.48,32,256S132.48,480,256,480,480,379.52,480,256,379.52,32,256,32Z"/>--}}
+                                {{--<path class="cls-1"--}}
+                                {{--d="M256,314.67a16,16,0,0,1-16-16V277.12a48.1,48.1,0,0,1,32-45.27c25.49-9,42.63-36.14,42.63-55.85a58.67,58.67,0,0,0-117.34,0,16,16,0,0,1-32,0,90.67,90.67,0,0,1,181.34,0c0,35.59-28.1,73.37-64,86A16,16,0,0,0,272,277.14v21.53A16,16,0,0,1,256,314.67Z"/>--}}
+                                {{--</g>--}}
+                                {{--</g>--}}
+                                {{--</svg>--}}
+                                {{--<span class="filter-item-info-hidden"><img src="/images/popup-close.svg"--}}
+                                {{--alt="icon-close">Максимальный суточный объем сточных вод который поступает на очистку в септик--}}
+                                {{--Количество человек - Постоянно проживающие, без учета кратковременных гостей--}}
+                                {{--</span>--}}
+                                {{--</a>--}}
+                                {{--</p>--}}
+                                {{--<img src="/images/arrow-btm2.svg" alt="arrow">--}}
+                                {{--</div>--}}
+                                {{--<div class="filter-item-cnt">--}}
+                                {{--<label class="checkbox-item checkbox-item-text">--}}
+                                {{--<input type="checkbox" name="performance[]"--}}
+                                {{--value="600">--}}
+                                {{--<span class="checker">600</span>--}}
+                                {{--</label>--}}
+                                {{--<label class="checkbox-item checkbox-item-text">--}}
+                                {{--<input type="checkbox" name="performance[]"--}}
+                                {{--value="800">--}}
+                                {{--<span class="checker">800</span>--}}
+                                {{--</label>--}}
+                                {{--<label class="checkbox-item checkbox-item-text">--}}
+                                {{--<input type="checkbox" name="performance[]"--}}
+                                {{--value="1000">--}}
+                                {{--<span class="checker">1000</span>--}}
+                                {{--</label>--}}
+                                {{--<label class="checkbox-item checkbox-item-text">--}}
+                                {{--<input type="checkbox" name="performance[]"--}}
+                                {{--value="1200">--}}
+                                {{--<span class="checker">1200</span>--}}
+                                {{--</label>--}}
+                                {{--<label class="checkbox-item checkbox-item-text">--}}
+                                {{--<input type="checkbox" name="performance[]"--}}
+                                {{--value="1400">--}}
+                                {{--<span class="checker">1400</span>--}}
+                                {{--</label>--}}
+                                {{--<label class="checkbox-item checkbox-item-text">--}}
+                                {{--<input type="checkbox" name="performance[]"--}}
+                                {{--value="1600">--}}
+                                {{--<span class="checker">1600</span>--}}
+                                {{--</label>--}}
+                                {{--<label class="checkbox-item checkbox-item-text">--}}
+                                {{--<input type="checkbox" name="performance[]"--}}
+                                {{--value="1800">--}}
+                                {{--<span class="checker">1800</span>--}}
+                                {{--</label>--}}
+                                {{--<label class="checkbox-item checkbox-item-text">--}}
+                                {{--<input type="checkbox" name="performance[]"--}}
+                                {{--value="2000">--}}
+                                {{--<span class="checker">2000</span>--}}
+                                {{--</label>--}}
+                                {{--<label class="checkbox-item checkbox-item-text">--}}
+                                {{--<input type="checkbox" name="performance[]"--}}
+                                {{--value="2400">--}}
+                                {{--<span class="checker">2400</span>--}}
+                                {{--</label>--}}
+                                {{--<label class="checkbox-item checkbox-item-text">--}}
+                                {{--<input type="checkbox" name="performance[]"--}}
+                                {{--value="3000">--}}
+                                {{--<span class="checker">3000</span>--}}
+                                {{--</label>--}}
+                                {{--<label class="checkbox-item checkbox-item-text">--}}
+                                {{--<input type="checkbox" name="performance[]"--}}
+                                {{--value="4000">--}}
+                                {{--<span class="checker">4000</span>--}}
+                                {{--</label>--}}
+                                {{--<label class="checkbox-item checkbox-item-text">--}}
+                                {{--<input type="checkbox" name="performance[]"--}}
+                                {{--value="6000">--}}
+                                {{--<span class="checker">6000</span>--}}
+                                {{--</label>--}}
+                                {{--<label class="checkbox-item checkbox-item-text">--}}
+                                {{--<input type="checkbox" name="performance[]"--}}
+                                {{--value="8000">--}}
+                                {{--<span class="checker">8000</span>--}}
+                                {{--</label>--}}
+                                {{--<label class="checkbox-item checkbox-item-text">--}}
+                                {{--<input type="checkbox" name="performance[]"--}}
+                                {{--value="10000">--}}
+                                {{--<span class="checker">>10000</span>--}}
+                                {{--</label>--}}
+                                {{--</div>--}}
                                 {{--</div>--}}
                                 <div class="filter-item">
                                     <div class="filter-item-title">
@@ -621,7 +621,7 @@
                                                 <img src="/images/prev-page.png"
                                                      alt="page-arrow">
                                             </a>
-                                                @php($total = ($products->lastPage() > $products->currentPage()+9) ? $products->currentPage()+9 : $products->lastPage())
+                                            @php($total = ($products->lastPage() > $products->currentPage()+9) ? $products->currentPage()+9 : $products->lastPage())
 
 
                                             @if ($products->lastPage() - $products->currentPage() < 10 && $products->lastPage() >= 10) <!-- Последние 10 -->
@@ -684,66 +684,67 @@
                             <input type="tel" placeholder="телефон* " class="field phone-mask" name="phone">
                             <input class="btn" type="submit" value="отправить">
                         </div>
-                        <p>или позвоните нам по телефону <a href="tel:{{ $contacts->phone }}">{{ $contacts->phone }}</a></p>
+                        <p>или позвоните нам по телефону <a href="tel:{{ $contacts->phone }}">{{ $contacts->phone }}</a>
+                        </p>
                     </div>
                 </form>
             </div>
         </div>
-        <div class="infoblock">
-            <div class="wrapper">
-                <a href="/" class="logo"><img src="/images/logo.svg" alt="logo"></a>
-                <div class="infoblock-cnt">
-                    <div class="infoblock-row">
-                        <div class="infoblock-column">
-                            <div class="paragraph-item">
-                                <h5>Монтаж автономной канализации Топас 5 в частном и загородном доме "под ключ"</h5>
-                                <p>Выбиралась канализация частного дома для коттеджа между Юнилос Астра 5 и Топас 5.
-                                    Септик Топас для заказчика оказался лучше. После предварительного выезда на участок,
-                                    на следующий день началась установка очистного сооружения. Монтаж котлована занимает
-                                    в среднем 5-6 часов, все зависит от типа грунта на участке. Будет ли монтаж
-                                    канализации производится своими руками или спецтехникой в большей степень зависит от
-                                    того какой уровень грунтовых вод на объекте. Также это влияет на способ отведения
-                                    воды: выбираем между Топас 5 самотечный или Топас 5 с насосом</p>
-                            </div>
-                            <div class="paragraph-item">
-                                <h5>Принцип работы и устройство Юнилос Астра 5</h5>
-                                <p>Как устроена канализация загородного дома. Что происходит в прямой и обратной фазе
-                                    очистки стоков внутри септика. Отличия Юнилос и Топас в устройстве и принципе работы
-                                    - минимальны.</p>
-                            </div>
-                        </div>
-                        <div class="infoblock-column">
-                            <div class="paragraph-item">
-                                <h5>Инструкция по консервации канализации Топас и Юнилос на зимний период </h5>
-                                <p>В вашем загородном доме установлена локальная станция очистки стоков и вы не
-                                    планируете проживать там зимой, то септик в обязательном порядке необходимо
-                                    законсервировать. Это поможет избежать неожиданных поломок автономной системы
-                                    очистки.</p>
-                            </div>
-                            <div class="paragraph-item">
-                                <h5>Техническое обслуживание локальной канализации типа Юнилос Астра и Топас</h5>
-                                <p>Канализация в частном доме требует визуального контроля регулярно, так же как и любое
-                                    оборудование. Обслужить технически автономную систему очистки стоков не так сложно,
-                                    как кажется на первый взгляд. </p>
-                            </div>
-                        </div>
-                    </div>
-                    <p>У нас на сайте представлена самая популярная канализация частного дома Юнилос Астра и Топас.
-                        Также локальная канализация для коттеджного посёлка и группы домов Евробион </p>
-                    <div class="infoblock-popular">
-                        <h5>Популярные категории сепртиков:</h5>
-                        <a href="">Септики на 3 человека</a>
-                        <a href="">Септики на 4 человека</a>
-                        <a href="">Септики на 5 человека</a>
-                        <a href="">Септики на 6 человека</a>
-                        <a href="">Септики на 3 человека</a>
-                        <a href="">Септики на 4 человека</a>
-                        <a href="">Септики на 5 человека</a>
-                        <a href="">Септики на 6 человека</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+        {{--<div class="infoblock">--}}
+            {{--<div class="wrapper">--}}
+                {{--<a href="/" class="logo"><img src="/images/logo.svg" alt="logo"></a>--}}
+                {{--<div class="infoblock-cnt">--}}
+                    {{--<div class="infoblock-row">--}}
+                        {{--<div class="infoblock-column">--}}
+                            {{--<div class="paragraph-item">--}}
+                                {{--<h5>Монтаж автономной канализации Топас 5 в частном и загородном доме "под ключ"</h5>--}}
+                                {{--<p>Выбиралась канализация частного дома для коттеджа между Юнилос Астра 5 и Топас 5.--}}
+                                    {{--Септик Топас для заказчика оказался лучше. После предварительного выезда на участок,--}}
+                                    {{--на следующий день началась установка очистного сооружения. Монтаж котлована занимает--}}
+                                    {{--в среднем 5-6 часов, все зависит от типа грунта на участке. Будет ли монтаж--}}
+                                    {{--канализации производится своими руками или спецтехникой в большей степень зависит от--}}
+                                    {{--того какой уровень грунтовых вод на объекте. Также это влияет на способ отведения--}}
+                                    {{--воды: выбираем между Топас 5 самотечный или Топас 5 с насосом</p>--}}
+                            {{--</div>--}}
+                            {{--<div class="paragraph-item">--}}
+                                {{--<h5>Принцип работы и устройство Юнилос Астра 5</h5>--}}
+                                {{--<p>Как устроена канализация загородного дома. Что происходит в прямой и обратной фазе--}}
+                                    {{--очистки стоков внутри септика. Отличия Юнилос и Топас в устройстве и принципе работы--}}
+                                    {{--- минимальны.</p>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
+                        {{--<div class="infoblock-column">--}}
+                            {{--<div class="paragraph-item">--}}
+                                {{--<h5>Инструкция по консервации канализации Топас и Юнилос на зимний период </h5>--}}
+                                {{--<p>В вашем загородном доме установлена локальная станция очистки стоков и вы не--}}
+                                    {{--планируете проживать там зимой, то септик в обязательном порядке необходимо--}}
+                                    {{--законсервировать. Это поможет избежать неожиданных поломок автономной системы--}}
+                                    {{--очистки.</p>--}}
+                            {{--</div>--}}
+                            {{--<div class="paragraph-item">--}}
+                                {{--<h5>Техническое обслуживание локальной канализации типа Юнилос Астра и Топас</h5>--}}
+                                {{--<p>Канализация в частном доме требует визуального контроля регулярно, так же как и любое--}}
+                                    {{--оборудование. Обслужить технически автономную систему очистки стоков не так сложно,--}}
+                                    {{--как кажется на первый взгляд. </p>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
+                    {{--<p>У нас на сайте представлена самая популярная канализация частного дома Юнилос Астра и Топас.--}}
+                        {{--Также локальная канализация для коттеджного посёлка и группы домов Евробион </p>--}}
+                    {{--<div class="infoblock-popular">--}}
+                        {{--<h5>Популярные категории сепртиков:</h5>--}}
+                        {{--<a href="">Септики на 3 человека</a>--}}
+                        {{--<a href="">Септики на 4 человека</a>--}}
+                        {{--<a href="">Септики на 5 человека</a>--}}
+                        {{--<a href="">Септики на 6 человека</a>--}}
+                        {{--<a href="">Септики на 3 человека</a>--}}
+                        {{--<a href="">Септики на 4 человека</a>--}}
+                        {{--<a href="">Септики на 5 человека</a>--}}
+                        {{--<a href="">Септики на 6 человека</a>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
+            {{--</div>--}}
+        {{--</div>--}}
     </div>
 @endsection
 

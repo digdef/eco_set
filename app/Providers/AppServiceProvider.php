@@ -134,6 +134,17 @@ class AppServiceProvider extends ServiceProvider
             $view->with(['cart_user_count' => Cart::user($user), 'favorites_user_count' => Favorites::user($user)]);
         });
 
+        if(
+            isset($_SERVER['HTTPS']) &&
+            isset($_SERVER['HTTP_HOST']) &&
+            isset($_SERVER['REQUEST_URI'])
+        ) {
+            $url_not_get = explode(
+                '?',
+                ((!empty($_SERVER['HTTPS'])) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']
+            )[0];
+            view()->share('url_not_get', $url_not_get);
+        }
 
         $contacts = Contacts
             ::where('id', 1)

@@ -11,7 +11,7 @@ class ArticleController extends AppBaseController
     {
         $articles = article::all();
 
-        return view('admin.article.all', compact('articles', 'id'));
+        return view('admin.article.all', compact('articles'));
     }
 
     public function create()

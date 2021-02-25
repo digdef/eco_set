@@ -77,4 +77,7 @@ CKEDITOR.editorConfig = function( config ) {
     config.extraPlugins = 'uploadimage';
     config.imageUploadUrl = '/uploadImage?type=Images';
     config.filebrowserUploadUrl = '/uploadImage?type=Images';
+
+    config.extraPlugins = 'btn';
+
 };

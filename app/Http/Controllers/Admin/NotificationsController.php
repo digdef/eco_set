@@ -10,7 +10,7 @@ class NotificationsController extends AppBaseController
 {
     public function index()
     {
-        $notifications = Notifications::all();
+        $notifications = Notifications::orderby('id', 'desc')->get();
 
         return view('admin.notifications.all', compact('notifications'));
     }

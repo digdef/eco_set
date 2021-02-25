@@ -1,11 +1,11 @@
 @extends('index')
 @section('meta')
-    <title>Наши цены</title>
-    <meta name="description" lang="ru" content="ДСВ – Інновації для Вашого успіху">
-    <meta name="keywords" content="ДСВ – Інновації для Вашого успіху">
-    <meta property="og:title" content="ДСВ – Інновації для Вашого успіху">
+    <title>{{$categ->meta_title_price ?? $ceo_text->meta_title}}</title>
+    <meta name="description" lang="ru" content="{{$categ->meta_description_price ?? $ceo_text->meta_description}}">
+
+    <meta property="og:title" content="{{$categ->meta_title_price ?? $ceo_text->meta_title}}">
     <meta property="og:type" content="ДСВ – Інновації для Вашого успіху">
-    <meta property="og:description" content="ДСВ – Інновації для Вашого успіху">
+    <meta property="og:description" content="{{$categ->meta_description_price ?? $ceo_text->meta_description}}">
 @endsection
 
 @section('content')
@@ -19,7 +19,11 @@
         </div>
         <div class="price">
             <div class="wrapper">
-                <h1 class="title title-s">Наши цены</h1>
+                @if($categ)
+                    <h1 class="title title-s">{{ $categ->title_price ?? 'Наши цены' }}</h1>
+                @else
+                    <h1 class="title title-s">Наши цены</h1>
+                @endif
             </div>
             <div class="sections">
                 <div class="wrapper wrapper-l">
@@ -50,7 +54,7 @@
                         </div>
                         <div class="sections-item sections-item-3 {{ $cat == 2 ? 'active' : '' }}">
                             <div class="sections-cnt">
-                                <a href="/price/3" class="sections-title">погреба</a>
+                                <a href="/price/2" class="sections-title">погреба</a>
                                 <div class="sections-links">
                                     @foreach($categories as $category)
                                         @if($category->type == 2)
@@ -84,13 +88,11 @@
                 </div>
             </div>
             <div class="wrapper">
-                <div class="price-info">
-                    <h5>Стоимость канализации загородного дома BioDeka</h5>
-                    <p>Стоимость канализации загородного дома BioDeka</p>
-                    <p>Нижеуказанная цена Юнилос Астра не включает монтаж. Монтаж рассчитывается отдельно с учетом особенностей грунта, протяженности сетей и других  параметров. Вы можете рассчитать цену канализации Астра с монтажом самостоятельно с помощью удобного онлайн - калькулятора "Стоимость монтажа",  встроенного в карточку товара. Или просто набрать нам в офис по телефону: +7 (812) 385-73-83</p>
-                    <p>Комплект аварийной сигнализации бесплатно!</p>
-                    <p>При принудительном способе отведения воды в стоимость входит встроенная емкость и дренажный насос Pedrollo TOP-1/DAB NOVA 180-M</p>
-                </div>
+{{--                <div class="price-info">--}}
+{{--                    @if($categ)--}}
+{{--                        <h5>{{ $categ->title_price }}</h5>--}}
+{{--                    @endif--}}
+{{--                </div>--}}
                 <div class="table-wrap">
                     <div class="table">
                         <table>

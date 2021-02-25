@@ -1,11 +1,11 @@
 @extends('index')
 @section('meta')
-    <title>{{ $service->title }}</title>
-    <meta name="description" lang="ru" content="ДСВ – Інновації для Вашого успіху">
-    <meta name="keywords" content="ДСВ – Інновації для Вашого успіху">
-    <meta property="og:title" content="ДСВ – Інновації для Вашого успіху">
-    <meta property="og:type" content="ДСВ – Інновації для Вашого успіху">
-    <meta property="og:description" content="ДСВ – Інновації для Вашого успіху">
+    <title>{{ $service->meta_title ?? $service->title }}</title>
+    <meta name="description" lang="ru" content="{{ $service->meta_description ?? $service->title }}">
+
+    <meta property="og:title" content="{{ $service->meta_title ?? $service->title }}">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="{{ $service->meta_description ?? $service->title }}">
 @endsection
 
 @section('content')
@@ -30,7 +30,9 @@
                         <div class="article-share-trigger"><img src="/images/share.svg" alt="share"></div>
                         <div class="article-share-cnt">
                             <a href="https://twitter.com/intent/tweet?url={{ url()->current() }}"><img src="/images/twitter.svg" alt="twitter"></a>
-                            <a href="{{ $product->pinterest ?? '#' }}"><img src="/images/pintarest.svg" alt="pintarest"></a>
+                            @if($service->pinterest)
+                                <a href="{{ $service->pinterest ?? '#' }}"><img src="/images/pintarest.svg" alt="pintarest"></a>
+                            @endif
                             <a href="https://www.linkedin.com/cws/share/?url={{ url()->current() }}"><img src="/images/linkedin.svg" alt="linkedin"></a>
                             <a href="https://www.facebook.com/sharer.php?u={{ url()->current() }}"><img src="/images/facebook.svg" alt="facebook"></a>
                         </div>

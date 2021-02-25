@@ -103,7 +103,7 @@
                                                 <li class="menu-hidden-title"><a href="/catalog/septic">Септики</a><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512.01 277.34"><defs><style>.cls-1{fill:#4c4c4c;}</style></defs><g  data-name="Слой 2"><g data-name="Layer 1"><path class="cls-1" d="M505.75,6.26a21.31,21.31,0,0,0-30.17,0L256,225.84,36.42,6.26A21.33,21.33,0,0,0,6.26,36.42L240.92,271.09a21.32,21.32,0,0,0,30.17,0L505.76,36.42A21.31,21.31,0,0,0,505.75,6.26Z"/></g></g></svg></li>
                                                 @foreach($categories as $category)
                                                     @if($category->type == 1)
-                                                        <li><a href="/catalog/septic?manufacturer%5B%5D={{ $category->id }}">{{ $category->title }}</a></li>
+                                                        <li><a href="/catalog/mod/{{ $category->id }}">{{ $category->title }}</a></li>
                                                     @endif
                                                 @endforeach
                                             </ul>
@@ -113,7 +113,7 @@
                                                 <li class="menu-hidden-title"><a href="/catalog/cellars">Погреба</a><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512.01 277.34"><defs><style>.cls-1{fill:#4c4c4c;}</style></defs><g  data-name="Слой 2"><g data-name="Layer 1"><path class="cls-1" d="M505.75,6.26a21.31,21.31,0,0,0-30.17,0L256,225.84,36.42,6.26A21.33,21.33,0,0,0,6.26,36.42L240.92,271.09a21.32,21.32,0,0,0,30.17,0L505.76,36.42A21.31,21.31,0,0,0,505.75,6.26Z"/></g></g></svg></li>
                                                 @foreach($categories as $category)
                                                     @if($category->type == 2)
-                                                        <li><a href="/catalog/cellars?manufacturer%5B%5D={{ $category->id }}">{{ $category->title }}</a></li>
+                                                        <li><a href="/catalog/mod/{{ $category->id }}">{{ $category->title }}</a></li>
                                                     @endif
                                                 @endforeach
                                             </ul>
@@ -131,7 +131,7 @@
                                                 <li class="menu-hidden-title"><a href="/catalog/accessories">Комплектующие</a><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512.01 277.34"><defs><style>.cls-1{fill:#4c4c4c;}</style></defs><g  data-name="Слой 2"><g data-name="Layer 1"><path class="cls-1" d="M505.75,6.26a21.31,21.31,0,0,0-30.17,0L256,225.84,36.42,6.26A21.33,21.33,0,0,0,6.26,36.42L240.92,271.09a21.32,21.32,0,0,0,30.17,0L505.76,36.42A21.31,21.31,0,0,0,505.75,6.26Z"/></g></g></svg></li>
                                                 @foreach($categories as $category)
                                                     @if($category->type == 4)
-                                                        <li><a href="/catalog/accessories?manufacturer%5B%5D={{ $category->id }}">{{ $category->title }}</a></li>
+                                                        <li><a href="/catalog/mod/{{ $category->id }}">{{ $category->title }}</a></li>
                                                     @endif
                                                 @endforeach
                                             </ul>

@@ -12,7 +12,13 @@ class Category extends Model
 
     protected $fillable = [
         'title',
-        'type'
+        'title_price',
+        'type',
+        'meta_description',
+        'meta_title',
+        'url',
+        'meta_description_price',
+        'meta_title_price',
     ];
 
     protected $dates = [

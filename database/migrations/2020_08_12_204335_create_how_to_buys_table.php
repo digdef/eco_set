@@ -15,10 +15,10 @@ class CreateHowToBuysTable extends Migration
     {
         Schema::create('how_to_buys', function (Blueprint $table) {
             $table->id();
-            $table->string('text_icon1', 255)->nullable();
-            $table->string('text_icon2', 255)->nullable();
-            $table->string('text_icon3', 255)->nullable();
-            $table->string('text_icon4', 255)->nullable();
+            $table->string('text-icon1', 255)->nullable();
+            $table->string('text-icon2', 255)->nullable();
+            $table->string('text-icon3', 255)->nullable();
+            $table->string('text-icon4', 255)->nullable();
             $table->text('text')->nullable();
             $table->timestamps();
         });

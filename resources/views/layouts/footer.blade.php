@@ -83,6 +83,29 @@
         </div>
     </div>
 </div>
+
+
+<div id="lidForm" class="popup-wrapper">
+    <div class="popup-layout">
+        <div class="popup">
+            <div class="popup-cnt">
+                <form action="/notifications" method="post">
+                    @csrf
+                    <input type="hidden" name="title" class="inp-title" value="Купить в 1 клик!">
+
+                    <div class="popup-title"></div>
+                    <input type="text" placeholder="Ваше имя" class="field" name="name">
+                    <input type="tel" placeholder="телефон* " class="field phone-mask" name="phone">
+                    <input class="btn" type="submit" value="заказать">
+                </form>
+            </div>
+            <div class="popup-close"><img src="/images/popup-close.svg" alt="icon-close"></div>
+        </div>
+    </div>
+</div>
+
+
+
 <div id="callbackPopup" class="popup-wrapper">
     <div class="popup-layout">
         <div class="popup">

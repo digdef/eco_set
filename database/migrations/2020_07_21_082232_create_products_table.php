@@ -16,11 +16,7 @@ class CreateProductsTable extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->string('img', 255)->nullable();
-            $table->string('wiring_diagram', 255)->nullable();
-            $table->string('technical_certificate', 255)->nullable();
             $table->string('title', 255)->nullable();
-            $table->string('header_note', 255)->nullable();
-            $table->string('pinterest', 255)->nullable();
             $table->string('price', 255)->nullable();
             $table->text('thumbnail')->nullable();
             $table->text('description')->nullable();
@@ -38,14 +34,6 @@ class CreateProductsTable extends Migration
             $table->string('type_of_shell', 255)->nullable();
             $table->string('type_septic', 255)->nullable();
             $table->string('manufacturer', 255)->nullable();
-            $table->string('elongate', 255)->nullable();
-            $table->string('anchor', 255)->nullable();
-            $table->string('equipment', 255)->nullable();
-            $table->string('entrance_size', 255)->nullable();
-            $table->string('useful_volume', 255)->nullable();
-            $table->string('url', 255)->nullable();
-            $table->string('meta_title', 255)->nullable();
-            $table->string('meta_description', 255)->nullable();
             $table->integer('sink')->nullable();
             $table->integer('bath')->nullable();
             $table->integer('toilet')->nullable();

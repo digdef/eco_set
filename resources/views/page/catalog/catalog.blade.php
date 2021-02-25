@@ -2,13 +2,11 @@
 @section('meta')
     <title>{{ $ceo_text->meta_title ?? 'Септики' }}</title>
     <meta name="description" lang="ru" content="{{ $ceo_text->meta_description ?? 'Септики' }}">
-    <meta name="keywords" content="ДСВ – Інновації для Вашого успіху">
+
     <meta property="og:title" content="{{ $ceo_text->meta_title ?? 'Септики' }}">
-    <meta property="og:type" content="ДСВ – Інновації для Вашого успіху">
+    <meta property="og:type" content="website">
     <meta property="og:description" content="{{ $ceo_text->meta_description ?? 'Септики' }}">
-    @if($filter == true)
-    <link rel="canonical" href="/catalog/{{ $cat_url }}" />
-    @endif
+    <link rel="canonical" href="{{ $url_not_get }}" />
 @endsection
 
 @section('content')
@@ -27,9 +25,11 @@
                 <div class="wrapper">
                     <h1 class="title title-s">
                         Септики
-                        @isset($modification)
-                            - {{ $modification->title }}
-                        @endisset
+                        <span id="modification_title">
+                            @isset($modification)
+                                - {{ $modification->title }}
+                            @endisset
+                        </span>
                     </h1>
                 </div>
                 <form class="filter-sorting filter-sorting-pc">
@@ -118,130 +118,42 @@
                                         </label>
                                     </div>
                                 </div>
-                                @isset($modification)
-                                @else
-                                    <div class="filter-item">
-                                        <div class="filter-item-title">
-                                            <p>
-                                                <span>Производитель :</span>
-                                            </p>
-                                            <img src="/images/arrow-btm2.svg" alt="arrow">
-                                        </div>
-                                        <div class="filter-item-cnt">
-                                            @foreach($categories as $category)
+                                <div class="filter-item">
+                                    <div class="filter-item-title">
+                                        <p>
+                                            <span>Производитель :</span>
+                                        </p>
+                                        <img src="/images/arrow-btm2.svg" alt="arrow">
+                                    </div>
+                                    <div class="filter-item-cnt">
+                                        @foreach($categories as $category)
+                                            @isset($modification)
+                                                @if($category->id == $modification->id)
+                                                    <label class="checkbox-item">
+                                                        <input type="checkbox" name="manufacturer[]"
+                                                               value="{{ $category->id }}" checked>
+                                                        <span class="checker"><img src="/images/checker.svg" alt="checker"></span>
+                                                        <span class="checker-name">{{ $category->title }}</span>
+                                                    </label>
+                                                    @else
+                                                    <label class="checkbox-item">
+                                                        <input type="checkbox" name="manufacturer[]"
+                                                               value="{{ $category->id }}" {{ $prod->contains('manufacturer: ' . $category->id) ? 'checked' : '' }}>
+                                                        <span class="checker"><img src="/images/checker.svg" alt="checker"></span>
+                                                        <span class="checker-name">{{ $category->title }}</span>
+                                                    </label>
+                                                @endif
+                                            @else
                                                 <label class="checkbox-item">
                                                     <input type="checkbox" name="manufacturer[]"
                                                            value="{{ $category->id }}" {{ $prod->contains('manufacturer: ' . $category->id) ? 'checked' : '' }}>
                                                     <span class="checker"><img src="/images/checker.svg" alt="checker"></span>
                                                     <span class="checker-name">{{ $category->title }}</span>
                                                 </label>
-                                            @endforeach
-                                        </div>
+                                            @endisset
+                                        @endforeach
                                     </div>
-                                @endisset
-                                {{--<div class="filter-item">--}}
-                                    {{--<div class="filter-item-title">--}}
-                                        {{--<p>--}}
-                                            {{--<span>Производительность л/сут </span>--}}
-                                            {{--<a href="#" class="filter-item-info">--}}
-                                                {{--<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">--}}
-                                                    {{--<defs>--}}
-                                                        {{--<style>.cls-1 {--}}
-                                                                {{--fill: #959595;--}}
-                                                            {{--}</style>--}}
-                                                    {{--</defs>--}}
-                                                    {{--<g>--}}
-                                                        {{--<g>--}}
-                                                            {{--<path class="cls-1"--}}
-                                                                  {{--d="M277.33,384A21.33,21.33,0,1,1,256,362.67,21.33,21.33,0,0,1,277.33,384Z"/>--}}
-                                                            {{--<path class="cls-1"--}}
-                                                                  {{--d="M256,512C114.84,512,0,397.16,0,256S114.84,0,256,0,512,114.84,512,256,397.16,512,256,512Zm0-480C132.48,32,32,132.48,32,256S132.48,480,256,480,480,379.52,480,256,379.52,32,256,32Z"/>--}}
-                                                            {{--<path class="cls-1"--}}
-                                                                  {{--d="M256,314.67a16,16,0,0,1-16-16V277.12a48.1,48.1,0,0,1,32-45.27c25.49-9,42.63-36.14,42.63-55.85a58.67,58.67,0,0,0-117.34,0,16,16,0,0,1-32,0,90.67,90.67,0,0,1,181.34,0c0,35.59-28.1,73.37-64,86A16,16,0,0,0,272,277.14v21.53A16,16,0,0,1,256,314.67Z"/>--}}
-                                                        {{--</g>--}}
-                                                    {{--</g>--}}
-                                                {{--</svg>--}}
-                                                {{--<span class="filter-item-info-hidden">--}}
-                                                    {{--<img src="/images/popup-close.svg" alt="icon-close">--}}
-                                                    {{--{!! str_replace(array('<p>', '</p>'), array('', '<br>'), $hint->performance) !!}--}}
-                                                {{--</span>--}}
-                                            {{--</a>--}}
-                                        {{--</p>--}}
-                                        {{--<img src="/images/arrow-btm2.svg" alt="arrow">--}}
-                                    {{--</div>--}}
-                                    {{--<div class="filter-item-cnt">--}}
-                                        {{--<label class="checkbox-item checkbox-item-text">--}}
-                                            {{--<input type="checkbox" name="performance[]"--}}
-                                                   {{--value="600" {{ $prod->contains('performance: 600') ? 'checked' : '' }}>--}}
-                                            {{--<span class="checker">600</span>--}}
-                                        {{--</label>--}}
-                                        {{--<label class="checkbox-item checkbox-item-text">--}}
-                                            {{--<input type="checkbox" name="performance[]"--}}
-                                                   {{--value="800" {{ $prod->contains('performance: 800') ? 'checked' : '' }}>--}}
-                                            {{--<span class="checker">800</span>--}}
-                                        {{--</label>--}}
-                                        {{--<label class="checkbox-item checkbox-item-text">--}}
-                                            {{--<input type="checkbox" name="performance[]"--}}
-                                                   {{--value="1000" {{ $prod->contains('performance: 1000') ? 'checked' : '' }}>--}}
-                                            {{--<span class="checker">1000</span>--}}
-                                        {{--</label>--}}
-                                        {{--<label class="checkbox-item checkbox-item-text">--}}
-                                            {{--<input type="checkbox" name="performance[]"--}}
-                                                   {{--value="1200" {{ $prod->contains('performance: 1200') ? 'checked' : '' }}>--}}
-                                            {{--<span class="checker">1200</span>--}}
-                                        {{--</label>--}}
-                                        {{--<label class="checkbox-item checkbox-item-text">--}}
-                                            {{--<input type="checkbox" name="performance[]"--}}
-                                                   {{--value="1400" {{ $prod->contains('performance: 1400') ? 'checked' : '' }}>--}}
-                                            {{--<span class="checker">1400</span>--}}
-                                        {{--</label>--}}
-                                        {{--<label class="checkbox-item checkbox-item-text">--}}
-                                            {{--<input type="checkbox" name="performance[]"--}}
-                                                   {{--value="1600" {{ $prod->contains('performance: 1600') ? 'checked' : '' }}>--}}
-                                            {{--<span class="checker">1600</span>--}}
-                                        {{--</label>--}}
-                                        {{--<label class="checkbox-item checkbox-item-text">--}}
-                                            {{--<input type="checkbox" name="performance[]"--}}
-                                                   {{--value="1800" {{ $prod->contains('performance: 1800') ? 'checked' : '' }}>--}}
-                                            {{--<span class="checker">1800</span>--}}
-                                        {{--</label>--}}
-                                        {{--<label class="checkbox-item checkbox-item-text">--}}
-                                            {{--<input type="checkbox" name="performance[]"--}}
-                                                   {{--value="2000" {{ $prod->contains('performance: 2000') ? 'checked' : '' }}>--}}
-                                            {{--<span class="checker">2000</span>--}}
-                                        {{--</label>--}}
-                                        {{--<label class="checkbox-item checkbox-item-text">--}}
-                                            {{--<input type="checkbox" name="performance[]"--}}
-                                                   {{--value="2400" {{ $prod->contains('performance: 2400') ? 'checked' : '' }}>--}}
-                                            {{--<span class="checker">2400</span>--}}
-                                        {{--</label>--}}
-                                        {{--<label class="checkbox-item checkbox-item-text">--}}
-                                            {{--<input type="checkbox" name="performance[]"--}}
-                                                   {{--value="3000" {{ $prod->contains('performance: 3000') ? 'checked' : '' }}>--}}
-                                            {{--<span class="checker">3000</span>--}}
-                                        {{--</label>--}}
-                                        {{--<label class="checkbox-item checkbox-item-text">--}}
-                                            {{--<input type="checkbox" name="performance[]"--}}
-                                                   {{--value="4000" {{ $prod->contains('performance: 4000') ? 'checked' : '' }}>--}}
-                                            {{--<span class="checker">4000</span>--}}
-                                        {{--</label>--}}
-                                        {{--<label class="checkbox-item checkbox-item-text">--}}
-                                            {{--<input type="checkbox" name="performance[]"--}}
-                                                   {{--value="6000" {{ $prod->contains('performance: 6000') ? 'checked' : '' }}>--}}
-                                            {{--<span class="checker">6000</span>--}}
-                                        {{--</label>--}}
-                                        {{--<label class="checkbox-item checkbox-item-text">--}}
-                                            {{--<input type="checkbox" name="performance[]"--}}
-                                                   {{--value="8000" {{ $prod->contains('performance: 8000') ? 'checked' : '' }}>--}}
-                                            {{--<span class="checker">8000</span>--}}
-                                        {{--</label>--}}
-                                        {{--<label class="checkbox-item checkbox-item-text">--}}
-                                            {{--<input type="checkbox" name="performance[]"--}}
-                                                   {{--value="10000" {{ $prod->contains('performance: 10000') ? 'checked' : '' }}>--}}
-                                            {{--<span class="checker">>10000</span>--}}
-                                        {{--</label>--}}
-                                    {{--</div>--}}
-                                {{--</div>--}}
+                                </div>
                                 <div class="filter-item">
                                     <div class="filter-item-title">
                                         <p>
@@ -687,7 +599,7 @@
         </div>
         <div class="infoblock">
             <div class="wrapper">
-                <a href="index.html" class="logo"><img src="/images/logo.svg" alt="logo"></a>
+{{--                <a href="index.html" class="logo"><img src="/images/logo.svg" alt="logo"></a>--}}
                 <div class="infoblock-cnt">
                     <div class="infoblock-row">
                         <div class="infoblock-column">
@@ -817,6 +729,7 @@
                 success: function (data) {
                     history.pushState(null, null, '/catalog/{{ $cat_url }}?' + form);
                     $('#catalog_card').html(data);
+                    $('#modification_title').html('');
                 },
                 error: function (msg) {
                     alert('Ошибка');

@@ -296,6 +296,36 @@ var common = {
 			$(popup).show();
 		});
 
+
+
+
+
+        $('.btn-lid-form').click(function(event){
+            event.preventDefault();
+            var popup  = '#lidForm';
+
+            var popupText = $(this).text();
+
+            $(popup).find('.popup-title').text(popupText);
+            $(popup).find('.inp-title').val(popupText);
+
+
+
+            $('.popup-wrapper').addClass('active');
+            $('.popup-wrapper').hide();
+            $('header').removeClass('open');
+            setTimeout(function(){
+                $('.caller').removeClass('open');
+            }, 100);
+            $('body').addClass('hidden');
+            $(popup).show();
+        });
+
+
+
+
+
+
         $('.call-popup-product-page').click(function(event){
             event.preventDefault();
             var popup  = '#' + $(this).attr('data-popup');
@@ -361,7 +391,7 @@ var common = {
 			sliderRevsItem = $('.slider-revs .slider');
 
 		sliderLettersItem.owlCarousel({
-			loop:true,
+			loop:false,
 			nav: false,
 			dots: false,
 			items: 5,

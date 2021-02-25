@@ -108,6 +108,8 @@ class IndexController extends Controller
     {
         $categories = Category::all();
 
-        return view('page.map.map', compact('categories'));
+        $seo = CeoText::where('type', '=', 'map')->first();
+
+        return view('page.map.map', compact('categories', 'seo'));
     }
 }

@@ -19,14 +19,14 @@ class NotificationsController extends Controller
             'title' => $input['title'],
             'name' => $input['name'],
             'phone' => $input['phone'],
-            'text' => $input['massege']
+            'text' => $input['massege'] ?? ''
         ]);
 
         $data = array(
             'title' => $input['title'],
             'name' => $input['name'],
             'phone' => $input['phone'],
-            'text' => $input['massege']
+            'text' => $input['massege'] ?? ''
         );
 
         $contacts = Contacts

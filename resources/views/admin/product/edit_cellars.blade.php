@@ -103,6 +103,18 @@
                 </div>
             </div>
 
+            <div class="form-row">
+                <div class="form-group col-md-6 col-sm-12">
+                    <label for="youtube_description">Описание YouTube</label>
+                    <textarea name="youtube_description" id="youtube_description" class="form-control">{{ $product->youtube_description }}</textarea>
+                </div>
+
+                <div class="form-group col-md-6 col-sm-12">
+                    <label for="youtube">Ссылка YouTube</label>
+                    <input type="text" name="youtube" id="youtube" onchange=" this.value = this.value.replace('watch?v=', 'embed/')" class="form-control" value="{!! $product->youtube !!}">
+                </div>
+            </div>
+
 
             <div class="form-row">
                 <div class="form-group col-md-6 col-sm-12">
@@ -189,6 +201,30 @@
 
             <div class="form-row">
                 <div class="form-group col-md-6 col-sm-12">
+                    <label for="url">url</label>
+                    <input name="url" id="url" class="form-control" type="text"
+                           value="{{ $product->url }}">
+                </div>
+
+                <div class="form-group col-md-6 col-sm-12">
+                    <label for="meta_title">title</label>
+                    <input name="meta_title" id="meta_title" class="form-control" type="text"
+                           value="{{ $product->meta_title }}">
+                </div>
+            </div>
+
+
+            <div class="form-row">
+                <div class="form-group col-md-6 col-sm-12">
+                    <label for="meta_description">description</label>
+                    <input name="meta_description" id="meta_description" class="form-control" type="text"
+                           value="{{ $product->meta_description }}">
+                </div>
+            </div>
+
+
+            <div class="form-row">
+                <div class="form-group col-md-6 col-sm-12">
                     <label for="title1">Заголовок 1</label>
                     <input type="text" name="title1" id="title1" class="form-control" value="{{ $ceo_text->title1 ?? '' }}">
                     <label for="text1">Текст 1</label>
@@ -240,6 +276,7 @@
     <script>
         CKEDITOR.replace(document.getElementById('thumbnail'));
         CKEDITOR.replace(document.getElementById('description'));
+        CKEDITOR.replace(document.getElementById('youtube_description'));
         CKEDITOR.replace(document.getElementById('text1'));
         CKEDITOR.replace(document.getElementById('text2'));
         CKEDITOR.replace(document.getElementById('text3'));

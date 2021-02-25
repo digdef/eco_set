@@ -10,6 +10,7 @@ use App\Models\Stocks;
 use App\Models\StockToProducts;
 use Cookie;
 use DB;
+use App\Models\CeoText;
 
 class CartController extends Controller
 {
@@ -161,7 +162,8 @@ class CartController extends Controller
         }
 
         $count_cart = count($carts) <= 0;
+        $seo = CeoText::where('type', '=', 'cart')->first();
 
-        return view('page.cart.cart', compact('carts', 'count_cart', 'sum', 'products', 'numbers', 'stockToProducts', 'stock'));
+        return view('page.cart.cart', compact('carts', 'count_cart', 'sum', 'products', 'numbers', 'stockToProducts', 'stock', 'seo'));
     }
 }

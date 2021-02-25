@@ -8,6 +8,21 @@
 
         <form method="post" action="/admin/ceo-text">
             @csrf
+
+            <div class="form-row">
+                <div class="form-group col-md-6 col-sm-12">
+                    <label for="meta_title">title</label>
+                    <input name="meta_title" id="meta_title" class="form-control" type="text"
+                           value="{{ $ceo_text->meta_title }}">
+                </div>
+
+                <div class="form-group col-md-6 col-sm-12">
+                    <label for="meta_description">description</label>
+                    <input name="meta_description" id="meta_description" class="form-control" type="text"
+                           value="{{ $ceo_text->meta_description }}">
+                </div>
+            </div>
+
             <div class="form-row">
                 <div class="form-group col-md-6 col-sm-12">
                     <label for="title1">Заголовок 1</label>

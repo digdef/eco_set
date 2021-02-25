@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\howToBuy;
+use App\Models\CeoText;
 
 class HowToBuyController extends Controller
 {
@@ -11,6 +12,8 @@ class HowToBuyController extends Controller
     {
         $howToBuy = howToBuy::where('id', 1)->first();
 
-        return view('page.howToBuy.howToBuy', compact('howToBuy'));
+        $seo = CeoText::where('type', '=', 'howToBuy')->first();
+
+        return view('page.howToBuy.howToBuy', compact('howToBuy', 'seo'));
     }
 }

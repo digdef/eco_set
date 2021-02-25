@@ -13,11 +13,52 @@
             <input type="hidden" name="id" value="{{ $category->id }}">
 
             <div class="form-row">
-                <div class="form-group col-12">
+                <div class="form-group col-md-6 col-sm-12">
                     <label for="title">Название</label>
                     <input class="form-control" type="text" name="title" id="title" value="{{ $category->title }}">
                 </div>
+                <div class="form-group col-md-6 col-sm-12">
+                    <label for="title_price">Заголовок на станице цен</label>
+                    <input class="form-control" type="text" name="title_price" id="title_price" value="{{ $category->title_price }}">
+                </div>
             </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-6 col-sm-12">
+                    <label for="url">url</label>
+                    <input name="url" id="url" class="form-control" type="text"
+                           value="{{ $category->url }}">
+                </div>
+
+                <div class="form-group col-md-6 col-sm-12">
+                    <label for="meta_title">title</label>
+                    <input name="meta_title" id="meta_title" class="form-control" type="text"
+                           value="{{ $category->meta_title }}">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-6 col-sm-12">
+                    <label for="meta_description">description</label>
+                    <input name="meta_description" id="meta_description" class="form-control" type="text"
+                           value="{{ $category->meta_description }}">
+                </div>
+            </div>
+
+
+            <div class="form-row">
+                <div class="form-group col-md-6 col-sm-12">
+                    <label for="meta_title_price">title на станице цен</label>
+                    <input name="meta_title_price" id="meta_title_price" class="form-control" type="text"
+                           value="{{ $category->meta_title_price }}">
+                </div>
+                <div class="form-group col-md-6 col-sm-12">
+                    <label for="meta_description_price">description на станице цен</label>
+                    <input name="meta_description_price" id="meta_description_price" class="form-control" type="text"
+                           value="{{ $category->meta_description_price }}">
+                </div>
+            </div>
+
 
             <b>CEO</b>
 

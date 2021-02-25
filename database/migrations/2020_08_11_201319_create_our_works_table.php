@@ -18,7 +18,6 @@ class CreateOurWorksTable extends Migration
             $table->string('title', 255)->nullable();
             $table->string('img', 255)->nullable();
             $table->text('description')->nullable();
-            $table->string('pinterest', 255)->nullable();
             $table->timestamps();
         });
     }

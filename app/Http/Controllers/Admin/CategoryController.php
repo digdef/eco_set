@@ -56,7 +56,13 @@ class CategoryController extends AppBaseController
 
         $objCategory = $objCategory->create([
             'title' => $input['title'],
-            'type' => $input['cat']
+            'type' => $input['cat'],
+            'title_price' => $input['title_price'],
+            'meta_description_price' => $input['meta_description_price'],
+            'meta_title_price' => $input['meta_title_price'],
+            'meta_description' => $input['meta_description'],
+            'meta_title' => $input['meta_title'],
+            'url' => $input['url']
         ]);
 
         CeoText::create([
@@ -69,7 +75,8 @@ class CategoryController extends AppBaseController
             'title2' => $request->title3,
             'title3' => $request->title3,
             'title4' => $request->title4,
-            'id_content' => $objCategory->id
+            'id_content' => $objCategory->id,
+            'type' => 'mod'
         ]);
         return back();
     }
@@ -84,7 +91,18 @@ class CategoryController extends AppBaseController
     {
         $category = Category::find($id);
 
-        $ceo_text = CeoText::where('id_content', $id)->first();
+        $ceo_text = CeoText::where('id_content', $id)->where('type', 'mod')->first();
+
+
+        if (!CeoText::where('id_content', '=', $id)->where('type', 'mod')->first())
+        {
+            CeoText::create([
+                'id_content' => $id,
+                'type' => 'mod'
+            ]);
+        }
+
+
 
         return view('admin.category.edit', compact('category', 'ceo_text'));
     }
@@ -105,11 +123,17 @@ class CategoryController extends AppBaseController
 
         $objCategory->where('id', '=', $input['id'])->update([
             'title' => $input['title'],
+            'title_price' => $input['title_price'],
+            'meta_description_price' => $input['meta_description_price'],
+            'meta_title_price' => $input['meta_title_price'],
+            'meta_description' => $input['meta_description'],
+            'meta_title' => $input['meta_title'],
+            'url' => $input['url']
         ]);
 
-        if (CeoText::where('id_content', '=', $input['id'])->first())
+        if (CeoText::where('id_content', '=', $input['id'])->where('type', 'mod')->first())
         {
-            CeoText::where('id_content', $input['id'])->update([
+            CeoText::where('id_content', $input['id'])->where('type', 'mod')->update([
                 'text1' => $request->text1,
                 'text2' => $request->text2,
                 'text3' => $request->text3,
@@ -118,7 +142,8 @@ class CategoryController extends AppBaseController
                 'title1' => $request->title1,
                 'title2' => $request->title3,
                 'title3' => $request->title3,
-                'title4' => $request->title4
+                'title4' => $request->title4,
+                'type' => 'mod'
             ]);
         } else {
             CeoText::create([
@@ -131,7 +156,8 @@ class CategoryController extends AppBaseController
                 'title2' => $request->title3,
                 'title3' => $request->title3,
                 'title4' => $request->title4,
-                'id_content' => $input['id']
+                'id_content' => $input['id'],
+                'type' => 'mod'
             ]);
         }
 
@@ -212,7 +238,10 @@ class CategoryController extends AppBaseController
             'title3' => $request->title3 ?? '',
             'title4' => $request->title4 ?? '',
             'meta_title' => $input['meta_title'] ?? '',
-            'meta_description' => $input['meta_description'] ?? ''
+            'meta_description' => $input['meta_description'] ?? '',
+            'title_price' => $input['title_price'] ?? '',
+            'meta_title_price' => $input['meta_title_price'] ?? '',
+            'meta_description_price' => $input['meta_description_price'] ?? ''
         ]);
 
         $ceo_text = CeoText::where('type', $cat)->first();
