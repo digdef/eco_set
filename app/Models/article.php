@@ -14,7 +14,9 @@ class article extends Model
         'title',
         'img',
         'description',
-        'pinterest'
+        'pinterest',
+        'meta_title',
+        'meta_description'
     ];
 
     protected $dates = [

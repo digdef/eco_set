@@ -1,11 +1,11 @@
 @extends('index')
 @section('meta')
-    <title>{{ $water->title }}</title>
-    <meta name="description" lang="ru" content="ДСВ – Інновації для Вашого успіху">
+    <title>{{ $water->meta_title ?? $water->title }}</title>
+    <meta name="description" lang="ru" content="{{ $water->meta_description ?? $water->title }}">
 
-    <meta property="og:title" content="{{ $water->title }}">
+    <meta property="og:title" content="{{ $water->meta_title ?? $water->title }}">
     <meta property="og:type" content="website">
-    <meta property="og:description" content="ДСВ – Інновації для Вашого успіху">
+    <meta property="og:description" content="{{ $water->meta_description ?? $water->title }}">
 @endsection
 
 @section('content')

@@ -1,11 +1,11 @@
 @extends('index')
 @section('meta')
-    <title>{{ $seo->meta_title }}</title>
-    <meta name="description" lang="ru" content="{{ $seo->meta_description }}">
+    <title>{{ $article->meta_title ?? $article->title }}</title>
+    <meta name="description" lang="ru" content="{{ $article->meta_description ?? $article->title }}">
 
-    <meta property="og:title" content="{{$seo->meta_title}}">
+    <meta property="og:title" content="{{ $article->meta_title ?? $article }}">
     <meta property="og:type" content="website">
-    <meta property="og:description" content="{{$seo->meta_description}}">
+    <meta property="og:description" content="{{ $article->meta_description ?? $article->title }}">
 @endsection
 
 @section('content')
